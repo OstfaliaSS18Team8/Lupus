@@ -6,7 +6,7 @@ Use MAX_STATIC_DATA of 100000000.
 
 You are in Andockbucht.
 
-[Reginonen]
+[Regionen]
 
 Hauptebene is a region.
 Linke_Seitenebene is a region.
@@ -362,7 +362,7 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 	if the player can see Luke_HangarZUGammaKreuz: 
 		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
 
-
+	[Ende Sicherheitstüren]
 
 	[Laborkittel in Gamma-Delta-Korridor]
 		Laborkittel is a wearable thing in Gamma-Kreuzung.
