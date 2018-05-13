@@ -44,45 +44,45 @@ Com_Modul is a region.
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
 	
-		Tür_AndockbuchtZUHangar						is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
+		Tür_AndockbuchtZUHangar							is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
 			Above 			Tür_AndockbuchtZUHangar is 							Hangar.
 			Below 			Tür_AndockbuchtZUHangar is 							Andockbucht.
 			
 			
-		TÜR_AndockBuchtZUKommunikationsbasis			is a door with printed name	"Tür zwischen Andockbucht und Kommunkationsbasis".
+		TÜR_AndockBuchtZUKommunikationsbasis				is a door with printed name	"Tür zwischen Andockbucht und Kommunkationsbasis".
 			North of 		TÜR_AndockBuchtZUKommunikationsbasis is			Kommunikationsbasis.
 			South of			TÜR_AndockBuchtZUKommunikationsbasis is			Andockbucht.
 		
 		[Äußere Ring]
-			Tür_GammaKreuzungZUGammaDeltaKreuzung	is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Kreuzung und Gamma Delta Kreuzung".
+			Tür_GammaKreuzungZUGammaDeltaKreuzung		is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Kreuzung und Gamma Delta Kreuzung".
 				North of 	Tür_GammaKreuzungZUGammaDeltaKreuzung is			Gamma-Delta-Korridor.
 				South of 	Tür_GammaKreuzungZUGammaDeltaKreuzung is 		Gamma-Kreuzung.
 				
-			Tür_GammaDeltaKreuzungZUDeltaKreuzung		is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Delta Kreuzung und Delta Kreuzung".
+			Tür_GammaDeltaKreuzungZUDeltaKreuzung			is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Delta Kreuzung und Delta Kreuzung".
 				North of 	Tür_GammaDeltaKreuzungZUDeltaKreuzung is 			Delta-Kreuzung.
 				South of 	Tür_GammaDeltaKreuzungZUDeltaKreuzung is			Gamma-Delta-Korridor
 
-			Tür_DeltaKreuzungZUAlphaDeltaKreuzung		is a Tür_Sicherheit with printed name 	"Tür zwischen Delta Kreuzung und Alpha Delta Kreuzung".
+			Tür_DeltaKreuzungZUAlphaDeltaKreuzung			is a Tür_Sicherheit with printed name 	"Tür zwischen Delta Kreuzung und Alpha Delta Kreuzung".
 				North of 	Tür_DeltaKreuzungZUAlphaDeltaKreuzung is				Alpha-Delta-Korridor.
 				South of		Tür_DeltaKreuzungZUAlphaDeltaKreuzung is				Delta-Kreuzung.
 
-			Tür_AlphaDeltaKreuzungZUAlphaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Delta Kreuzung und Alpha Kreuzung".
+			Tür_AlphaDeltaKreuzungZUAlphaKreuzung			is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Delta Kreuzung und Alpha Kreuzung".
 				North of 	Tür_AlphaDeltaKreuzungZUAlphaKreuzung is			Alpha-Kreuzung.
 				South of 	Tür_AlphaDeltaKreuzungZUAlphaKreuzung is			Alpha-Delta-Korridor.
 
-			Tür_AlphaKreuzungZuAlphaBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Kreuzung und Alpha Beta Kreuzung".
+			Tür_AlphaKreuzungZuAlphaBetaKreuzung			is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Kreuzung und Alpha Beta Kreuzung".
 				North of		Tür_AlphaKreuzungZuAlphaBetaKreuzung is				Alpha-Beta-Korridor.
 				South of 	Tür_AlphaKreuzungZuAlphaBetaKreuzung is				Alpha-Kreuzung
 
-			Tür_AlphaBetaKreuzungZUBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen  Alpha Beta Kreuzung und Beta Kreuzung".
+			Tür_AlphaBetaKreuzungZUBetaKreuzung			is a Tür_Sicherheit with printed name	"Tür zwischen  Alpha Beta Kreuzung und Beta Kreuzung".
 				North of 	Tür_AlphaBetaKreuzungZUBetaKreuzung is				Beta-Kreuzung.
 				South of 	Tür_AlphaBetaKreuzungZUBetaKreuzung is				Alpha-Beta-Korridor.
 
-			Tür_BetaKreuzungZUGammaBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Beta Kreuzung und Gamma Beta Kreuzung".
+			Tür_BetaKreuzungZUGammaBetaKreuzung			is a Tür_Sicherheit with printed name	"Tür zwischen Beta Kreuzung und Gamma Beta Kreuzung".
 				North of 	Tür_BetaKreuzungZUGammaBetaKreuzung is				Gamma-Beta-Korridor.
 				South of 	Tür_BetaKreuzungZUGammaBetaKreuzung is				Beta-Kreuzung
 				
-			Tür_GammaBetaKreuzungZUGammaKreuzung	is a Tür_Sicherheit with printed name	"Tür zwischen Gamma Beta Kreuzung und Gamma Kreuzung".
+			Tür_GammaBetaKreuzungZUGammaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Gamma Beta Kreuzung und Gamma Kreuzung".
 				North of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Kreuzung.
 				South of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Beta-Korridor.
 		
@@ -251,16 +251,12 @@ Com_Modul is a region.
 	[Sicherheitsausweis]
 		Sicherheitsausweis is a thing in Hangar.
 		Description of Sicherheitsausweis is "Ein Sicherheitsausweis um die Luke vom Hangar in den äußeren Ring zu öffenen.".
-		Understand "Ausweis" and "sa" as the Sicherheitsausweis.
+		Understand "Ausweis" and "sa" as the Sicherheitsausweis. [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
 		
-	[Türpannel Hangar]
+	[SIicherheitstüren]
 	
-		[Türpannel-Hangar is part of Luke_HangarZUGammaKreuz.]
-
-		[Benutze is an action applying to one thing.]
-		
 		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
-		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
+		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
 
 After reading a command:
 	if the player's command matches "[benutz-richtung]":
