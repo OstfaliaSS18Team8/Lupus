@@ -42,45 +42,47 @@ Com_Modul is a region.
 			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".			"Du bist im Machinenraum."
 
 	[Türen]
+		Tür_Sicherheit is a kind of locked door.
 	
 		Tür_AndockbuchtZUHangar						is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
 			Above 			Tür_AndockbuchtZUHangar is 							Hangar.
 			Below 			Tür_AndockbuchtZUHangar is 							Andockbucht.
 			
+			
 		TÜR_AndockBuchtZUKommunikationsbasis			is a door with printed name	"Tür zwischen Andockbucht und Kommunkationsbasis".
-			North of 			TÜR_AndockBuchtZUKommunikationsbasis is			Kommunikationsbasis.
-			South of				TÜR_AndockBuchtZUKommunikationsbasis is			Andockbucht.
+			North of 		TÜR_AndockBuchtZUKommunikationsbasis is			Kommunikationsbasis.
+			South of			TÜR_AndockBuchtZUKommunikationsbasis is			Andockbucht.
 		
 		[Äußere Ring]
-			Tür_GammaKreuzungZUGammaDeltaKreuzung	is a door with printed name 	"Tür zwischen Gamma Kreuzung und Gamma Delta Kreuzung".
+			Tür_GammaKreuzungZUGammaDeltaKreuzung	is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Kreuzung und Gamma Delta Kreuzung".
 				North of 	Tür_GammaKreuzungZUGammaDeltaKreuzung is			Gamma-Delta-Korridor.
 				South of 	Tür_GammaKreuzungZUGammaDeltaKreuzung is 		Gamma-Kreuzung.
 				
-			Tür_GammaDeltaKreuzungZUDeltaKreuzung		is a door with printed name 	"Tür zwischen Gamma Delta Kreuzung und Delta Kreuzung".
+			Tür_GammaDeltaKreuzungZUDeltaKreuzung		is a Tür_Sicherheit with printed name 	"Tür zwischen Gamma Delta Kreuzung und Delta Kreuzung".
 				North of 	Tür_GammaDeltaKreuzungZUDeltaKreuzung is 			Delta-Kreuzung.
 				South of 	Tür_GammaDeltaKreuzungZUDeltaKreuzung is			Gamma-Delta-Korridor
 
-			Tür_DeltaKreuzungZUAlphaDeltaKreuzung		is a door with printed name 	"Tür zwischen Delta Kreuzung und Alpha Delta Kreuzung".
+			Tür_DeltaKreuzungZUAlphaDeltaKreuzung		is a Tür_Sicherheit with printed name 	"Tür zwischen Delta Kreuzung und Alpha Delta Kreuzung".
 				North of 	Tür_DeltaKreuzungZUAlphaDeltaKreuzung is				Alpha-Delta-Korridor.
 				South of		Tür_DeltaKreuzungZUAlphaDeltaKreuzung is				Delta-Kreuzung.
 
-			Tür_AlphaDeltaKreuzungZUAlphaKreuzung		is a door with printed name	"Tür zwischen Alpha Delta Kreuzung und Alpha Kreuzung".
+			Tür_AlphaDeltaKreuzungZUAlphaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Delta Kreuzung und Alpha Kreuzung".
 				North of 	Tür_AlphaDeltaKreuzungZUAlphaKreuzung is			Alpha-Kreuzung.
 				South of 	Tür_AlphaDeltaKreuzungZUAlphaKreuzung is			Alpha-Delta-Korridor.
 
-			Tür_AlphaKreuzungZuAlphaBetaKreuzung		is a door with printed name	"Tür zwischen Alpha Kreuzung und Alpha Beta Kreuzung".
+			Tür_AlphaKreuzungZuAlphaBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Alpha Kreuzung und Alpha Beta Kreuzung".
 				North of		Tür_AlphaKreuzungZuAlphaBetaKreuzung is				Alpha-Beta-Korridor.
 				South of 	Tür_AlphaKreuzungZuAlphaBetaKreuzung is				Alpha-Kreuzung
 
-			Tür_AlphaBetaKreuzungZUBetaKreuzung			is a door with printed name	"Tür zwischen  Alpha Beta Kreuzung und Beta Kreuzung".
+			Tür_AlphaBetaKreuzungZUBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen  Alpha Beta Kreuzung und Beta Kreuzung".
 				North of 	Tür_AlphaBetaKreuzungZUBetaKreuzung is				Beta-Kreuzung.
 				South of 	Tür_AlphaBetaKreuzungZUBetaKreuzung is				Alpha-Beta-Korridor.
 
-			Tür_BetaKreuzungZUGammaBetaKreuzung		is a door with printed name	"Tür zwischen Beta Kreuzung und Gamma Beta Kreuzung".
+			Tür_BetaKreuzungZUGammaBetaKreuzung		is a Tür_Sicherheit with printed name	"Tür zwischen Beta Kreuzung und Gamma Beta Kreuzung".
 				North of 	Tür_BetaKreuzungZUGammaBetaKreuzung is				Gamma-Beta-Korridor.
 				South of 	Tür_BetaKreuzungZUGammaBetaKreuzung is				Beta-Kreuzung
 				
-			Tür_GammaBetaKreuzungZUGammaKreuzung	is a door with printed name	"Tür zwischen Gamma Beta Kreuzung und Gamma Kreuzung".
+			Tür_GammaBetaKreuzungZUGammaKreuzung	is a Tür_Sicherheit with printed name	"Tür zwischen Gamma Beta Kreuzung und Gamma Kreuzung".
 				North of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Kreuzung.
 				South of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Beta-Korridor.
 		
@@ -93,14 +95,16 @@ Com_Modul is a region.
 				Above		Tür_DienstzimmerZUMannschaftsquartier is				Dienstzimmer.
 				Below		Tür_DienstzimmerZUMannschaftsquartier is				Mannschaftsquartiere.
 	
-			Luke_HangarZUGammaKreuz 						is a door with printed name	"Hangar-Luke".
+			Luke_HangarZUGammaKreuz 						is a Tür_Sicherheit with printed name	"Hangar-Luke".
 				Above		Luke_HangarZUGammaKreuz is						Gamma-Kreuzung.
 				Below		Luke_HangarZUGammaKreuz is						Hangar.
+				Luke_HangarZUGammaKreuz is locked.
 			
 			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
 				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis
-			
+				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
+				
 		[Zwischen äußerem und innerem Ring]
 			Luke_Xeno										is a door with printed name	"Xeno Lab Luke".
 				Above		Luke_Xeno is											Xeno-Lab.
@@ -239,5 +243,160 @@ Com_Modul is a region.
 		East of 		Rettungsmodul is				Beschädigtes-Modul.
 
 [ENDE Solar_Modul]
+
+
+
+
+[Gegenstände]
+	[Sicherheitsausweis]
+		Sicherheitsausweis is a thing in Hangar.
+		Description of Sicherheitsausweis is "Ein Sicherheitsausweis um die Luke vom Hangar in den äußeren Ring zu öffenen.".
+		Understand "Ausweis" and "sa" as the Sicherheitsausweis.
+		
+	[Türpannel Hangar]
+	
+		[Türpannel-Hangar is part of Luke_HangarZUGammaKreuz.]
+
+		[Benutze is an action applying to one thing.]
+		
+		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
+		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
+
+After reading a command:
+	if the player's command matches "[benutz-richtung]":
+		[Hat Spieler den Sicherheitsausweis]
+		if the player is carrying the Sicherheitsausweis:
+			[up]
+			if the player's command includes "u/up":
+				if the door up of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door up of the location is closed:
+						Now the door up of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door up of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+			[down]
+			if the player's command includes "d/down":
+				if the door down of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door down of the location is closed:
+						Now the door down of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door down of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+			[north]
+			if the player's command includes "n/north":
+				if the door north of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door up of the location is closed:
+						Now the door north of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door north of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+			[east]
+			if the player's command includes "e/east":
+				if the door east of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door east of the location is closed:
+						Now the door east of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door east of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+			[south]
+			if the player's command includes "s/south":
+				if the door south of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door south of the location is closed:
+						Now the door south of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door south of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+			[west]
+			if the player's command includes "w/west":
+				if the door up of the location is a Tür_Sicherheit:
+					[Tür öffnung]
+					if the door west of the location is closed:
+						Now the door west of the location is open;
+						say "Der Durchgang ist nun offen.";
+						stop the action;
+					otherwise:
+						Now the door west of the location is closed;
+						say "Der Durchgang ist nun zu.";
+						stop the action;
+				otherwise:
+					say "Da ist nichts, wofür man einen Sicherheitsausweis benötigen würde.";
+					stop the action;
+		otherwise:
+			say "Ich benötige den Sicherheitsausweis um ihn zu benutzen zu können.";
+			stop the action;
+
+[Automatische verschließung von Luke zwischen Hangar und Gamma Kreuzung]
+Before reading a command when the Luke_HangarZUGammaKreuz was open: 
+	Now Luke_HangarZUGammaKreuz is closed; 
+	if the player can see Luke_HangarZUGammaKreuz: 
+		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
+
+
+
+	[Laborkittel in Gamma-Delta-Korridor]
+		Laborkittel is a wearable thing in Gamma-Kreuzung.
+		Description of Laborkittel is "In dem Laborkittel scheint ein Transponder eingenäht zu sein. Wahrscheinlich öffnet er Türen.".
+
+	[Leiche im Gamma-Delta-Korridor]
+		Leiche is a not portable thing in Gamma-Kreuzung.
+		Description of Leiche is "Die Leiche eines Wissenschaftlers. Sie trägt noch einen Kittel.".
+		After taking Laborkittel for the first time:
+			Now the description of Leiche is "Die Leiche eines Wissenschaftlers.";
+			continue the action.
+
+	[Wartungslukenhebel im Gamma-Delta-Korridor]
+		WarLukenHebel is a inedible, not wearable thing in Gamma-Delta-Korridor.
+		Printed name of WarLukenHebel is "Hebel".
+		Understand "Hebel" as WarLukenHebel.
+		Description of WarLukenHebel is "Ein abgetrennter Hebel, der vor der Wartungsluke zum Kommunikationsmodul liegt. Von der Seite ist der Weg wohl verschlossen.".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
