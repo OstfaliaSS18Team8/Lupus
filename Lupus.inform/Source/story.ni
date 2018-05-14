@@ -386,6 +386,122 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 
 
 
+Section Kontaminierte
+
+KontLautstärke is a number that varies.
+KontLautstärke is 0.
+
+Understand "klatschen [something]" as klatsching.
+Klatsching is an action applying to a thing.
+
+Understand "rufen [something]" as rufing.
+Rufing is an action applying to a thing.
+
+
+Kontaminierter is a kind of person.
+	Rule for printing the plural name of a Kontaminierter: say "Kontaminierte".
+	The printed name of a Kontaminierter is "Kontaminierter".
+	[KontZähler1 wird genutzt um festzustellen ob ein Kontaminierter in den nächsten Raum folgt.]
+	Kontaminierter has a number called KontZähler1.
+	KontZähler1 of Kontaminierter usually is 0.
+	[KontZähler2 wird genutz um festzustellen ob der Spieler sich zu lange im gleichen Raum aufhält.]
+	Kontaminierter has a number called KontZähler2.
+	KontZähler2 of Kontaminierter usually is 0.
+	[KontZähler3 wird genutzt um festzustellen ob ein oder mehrere Kontaminierte betroffen sind.]
+	KontZähler3 is a number that varies.
+	Kontzähler3 is 0.
+	Kontaminierter has a truth state called KontVerfolgt.
+	KontVerfolgt of Kontaminierter usually is false.
+
+
+
+Instead of klatsching or rufing:
+	Now KontLautstärke is 1;
+	continue the action
+	
+
+
+Every turn:
+	Repeat with xxx running through all Kontaminierter:
+		if xxx is in the Location of the Player:
+			if KontZähler2 of xxx is 3:
+				say "GAME OVER";
+				end the story;
+			otherwise:
+				increase Kontzähler2 of xxx by 1;
+				if KontZähler1 of xxx is 0:
+					if KontLautstärke is 1:
+						now KontVerfolgt of xxx is true;
+						now KontZähler1 of xxx is 1;
+						increase KontZähler3 by one;
+						if the number of Kontaminierter in the location of the Player is KontZähler3:
+							if Kontzähler3 is 1:
+								say "Der Kontaminierte ist auf dich Aufmerksam geworden.";
+							otherwise:
+								say "Die Kontaminierten sind auf dich Aufmerksam geworden.";
+							now Kontzähler3 is 0;
+					otherwise if Kontzähler2 of xxx is 3:
+						say "Der Kontaminierte kommt dir ziemlich nah. Du solltest besser verschwinden.";
+				otherwise:
+					now KontZähler1 of xxx is 2;
+					increase KontZähler3 by one;
+					if the number of Kontaminierter in the location of the Player is Kontzähler3:
+						if Kontzähler3 is 1:
+							say "Der Kontaminierte läuft dir jetzt hinterher.";
+						otherwise:
+							say "Die Kontaminierten laufen dir jetzt hinterher.";
+						now Kontzähler3 is 0;
+		otherwise if KontVerfolgt of xxx is true:
+			if KontZähler1 of xxx is 2:
+				move xxx to the Location of the Player;
+				increase KontZähler3 by 1;
+				now KontVerfolgt of xxx is false;
+				now KontZähler1 of xxx is 0;
+				now KontZähler2 of xxx is 0;
+				now KontLautstärke is 0;
+			otherwise:
+				now KontVerfolgt of xxx is false;
+				now KontZähler1 of xxx is 0;
+				now KontZähler2 of xxx is 0;
+				now KontLautstärke is 0;
+		otherwise:
+			now KontVerfolgt of xxx is false;
+			now KontZähler1 of xxx is 0;
+			now KontZähler2 of xxx is 0;
+			now KontLautstärke is 0;
+	if KontZähler3 is 1:
+		Say "Der Kontaminierte ist dir in den nächsten Raum gefolgt.";
+		now Kontzähler3 is 0;
+	otherwise if Kontzähler3 is not 0:
+		Say "Dir sind [Kontzähler3] Kontaminierte in den nächsten Raum gefolgt.";
+		now Kontzähler3 is 0;
+						
+				
+				
+
+Kontaminierter1 is a Kontaminierter.
+Kontaminierter1 is in Brücke.
+
+Kontaminierter2 is a Kontaminierter.
+Kontaminierter2 is in Brücke.
+
+Kontaminierter3 is a Kontaminierter.
+Kontaminierter3 is in Alpha-Beta-Korridor.
+
+Kontaminierter4 is a Kontaminierter.
+Kontaminierter4 is in Alpha-Delta-Korridor.
+
+Kontaminierter5 is a Kontaminierter.
+Kontaminierter5 is in Med-Lab.
+
+Kontaminierter6 is a Kontaminierter.
+Kontaminierter6 is in Fitnessraum.
+
+Kontaminierter7 is a Kontaminierter.
+Kontaminierter7 is in Fitnessraum.
+
+Kontaminierter8 is a Kontaminierter.
+Kontaminierter8 is in Fitnessraum.
 
 
 
