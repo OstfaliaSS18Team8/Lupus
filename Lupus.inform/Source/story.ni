@@ -44,6 +44,7 @@ Com_Modul is a region.
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
+		Tür_zum_inneren_Ring is a kind of door.
 	
 		Tür_AndockbuchtZUHangar							is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
 			Above 			Tür_AndockbuchtZUHangar is 							Hangar.
@@ -88,11 +89,11 @@ Com_Modul is a region.
 				South of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Beta-Korridor.
 		
 		[Zum äußeren Ring]
-			Tür_AlphaKreuzungZUDienstzimmer				is a door with printed name	"Tür zwischen Alpha Kreuzung und Dienstzimmer".
+			Tür_AlphaKreuzungZUDienstzimmer				is a door with printed name			"Tür zwischen Alpha Kreuzung und Dienstzimmer".
 				Above 		Tür_AlphaKreuzungZUDienstzimmer is					Alpha-Kreuzung.
 				Below		Tür_AlphaKreuzungZUDienstzimmer is					Dienstzimmer.
 
-			Tür_DienstzimmerZUMannschaftsquartier			is a door with printed name	"Dienstzimmer und Mannschaftsquartier".
+			Tür_DienstzimmerZUMannschaftsquartier			is a door with printed name			"Dienstzimmer und Mannschaftsquartier".
 				Above		Tür_DienstzimmerZUMannschaftsquartier is				Dienstzimmer.
 				Below		Tür_DienstzimmerZUMannschaftsquartier is				Mannschaftsquartiere.
 	
@@ -107,19 +108,19 @@ Com_Modul is a region.
 				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
 				
 		[Zwischen äußerem und innerem Ring]
-			Luke_Xeno										is a door with printed name	"Xeno Lab Luke".
+			Luke_Xeno										is a Tür_zum_inneren_Ring with printed name	"Xeno Lab Luke".
 				Above		Luke_Xeno is											Xeno-Lab.
 				Below 		Luke_Xeno is											Gamma-Kreuzung.
 
-			Luke_DeltaKreuzungZUSolarLab					is a door with printed name 	"Solar Lab Luke".
+			Luke_DeltaKreuzungZUSolarLab					is a Tür_zum_inneren_Ring with printed name 	"Solar Lab Luke".
 				Above		Luke_DeltaKreuzungZUSolarLab is						Solar-Lab.
 				Below 		Luke_DeltaKreuzungZUSolarLab is						Delta-Kreuzung.
 				
-			Luke_AlphaKreuzungZUMedLab					is a door with printed name 	"Med Lab Luke".
+			Luke_AlphaKreuzungZUMedLab					is a Tür_zum_inneren_Ring with printed name 	"Med Lab Luke".
 				Above		Luke_AlphaKreuzungZUMedLab is						Med-Lab.
 				Below 		Luke_AlphaKreuzungZUMedLab is						Alpha-Kreuzung.
 				
-			Luke_BetaKreuzungZUEngineeringLab				is a door with printed name 	"Machinenraum Luke".
+			Luke_BetaKreuzungZUEngineeringLab				is a Tür_zum_inneren_Ring with printed name 	"Machinenraum Luke".
 				Above		Luke_BetaKreuzungZUEngineeringLab is					Machinenraum.
 				Below 		Luke_BetaKreuzungZUEngineeringLab is					Beta-Kreuzung.
 
@@ -297,7 +298,7 @@ After reading a command:
 			if the player's command includes "n/north":
 				if the door north of the location is a Tür_Sicherheit:
 					[Tür öffnung]
-					if the door up of the location is closed:
+					if the door north of the location is closed:
 						Now the door north of the location is open;
 						say "Der Durchgang ist nun offen.";
 						stop the action;
@@ -364,6 +365,112 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
 
 	[Ende Sicherheitstüren]
+
+
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+
+	[Tür_zum_inneren_Ring]
+	
+	Raumfähre is a container in Andockbucht.
+
+	Antigravitationsgreifer is a thing in Raumfähre.
+	Palette is a thing in Raumfähre.
+	
+	[Luke boolean geben]
+		Luke_Xeno has a truth state called versperrt. 
+		Versperrt of Luke_Xeno is false.
+
+	[Antigravitationsgreifer boolean geben]
+		Antigravitationsgreifer has a truth state called verbunden.
+		Verbunden of Antigravitationsgreifer is false.
+
+[Luke_Xeno unlocking]
+Before opening Luke_Xeno:
+	if versperrt of Luke_Xeno is false:
+		if the player wears Laborkittel:
+			say "Mit dem Transponder im Laborkittel lässt sich die Luke öffnen";
+			continue the action;
+		else: 
+			say "Ich benötige eine Art Transponder um diese Tür zu entsperren";
+			stop the action;
+	else:
+		say "Ich kann die Tür nicht entsperren.";
+		stop the action;
+		
+[Spieler darf nicht durch Luke_Xeno (wenn nicht blockiert)]
+Before going through Luke_Xeno:
+	if versperrt of Luke_Xeno is false:
+		say "Ich kann hier nicht durchgehen. Ich muss etwas finden um die Luke zu versperren.";
+		stop the action;
+
+[Automatische verschließung von Luke_Xeno nach einem Zug (wenn nicht blockiert)]
+After reading a command when the Luke_Xeno was open: 
+	if versperrt of Luke_Xeno is false:
+		Now Luke_Xeno is closed; 
+		if the player can see Luke_Xeno: 
+			say "Die Xeno Lab Luke schließt sich wieder.";
+
+
+	[Aktion und Verstehen von Verbinden und Stoßen]
+		Verbinden is an action applying to two things.
+		Stoß is an action applying to one thing.
+
+		Understand "verbinde [Palette]" as "[verbinden]".
+		Understand "verbinde [Antigravitationsgreifer]" as "[verbinden]".
+		Understand "[Antigravitationsgreifer] anstoßen" as "[stoßen]".
+
+[Verbinden]
+After reading a command:
+	if the player's command matches "[verbinden]":
+		if the player carries the Antigravitationsgreifer and the player carries the Palette:
+			say "Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben. Du kannst jetzt den Antigravitationsgreifer anstoßen.";
+			now the Palette is nowhere;
+			now the Antigravitationsgreifer is in the location of the player;
+			now the Antigravitationsgreifer is not portable;
+			now verbunden of Antigravitationsgreifer is true;
+			stop the action;
+		else:
+			say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
+			stop the action;
+
+[Stoßen]
+After reading a command:
+	if the player's command matches "[stoßen]":
+		if the player can see Antigravitationsgreifer and verbunden of Antigravitationsgreifer is true:
+			say "TEST 123"; [TODO: INSERT RANDOM MOVEMENT HERE]
+			stop the action;
+		else:
+			say "Es gibt nichts zum stoßen.";
+			stop the action;
+
+[Antigravitationsgreifer ist nicht mitnehmbar wenn die Palette dran befestigt wurde]
+Instead of taking Antigravitationsgreifer:
+	if verbunden of Antigravitationsgreifer is true:
+		say "Ich lass das mal lieber umher schweben.";
+		stop the action;
+	else:
+		continue the action;
+
+
+[Check ob Antigravitationsgreifer mit Palette im inneren Ring ist]
+	[TODO]
+
+[Before every turn:]
+	
+		
+
+	[Ende Tür_zum_inneren_Ring]
+
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+
 
 	[Laborkittel in Gamma-Delta-Korridor]
 		Laborkittel is a wearable thing in Gamma-Kreuzung.
