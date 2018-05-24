@@ -506,6 +506,33 @@ Kontaminierter8 is in Fitnessraum.
 
 
 
+Section Sauerstoffabfall
+
+O2AbfallAktiv is a truth state that varies.
+O2AbfallAktiv is false.
+
+O2Zähler is a number that varies.
+O2Zähler is 8.
+
+instead of going up from Kommunikationsbasis:
+	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
+	say "Sauerstoffabfall im äußeren Ring";
+	now O2AbfallAktiv is true;
+	continue the action;
+
+every turn:
+	if O2AbfallAktiv is true:
+		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
+			decrease O2Zähler by 1;
+			say "Der Sauerstoff reicht noch [O2Zähler] Züge.";
+			if O2Zähler is 0:
+				say "Der Sauerstoff ist dir ausgegangen.";
+				end the story;
+
+
+
+
+
 
 
 
