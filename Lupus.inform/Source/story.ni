@@ -5,7 +5,6 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 
 
-You are in Andockbucht.
 
 [Regionen]
 
@@ -103,7 +102,7 @@ Com_Modul is a region.
 			
 			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
-				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis
+				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis.
 				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
 				
 		[Zwischen äußerem und innerem Ring]
@@ -504,12 +503,37 @@ Kontaminierter7 is in Fitnessraum.
 Kontaminierter8 is a Kontaminierter.
 Kontaminierter8 is in Fitnessraum.
 
+KontaminierterPercy is a Kontaminierter.
 
 
 
 
 
+Section Spieler
+
+[Percy]
+	Percy is a Person.
+	Percy is in Hangar.
+	The Player is Percy.
 
 
+[Berry]
+	Barry is a Person.
+	Barry is in Hangar.
+	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
+	
 
+[TODO Blinkender_Knopf name anpassen]
+instead of pushing Blinkender_Knopf:
+	now the Player is Barry;
+	now the description of Barry is "As good-looking as ever.";
+	now Percy is nowhere;
+	now KontaminierterPercy is in Xeno-Lab; [bzw in der Dekontaminationskabine]
+	[TODO mit dem Scenenwechsel "kompatibel" machen]
+	say "eventuel hier Cutscene-Text einfügen";
+	
+
+[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
+Blinkender_Knopf is a thing.	
+Blinkender_Knopf is in Hangar.
 
