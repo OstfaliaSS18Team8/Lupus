@@ -43,6 +43,7 @@ Com_Modul is a region.
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
+		Tür_zum_inneren_Ring is a kind of door.
 	
 		Tür_AndockbuchtZUHangar							is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
 			Above 			Tür_AndockbuchtZUHangar is 							Hangar.
@@ -87,11 +88,11 @@ Com_Modul is a region.
 				South of 	Tür_GammaBetaKreuzungZUGammaKreuzung is			Gamma-Beta-Korridor.
 		
 		[Zum äußeren Ring]
-			Tür_AlphaKreuzungZUDienstzimmer				is a door with printed name	"Tür zwischen Alpha Kreuzung und Dienstzimmer".
+			Tür_AlphaKreuzungZUDienstzimmer				is a door with printed name			"Tür zwischen Alpha Kreuzung und Dienstzimmer".
 				Above 		Tür_AlphaKreuzungZUDienstzimmer is					Alpha-Kreuzung.
 				Below		Tür_AlphaKreuzungZUDienstzimmer is					Dienstzimmer.
 
-			Tür_DienstzimmerZUMannschaftsquartier			is a door with printed name	"Dienstzimmer und Mannschaftsquartier".
+			Tür_DienstzimmerZUMannschaftsquartier			is a door with printed name			"Dienstzimmer und Mannschaftsquartier".
 				Above		Tür_DienstzimmerZUMannschaftsquartier is				Dienstzimmer.
 				Below		Tür_DienstzimmerZUMannschaftsquartier is				Mannschaftsquartiere.
 	
@@ -106,19 +107,19 @@ Com_Modul is a region.
 				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
 				
 		[Zwischen äußerem und innerem Ring]
-			Luke_Xeno										is a door with printed name	"Xeno Lab Luke".
+			Luke_Xeno										is a Tür_zum_inneren_Ring with printed name	"Xeno Lab Luke".
 				Above		Luke_Xeno is											Xeno-Lab.
 				Below 		Luke_Xeno is											Gamma-Kreuzung.
 
-			Luke_DeltaKreuzungZUSolarLab					is a door with printed name 	"Solar Lab Luke".
+			Luke_DeltaKreuzungZUSolarLab					is a Tür_zum_inneren_Ring with printed name 	"Solar Lab Luke".
 				Above		Luke_DeltaKreuzungZUSolarLab is						Solar-Lab.
 				Below 		Luke_DeltaKreuzungZUSolarLab is						Delta-Kreuzung.
 				
-			Luke_AlphaKreuzungZUMedLab					is a door with printed name 	"Med Lab Luke".
+			Luke_AlphaKreuzungZUMedLab					is a Tür_zum_inneren_Ring with printed name 	"Med Lab Luke".
 				Above		Luke_AlphaKreuzungZUMedLab is						Med-Lab.
 				Below 		Luke_AlphaKreuzungZUMedLab is						Alpha-Kreuzung.
 				
-			Luke_BetaKreuzungZUEngineeringLab				is a door with printed name 	"Machinenraum Luke".
+			Luke_BetaKreuzungZUEngineeringLab				is a Tür_zum_inneren_Ring with printed name 	"Machinenraum Luke".
 				Above		Luke_BetaKreuzungZUEngineeringLab is					Machinenraum.
 				Below 		Luke_BetaKreuzungZUEngineeringLab is					Beta-Kreuzung.
 
@@ -296,7 +297,7 @@ After reading a command:
 			if the player's command includes "n/north":
 				if the door north of the location is a Tür_Sicherheit:
 					[Tür öffnung]
-					if the door up of the location is closed:
+					if the door north of the location is closed:
 						Now the door north of the location is open;
 						say "Der Durchgang ist nun offen.";
 						stop the action;
@@ -363,6 +364,186 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
 
 	[Ende Sicherheitstüren]
+
+
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+
+	[Tür_zum_inneren_Ring]
+	
+	Raumfähre is a container in Andockbucht.
+
+	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
+	Palette is a fixed in place thing in Raumfähre.
+
+Instead of taking Antigravitationsgreifer:
+	If verbunden of Antigravitationsgreifer is false: 
+		Say "Der Antigravitationsgreifer kann an der Palette befestigt werden um sie zu bewegen. (Nutze verbinde Palette oder verbinde Antigravitationsgreifer)";
+	else:
+		Say "Der Antigravitationsgreifer schwebt bereits. Wieso sollte ich ihn aufheben?";
+
+Instead of taking Palette:
+	If verbunden of Antigravitationsgreifer is false:
+		Say "Die Palette ist zu schwer. Wenn ich den Antigravitationsgreifer dran befestige kann ich sie bewegen. (Nutze verbinde Palette oder verbinde Antigravitationsgreifer)";
+	else:
+		Say "Der Antigravitationsgreifer schwebt bereits. Wieso sollte ich ihn aufheben?";
+	
+	[Luke boolean geben]
+		Luke_Xeno has a truth state called versperrt. 
+		Versperrt of Luke_Xeno is false.
+
+	[Antigravitationsgreifer boolean geben]
+		Antigravitationsgreifer has a truth state called verbunden.
+		Verbunden of Antigravitationsgreifer is false.
+
+[Luke_Xeno unlocking]
+Before opening Luke_Xeno:
+	if versperrt of Luke_Xeno is false:
+		if the player wears Laborkittel:
+			say "Mit dem Transponder im Laborkittel lässt sich die Luke öffnen";
+			continue the action;
+		else: 
+			say "Ich benötige eine Art Transponder um diese Tür zu entsperren";
+			stop the action;
+	else:
+		say "Ich kann die Tür nicht entsperren.";
+		stop the action;
+		
+[Spieler darf nicht durch Luke_Xeno (wenn nicht blockiert)]
+Before going through Luke_Xeno:
+	if versperrt of Luke_Xeno is false:
+		say "Ich kann hier nicht durchgehen. Ich muss etwas finden um die Luke zu versperren.";
+		stop the action;
+
+[Automatische verschließung von Luke_Xeno nach einem Zug (wenn nicht blockiert)]
+Luke_Xeno_counter is a number that varies.
+Luke_Xeno_counter is 0.
+
+After reading a command when the Luke_Xeno was open: 
+	if versperrt of Luke_Xeno is false:
+		if Luke_Xeno_counter is 1:
+			Now Luke_Xeno is closed; 
+			Now Luke_Xeno_counter is 0;
+			if the player can see Luke_Xeno: 
+				say "Die Xeno Lab Luke schließt sich wieder.";
+		else:
+			Now Luke_Xeno_counter is 1;
+
+	[Aktion und Verstehen von Verbinden und Stoßen]
+		Verbinden is an action applying to two things.
+		Stoß is an action applying to one thing.
+
+		Understand "verbinde [Palette]" as "[verbinden]".
+		Understand "verbinde [Antigravitationsgreifer]" as "[verbinden]".
+		Understand "[Antigravitationsgreifer] anstoßen" as "[stoßen]".
+
+[Verbinden]
+After reading a command:
+	if the player's command matches "[verbinden]":
+		if verbunden of Antigravitationsgreifer is false:
+			if the player is in Andockbucht or the player is in Raumfähre:
+				say "Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben und schwebt aus der Raumfähre raus. Du kannst jetzt den Antigravitationsgreifer anstoßen.";
+				now the Palette is nowhere;
+				now the Antigravitationsgreifer is in Andockbucht;
+				now the Antigravitationsgreifer is not portable;
+				now verbunden of Antigravitationsgreifer is true;
+				stop the action;
+			else:
+				say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
+				stop the action;
+		else:
+			say "Die Palette ist bereits am Antigravitaionsgreifer befestigt.";
+			stop the action;
+
+The pushDirection is a number that varies.
+The pushDirection is 0.
+The pushDirectionCounter is a number that varies.
+The pushDirectionCounter is 0.
+
+[Stoßen]
+After reading a command:
+	if the player's command matches "[stoßen]":
+		if the player can see Antigravitationsgreifer and verbunden of Antigravitationsgreifer is true and versperrt of Luke_Xeno is false:
+			Repeat with pushDirectionCounter running from 1 to 100:
+				if the Antigravitationsgreifer is not in the location of the player:
+					stop the action;
+				now pushDirection is a random number from 1 to 6;
+				now pushDirection is 1; [THIS IS ONLY FOR DEBUG!!!!]
+				If pushDirection is 1:
+					if the room up from the location is not nothing:
+						if the door up of the location of the Antigravitationsgreifer is open or the door up of the location is nothing:
+							now the Antigravitationsgreifer is in the room up from the location of the player;
+							say "Der Antigravitations is in den Raum über dir geschebt.";
+							stop the action;
+				If pushDirection is 2:
+					if the room down from the location is not nothing:
+						if the door down of the location of the Antigravitationsgreifer is open or the door down of the location is nothing:
+							now the Antigravitationsgreifer is in the room down from the location of the player;
+							say "Der Antigravitations is in den Raum unter dir geschebt.";
+							stop the action;
+				If pushDirection is 3:
+					if the room north from the location is not nothing:
+						if the door north of the location of the Antigravitationsgreifer is open or the door north of the location is nothing:
+							now the Antigravitationsgreifer is in the room north from the location of the player;
+							say "Der Antigravitations is in den Raum nördlich dir geschebt.";
+							stop the action;
+				If pushDirection is 4:
+					if the room east from the location is not nothing:
+						if the door east of the location of the Antigravitationsgreifer is open or the door east of the location is nothing:
+							now the Antigravitationsgreifer is in the room east from the location of the player;
+							say "Der Antigravitations is in den Raum östlich dir geschebt.";
+							stop the action;
+				If pushDirection is 5:
+					if the room south from the location is not nothing:
+						if the door south of the location of the Antigravitationsgreifer is open or the door south of the location is nothing:
+							now the Antigravitationsgreifer is in the room south from the location of the player;
+							say "Der Antigravitations is in den Raum südlich von dir geschebt.";
+							stop the action;
+				If pushDirection is 6:
+					if the room west from the location is not nothing:
+						if the door west of the location of the Antigravitationsgreifer is open or the door west of the location is nothing:
+							now the Antigravitationsgreifer is in the room west from the location of the player;
+							say "Der Antigravitations is in den Raum westlich von dir geschebt.";
+							stop the action;
+			Say "Die Palette bleibt im Raum, da sie nirgens hinschweben kann.";
+			stop the action;
+		else:
+			say "Es gibt nichts zum stoßen.";
+			stop the action;
+
+[Antigravitationsgreifer ist nicht mitnehmbar wenn die Palette dran befestigt wurde]
+Instead of taking Antigravitationsgreifer:
+	if verbunden of Antigravitationsgreifer is true:
+		say "Ich lass das mal lieber umher schweben.";
+		stop the action;
+	else:
+		continue the action;
+
+
+[Check ob Antigravitationsgreifer mit Palette im inneren Ring ist]
+Before reading a command:
+	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum:
+		say "GAME OVER";
+		end the Story;
+	If the Antigravitationsgreifer is in Xeno-Lab and versperrt of Luke_Xeno is false:
+		Now versperrt of Luke_Xeno is true;
+		Now the antigravitationsgreifer is fixed in place;
+		say "Der Antigravitationsgreifer ist überlastet und bewegt sich nicht mehr. Die Xeno Luke ist versperrt. Ich kann nun hindurch gehen.";
+		
+
+
+
+	[Ende Tür_zum_inneren_Ring]
+
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+
 
 	[Laborkittel in Gamma-Delta-Korridor]
 		Laborkittel is a wearable thing in Gamma-Kreuzung.
