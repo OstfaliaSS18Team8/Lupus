@@ -5,7 +5,6 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 
 
-You are in Andockbucht.
 
 [Regionen]
 
@@ -104,7 +103,7 @@ Com_Modul is a region.
 			
 			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
-				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis
+				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis.
 				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
 				
 		[Zwischen äußerem und innerem Ring]
@@ -685,6 +684,31 @@ Kontaminierter7 is in Fitnessraum.
 Kontaminierter8 is a Kontaminierter.
 Kontaminierter8 is in Fitnessraum.
 
+KontaminierterPercy is a Kontaminierter.
+
+
+Section Sauerstoffabfall
+
+O2AbfallAktiv is a truth state that varies.
+O2AbfallAktiv is false.
+
+O2Zähler is a number that varies.
+O2Zähler is 8.
+
+instead of going up from Kommunikationsbasis:
+	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
+	say "Sauerstoffabfall im äußeren Ring";
+	now O2AbfallAktiv is true;
+	continue the action;
+
+every turn:
+	if O2AbfallAktiv is true:
+		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
+			decrease O2Zähler by 1;
+			say "Der Sauerstoff reicht noch [O2Zähler] Züge.";
+			if O2Zähler is 0:
+				say "Der Sauerstoff ist dir ausgegangen.";
+				end the story;
 
 
 
@@ -693,4 +717,31 @@ Kontaminierter8 is in Fitnessraum.
 
 
 
+Section Spieler
+
+[Percy]
+	Percy is a Person.
+	Percy is in Hangar.
+	The Player is Percy.
+
+
+[Berry]
+	Barry is a Person.
+	Barry is in Hangar.
+	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
+	
+
+[TODO Blinkender_Knopf name anpassen]
+instead of pushing Blinkender_Knopf:
+	now the Player is Barry;
+	now the description of Barry is "As good-looking as ever.";
+	now Percy is nowhere;
+	now KontaminierterPercy is in Xeno-Lab; [bzw in der Dekontaminationskabine]
+	[TODO mit dem Scenenwechsel "kompatibel" machen]
+	say "eventuel hier Cutscene-Text einfügen";
+	
+
+[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
+Blinkender_Knopf is a thing.	
+Blinkender_Knopf is in Hangar.
 

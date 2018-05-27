@@ -56,6 +56,7 @@
       <child nodeId="node-108"/>
     </children>
   </item>
+
   <item nodeId="node-108">
     <command xml:space="preserve">take Sicherheitsausweis</command>
     <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
