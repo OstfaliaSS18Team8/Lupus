@@ -377,8 +377,20 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 	
 	Raumfähre is a container in Andockbucht.
 
-	Antigravitationsgreifer is a thing in Raumfähre.
-	Palette is a thing in Raumfähre.
+	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
+	Palette is a fixed in place thing in Raumfähre.
+
+Instead of taking Antigravitationsgreifer:
+	If verbunden of Antigravitationsgreifer is false: 
+		Say "Der Antigravitationsgreifer kann an der Palette befestigt werden um sie zu bewegen. (Nutze verbinde Palette oder verbinde Antigravitationsgreifer)";
+	else:
+		Say "Der Antigravitationsgreifer schwebt bereits. Wieso sollte ich ihn aufheben?";
+
+Instead of taking Palette:
+	If verbunden of Antigravitationsgreifer is false:
+		Say "Die Palette ist zu schwer. Wenn ich den Antigravitationsgreifer dran befestige kann ich sie bewegen. (Nutze verbinde Palette oder verbinde Antigravitationsgreifer)";
+	else:
+		Say "Der Antigravitationsgreifer schwebt bereits. Wieso sollte ich ihn aufheben?";
 	
 	[Luke boolean geben]
 		Luke_Xeno has a truth state called versperrt. 
@@ -408,12 +420,18 @@ Before going through Luke_Xeno:
 		stop the action;
 
 [Automatische verschließung von Luke_Xeno nach einem Zug (wenn nicht blockiert)]
+Luke_Xeno_counter is a number that varies.
+Luke_Xeno_counter is 0.
+
 After reading a command when the Luke_Xeno was open: 
 	if versperrt of Luke_Xeno is false:
-		Now Luke_Xeno is closed; 
-		if the player can see Luke_Xeno: 
-			say "Die Xeno Lab Luke schließt sich wieder.";
-
+		if Luke_Xeno_counter is 1:
+			Now Luke_Xeno is closed; 
+			Now Luke_Xeno_counter is 0;
+			if the player can see Luke_Xeno: 
+				say "Die Xeno Lab Luke schließt sich wieder.";
+		else:
+			Now Luke_Xeno_counter is 1;
 
 	[Aktion und Verstehen von Verbinden und Stoßen]
 		Verbinden is an action applying to two things.
@@ -426,22 +444,72 @@ After reading a command when the Luke_Xeno was open:
 [Verbinden]
 After reading a command:
 	if the player's command matches "[verbinden]":
-		if the player carries the Antigravitationsgreifer and the player carries the Palette:
-			say "Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben. Du kannst jetzt den Antigravitationsgreifer anstoßen.";
-			now the Palette is nowhere;
-			now the Antigravitationsgreifer is in the location of the player;
-			now the Antigravitationsgreifer is not portable;
-			now verbunden of Antigravitationsgreifer is true;
-			stop the action;
+		if verbunden of Antigravitationsgreifer is false:
+			if the player is in Andockbucht or the player is in Raumfähre:
+				say "Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben und schwebt aus der Raumfähre raus. Du kannst jetzt den Antigravitationsgreifer anstoßen.";
+				now the Palette is nowhere;
+				now the Antigravitationsgreifer is in Andockbucht;
+				now the Antigravitationsgreifer is not portable;
+				now verbunden of Antigravitationsgreifer is true;
+				stop the action;
+			else:
+				say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
+				stop the action;
 		else:
-			say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
+			say "Die Palette ist bereits am Antigravitaionsgreifer befestigt.";
 			stop the action;
+
+The pushDirection is a number that varies.
+The pushDirection is 0.
+The pushDirectionCounter is a number that varies.
+The pushDirectionCounter is 0.
 
 [Stoßen]
 After reading a command:
 	if the player's command matches "[stoßen]":
-		if the player can see Antigravitationsgreifer and verbunden of Antigravitationsgreifer is true:
-			say "TEST 123"; [TODO: INSERT RANDOM MOVEMENT HERE]
+		if the player can see Antigravitationsgreifer and verbunden of Antigravitationsgreifer is true and versperrt of Luke_Xeno is false:
+			Repeat with pushDirectionCounter running from 1 to 100:
+				if the Antigravitationsgreifer is not in the location of the player:
+					stop the action;
+				now pushDirection is a random number from 1 to 6;
+				now pushDirection is 1; [THIS IS ONLY FOR DEBUG!!!!]
+				If pushDirection is 1:
+					if the room up from the location is not nothing:
+						if the door up of the location of the Antigravitationsgreifer is open or the door up of the location is nothing:
+							now the Antigravitationsgreifer is in the room up from the location of the player;
+							say "Der Antigravitations is in den Raum über dir geschebt.";
+							stop the action;
+				If pushDirection is 2:
+					if the room down from the location is not nothing:
+						if the door down of the location of the Antigravitationsgreifer is open or the door down of the location is nothing:
+							now the Antigravitationsgreifer is in the room down from the location of the player;
+							say "Der Antigravitations is in den Raum unter dir geschebt.";
+							stop the action;
+				If pushDirection is 3:
+					if the room north from the location is not nothing:
+						if the door north of the location of the Antigravitationsgreifer is open or the door north of the location is nothing:
+							now the Antigravitationsgreifer is in the room north from the location of the player;
+							say "Der Antigravitations is in den Raum nördlich dir geschebt.";
+							stop the action;
+				If pushDirection is 4:
+					if the room east from the location is not nothing:
+						if the door east of the location of the Antigravitationsgreifer is open or the door east of the location is nothing:
+							now the Antigravitationsgreifer is in the room east from the location of the player;
+							say "Der Antigravitations is in den Raum östlich dir geschebt.";
+							stop the action;
+				If pushDirection is 5:
+					if the room south from the location is not nothing:
+						if the door south of the location of the Antigravitationsgreifer is open or the door south of the location is nothing:
+							now the Antigravitationsgreifer is in the room south from the location of the player;
+							say "Der Antigravitations is in den Raum südlich von dir geschebt.";
+							stop the action;
+				If pushDirection is 6:
+					if the room west from the location is not nothing:
+						if the door west of the location of the Antigravitationsgreifer is open or the door west of the location is nothing:
+							now the Antigravitationsgreifer is in the room west from the location of the player;
+							say "Der Antigravitations is in den Raum westlich von dir geschebt.";
+							stop the action;
+			Say "Die Palette bleibt im Raum, da sie nirgens hinschweben kann.";
 			stop the action;
 		else:
 			say "Es gibt nichts zum stoßen.";
@@ -457,11 +525,17 @@ Instead of taking Antigravitationsgreifer:
 
 
 [Check ob Antigravitationsgreifer mit Palette im inneren Ring ist]
-	[TODO]
-
-[Before every turn:]
-	
+Before reading a command:
+	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum:
+		say "GAME OVER";
+		end the Story;
+	If the Antigravitationsgreifer is in Xeno-Lab and versperrt of Luke_Xeno is false:
+		Now versperrt of Luke_Xeno is true;
+		Now the antigravitationsgreifer is fixed in place;
+		say "Der Antigravitationsgreifer ist überlastet und bewegt sich nicht mehr. Die Xeno Luke ist versperrt. Ich kann nun hindurch gehen.";
 		
+
+
 
 	[Ende Tür_zum_inneren_Ring]
 

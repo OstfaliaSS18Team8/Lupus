@@ -1,126 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-1">
   <generator>Windows Inform 7 6M62</generator>
-  <activeNode nodeId="node-58"/>
+  <activeNode nodeId="node-125"/>
   <item nodeId="node-1">
     <command xml:space="preserve">Lupus</command>
-    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180522 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar, You and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180527 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar, You and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-14"/>
+      <child nodeId="node-103"/>
     </children>
   </item>
-  <item nodeId="node-14">
-    <command xml:space="preserve">take all from Raumf&#x00E4;hre</command>
-    <result xml:space="preserve">Antigravitationsgreifer: Taken.&#x000A;Palette: Taken.&#x000A;&#x000A;&gt;</result>
+  <item nodeId="node-103">
+    <command xml:space="preserve">verbinde palette</command>
+    <result xml:space="preserve">Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben und schwebt aus der Raumf&#x00E4;hre raus. Du kannst jetzt den Antigravitationsgreifer ansto&#x00DF;en.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-15"/>
+      <child nodeId="node-104"/>
     </children>
   </item>
-  <item nodeId="node-15">
+  <item nodeId="node-104">
     <command xml:space="preserve">u</command>
     <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar and Sicherheitsausweis here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-16"/>
+      <child nodeId="node-105"/>
     </children>
   </item>
-  <item nodeId="node-16">
+  <item nodeId="node-105">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Hangar, Antigravitationsgreifer, T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, You and Raumf&#x00E4;hre (empty) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">Antigravitationsgreifer ansto&#x00DF;en</command>
+    <result xml:space="preserve">Der Antigravitations is in den Raum &#x00FC;ber dir geschebt.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-107"/>
+    </children>
+  </item>
+  <item nodeId="node-107">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Hangar, Antigravitationsgreifer, Hangar-Luke and Sicherheitsausweis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-108"/>
+    </children>
+  </item>
+  <item nodeId="node-108">
     <command xml:space="preserve">take Sicherheitsausweis</command>
     <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-17"/>
+      <child nodeId="node-109"/>
     </children>
   </item>
-  <item nodeId="node-17">
+  <item nodeId="node-109">
     <command xml:space="preserve">benutze Sicherheitsausweis u</command>
     <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-18"/>
+      <child nodeId="node-114"/>
     </children>
   </item>
-  <item nodeId="node-18">
-    <command xml:space="preserve">u</command>
-    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
+  <item nodeId="node-114">
+    <command xml:space="preserve">Antigravitationsgreifer ansto&#x00DF;en</command>
+    <result xml:space="preserve">Der Antigravitations is in den Raum &#x00FC;ber dir geschebt.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-39"/>
+      <child nodeId="node-115"/>
     </children>
   </item>
-  <item nodeId="node-39">
-    <command xml:space="preserve">put on laborkittel</command>
+  <item nodeId="node-115">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, Antigravitationsgreifer, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-118"/>
+    </children>
+  </item>
+  <item nodeId="node-118">
+    <command xml:space="preserve">wear Laborkittel</command>
     <result xml:space="preserve">(first taking Laborkittel)&#x000A;You put on Laborkittel.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-50"/>
-      <child nodeId="node-54"/>
+      <child nodeId="node-119"/>
     </children>
   </item>
-  <item nodeId="node-50">
+  <item nodeId="node-119">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Ich kann hier nicht durchgehen. Ich muss etwas finden um die Luke zu versperren.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-120"/>
+    </children>
+  </item>
+  <item nodeId="node-120">
     <command xml:space="preserve">open Luke_Xeno</command>
     <result xml:space="preserve">Mit dem Transponder im Laborkittel l&#x00E4;sst sich die Luke &#x00F6;ffnen&#x000A;You open Xeno Lab Luke.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-53"/>
+      <child nodeId="node-121"/>
     </children>
   </item>
-  <item nodeId="node-53">
-    <command xml:space="preserve">u</command>
-    <result xml:space="preserve">Die Xeno Lab Luke schlie&#x00DF;t sich wieder.&#x000A;&#x000A;Ich kann hier nicht durchgehen. Ich muss etwas finden um die Luke zu versperren.&#x000A;&#x000A;&gt;</result>
-    <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
-  </item>
-  <item nodeId="node-54">
-    <command xml:space="preserve">verbinde palette</command>
-    <result xml:space="preserve">Du befestigst die Palette am Antigravitationsgreifer. Dieser beginnt zu schweben. Du kannst jetzt den Antigravitationsgreifer ansto&#x00DF;en.&#x000A;&#x000A;&gt;</result>
-    <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
-    <children>
-      <child nodeId="node-55"/>
-    </children>
-  </item>
-  <item nodeId="node-55">
-    <command xml:space="preserve">look</command>
-    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Antigravitationsgreifer, Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung and Leiche here.&#x000A;&#x000A;&gt;</result>
-    <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
-    <children>
-      <child nodeId="node-56"/>
-    </children>
-  </item>
-  <item nodeId="node-56">
-    <command xml:space="preserve">sto&#x00DF; Antigravitationsgreifer</command>
-    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
-    <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
-    <children>
-      <child nodeId="node-57"/>
-    </children>
-  </item>
-  <item nodeId="node-57">
+  <item nodeId="node-121">
     <command xml:space="preserve">Antigravitationsgreifer ansto&#x00DF;en</command>
-    <result xml:space="preserve">TEST 123&#x000A;&gt;</result>
+    <result xml:space="preserve">Der Antigravitations is in den Raum &#x00FC;ber dir geschebt.&#x000A;Die Xeno Luke ist versperrt. Ich kann nun hindurch gehen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
-      <child nodeId="node-58"/>
+      <child nodeId="node-122"/>
     </children>
   </item>
-  <item nodeId="node-58">
-    <command xml:space="preserve">take Antigravitationsgreifer</command>
-    <result xml:space="preserve">That's fixed in place.&#x000A;&#x000A;&gt;</result>
+  <item nodeId="node-122">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Xeno Lab&#x000A;Du bist im Xeno Lab.&#x000A;&#x000A;You can see Xeno Lab Luke and Antigravitationsgreifer here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-125"/>
+    </children>
+  </item>
+  <item nodeId="node-125">
+    <command xml:space="preserve">Antigravitationsgreifer ansto&#x00DF;en</command>
+    <result xml:space="preserve">Die Palette bleibt im Raum, da sie nirgens hinschweben kann.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
   </item>
 </Skein>
