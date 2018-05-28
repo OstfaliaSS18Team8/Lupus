@@ -6,6 +6,12 @@ Use DICT_WORD_SIZE of 100.
 
 
 
+[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
+Blinkender_Knopf is a thing.	
+Blinkender_Knopf is in Hangar.
+
+
+
 [Regionen]
 
 Hauptebene is a region.
@@ -687,6 +693,7 @@ Kontaminierter8 is in Fitnessraum.
 KontaminierterPercy is a Kontaminierter.
 
 
+
 Section Sauerstoffabfall
 
 O2AbfallAktiv is a truth state that varies.
@@ -709,11 +716,6 @@ every turn:
 			if O2Zähler is 0:
 				say "Der Sauerstoff ist dir ausgegangen.";
 				end the story;
-
-
-
-
-
 
 
 
@@ -741,7 +743,30 @@ instead of pushing Blinkender_Knopf:
 	say "eventuel hier Cutscene-Text einfügen";
 	
 
-[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
-Blinkender_Knopf is a thing.	
-Blinkender_Knopf is in Hangar.
+
+Section Xeno-Lab Pfeifen
+
+
+Every room has a truth state called XenoPfeifenHörbar.
+XenoPfeifenHörbar of room usually is false.
+XenoPfeifenHörbar of Xeno-Lab is true.
+
+
+every turn:
+	Repeat with XenoPfeifenCounter running through all rooms:
+		if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+		repeat with XenoPfeifenCounter2 running through all rooms:
+			repeat with XenoPfeifenRichtung running through all directions:
+				if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
+					if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
+						if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
+							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
+						otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
+							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
+					otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
+						now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
+				
+
+
 
