@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-1">
   <generator>Windows Inform 7 6M62</generator>
-  <activeNode nodeId="node-31"/>
+  <activeNode nodeId="node-41"/>
   <item nodeId="node-1">
     <command xml:space="preserve">Lupus</command>
-    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180528 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar, Blinkender_Knopf, Sicherheitsausweis and Barry here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180529 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar, Blinkender_Knopf, Sicherheitsausweis and Barry here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
       <child nodeId="node-2"/>
       <child nodeId="node-17"/>
+      <child nodeId="node-32"/>
+      <child nodeId="node-38"/>
+      <child nodeId="node-41"/>
     </children>
   </item>
   <item nodeId="node-2">
@@ -273,6 +276,87 @@
   <item nodeId="node-31">
     <command xml:space="preserve">wait</command>
     <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">f</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">f</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;Maschinenkern&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&#x000A;*** Run-time problem P31: Attempt to use a property of the 'nothing' non-object: property farbe&#x000A;&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
