@@ -33,13 +33,13 @@ Com_Modul is a region.
 		
 		[Äußerer Ring]
 			Gamma-Kreuzung 		is a room in Hauptebene with printed name 	"Gamma-Kreuzung".			"Du bist in der Gamma-Kreuzung."
-			Gamma-Delta-Korridor	is a room in Hauptebene with printed name 	"Gamma-Delta-Korridor".		"Du bist in der Gamma-Delta-Korridor."
+			Gamma-Delta-Korridor	is a room in Hauptebene with printed name 	"Gamma-Delta-Korridor".		"Du bist in dem Gamma-Delta-Korridor."
 			Delta-Kreuzung			is a room in Hauptebene with printed name	"Delta-Kreuzung".			"Du bist in der Delta-Kreuzung."
-			Alpha-Delta-Korridor		is a room in Hauptebene with printed name 	"Alpha-Delta-Korridor".		"Du bist in der Alpha-Delta-Korridor."
+			Alpha-Delta-Korridor		is a room in Hauptebene with printed name 	"Alpha-Delta-Korridor".		"Du bist in dem Alpha-Delta-Korridor."
 			Alpha-Kreuzung			is a room in Hauptebene with printed name	"Alpha-Kreuzung".			"Du bist in der Alpha-Kreuzung."
-			Alpha-Beta-Korridor		is a room in Hauptebene with printed name	"Alpha-Beta-Korridor".		"Du bist in der Alpha-Beta-Korridor."
+			Alpha-Beta-Korridor		is a room in Hauptebene with printed name	"Alpha-Beta-Korridor".		"Du bist in dem Alpha-Beta-Korridor."
 			Beta-Kreuzung			is a room in Hauptebene with printed name	"Beta-Kreuzung".				"Du bist in der Beta-Kreuzung."
-			Gamma-Beta-Korridor	is a room in Hauptebene with printed name	"Gamma-Beta-Korridor".		"Du bist in der Gamma-Beta-Korridor."
+			Gamma-Beta-Korridor	is a room in Hauptebene with printed name	"Gamma-Beta-Korridor".		"Du bist in dem Gamma-Beta-Korridor."
 		
 		[Innerer Ring]
 			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
@@ -571,8 +571,6 @@ Before reading a command:
 
 
 
-
-
 Section Kontaminierte
 
 KontLautstärke is a number that varies.
@@ -617,7 +615,7 @@ Every turn:
 			otherwise:
 				increase Kontzähler2 of xxx by 1;
 				if KontZähler1 of xxx is 0:
-					if KontLautstärke is 1:
+					if KontLautstärke is greater than 1: [TODO Stationsalarm und Xeno-PFeifen berücksichtigen]
 						now KontVerfolgt of xxx is true;
 						now KontZähler1 of xxx is 1;
 						increase KontZähler3 by one;
@@ -694,7 +692,9 @@ KontaminierterPercy is a Kontaminierter.
 
 
 
+
 Section Sauerstoffabfall
+
 
 O2AbfallAktiv is a truth state that varies.
 O2AbfallAktiv is false.
@@ -704,7 +704,8 @@ O2Zähler is 8.
 
 instead of going up from Kommunikationsbasis:
 	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
-	say "Sauerstoffabfall im äußeren Ring";
+	say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";
+	now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 	now O2AbfallAktiv is true;
 	continue the action;
 
@@ -716,6 +717,7 @@ every turn:
 			if O2Zähler is 0:
 				say "Der Sauerstoff ist dir ausgegangen.";
 				end the story;
+
 
 
 
@@ -741,7 +743,7 @@ instead of pushing Blinkender_Knopf:
 	now KontaminierterPercy is in Xeno-Lab; [bzw in der Dekontaminationskabine]
 	[TODO mit dem Scenenwechsel "kompatibel" machen]
 	say "eventuel hier Cutscene-Text einfügen";
-	
+
 
 
 Section Xeno-Lab Pfeifen
@@ -783,17 +785,19 @@ every turn:
 
 
 
+Section Stationsalarm
 
+StationsalarmAktiv is a truth state that varies.
+StationsalarmAktiv is true.
+[TODO Stationsalarm beim drücken des blinkenden Knopfes deaktivieren.]
+[TODO Stationsalarm beim anschauen des Blogs wieder aktievieren.]
 
-
-
-
-
-
-
-
-
-
+every turn:
+	if StationsalarmAktiv is true:
+		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
+			Repeat with StationsalarmCounter running through all rooms:
+				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
+					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
 
 
 

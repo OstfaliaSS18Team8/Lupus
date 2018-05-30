@@ -148,17 +148,19 @@
     <changed>YES</changed>
   </item>
   <item nodeId="node-17">
-    <command xml:space="preserve">wait</command>
-    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">take all</command>
+    <result xml:space="preserve">Blinkender_Knopf: Taken.&#x000A;Sicherheitsausweis: Taken.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
       <child nodeId="node-18"/>
+      <child nodeId="node-29"/>
+      <child nodeId="node-34"/>
     </children>
   </item>
   <item nodeId="node-18">
-    <command xml:space="preserve">up</command>
-    <result xml:space="preserve">(first opening Hangar-Luke)&#x000A;It seems to be locked.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">benutzen sa up</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -166,8 +168,8 @@
     </children>
   </item>
   <item nodeId="node-19">
-    <command xml:space="preserve">take all</command>
-    <result xml:space="preserve">Blinkender_Knopf: Taken.&#x000A;Sicherheitsausweis: Taken.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">benutze sa up</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -175,8 +177,8 @@
     </children>
   </item>
   <item nodeId="node-20">
-    <command xml:space="preserve">up</command>
-    <result xml:space="preserve">(first opening Hangar-Luke)&#x000A;It seems to be locked.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar and Barry here.&#x000A;&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -184,8 +186,8 @@
     </children>
   </item>
   <item nodeId="node-21">
-    <command xml:space="preserve">open</command>
-    <result xml:space="preserve">What do you want to open?&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">benutze sa up</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -193,8 +195,8 @@
     </children>
   </item>
   <item nodeId="node-22">
-    <command xml:space="preserve">t&#x00FC;r_Hang</command>
-    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening Hangar-Luke)&#x000A;It seems to be locked.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -202,8 +204,8 @@
     </children>
   </item>
   <item nodeId="node-23">
-    <command xml:space="preserve">open hangar_luke</command>
-    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;You can see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar and Barry here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -211,8 +213,8 @@
     </children>
   </item>
   <item nodeId="node-24">
-    <command xml:space="preserve">open t&#x00FC;r_HangarZUGammakreuz</command>
-    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">benutze sa up</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -220,8 +222,8 @@
     </children>
   </item>
   <item nodeId="node-25">
-    <command xml:space="preserve">open luke_HangarZUGammakreuz</command>
-    <result xml:space="preserve">It seems to be locked.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TEST&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -229,8 +231,8 @@
     </children>
   </item>
   <item nodeId="node-26">
-    <command xml:space="preserve">unlock luke_HangarZUGammakreuz</command>
-    <result xml:space="preserve">What do you want to unlock Hangar-Luke with?&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TEST&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -238,8 +240,8 @@
     </children>
   </item>
   <item nodeId="node-27">
-    <command xml:space="preserve">sicherheitsausweis</command>
-    <result xml:space="preserve">That doesn't seem to fit the lock.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -247,16 +249,13 @@
     </children>
   </item>
   <item nodeId="node-28">
-    <command xml:space="preserve">bennutz up</command>
-    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Gamma-Delta-Korridor&#x000A;Du bist in der Gamma-Delta-Korridor.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, Luke zwischen KommunikationsModul und Gamma Delta Korridor. and Hebel here.&#x000A;&#x000A;TEST&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
-    <children>
-      <child nodeId="node-29"/>
-    </children>
   </item>
   <item nodeId="node-29">
-    <command xml:space="preserve">benutze sa up</command>
+    <command xml:space="preserve">benutze sa u</command>
     <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
@@ -265,8 +264,8 @@
     </children>
   </item>
   <item nodeId="node-30">
-    <command xml:space="preserve">up</command>
-    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TEST&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -274,8 +273,80 @@
     </children>
   </item>
   <item nodeId="node-31">
-    <command xml:space="preserve">wait</command>
-    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TEST&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Gamma-Delta-Korridor&#x000A;Du bist in der Gamma-Delta-Korridor.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, Luke zwischen KommunikationsModul und Gamma Delta Korridor. and Hebel here.&#x000A;&#x000A;TEST&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">benutze sa up</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TEST&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Ich kann hier nicht durchgehen. Ich muss etwas finden um die Luke zu versperren.&#x000A;&#x000A;TEST&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">rufen</command>
+    <result xml:space="preserve">What do you want to rufen?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">rufen me</command>
+    <result xml:space="preserve">Xeno Lab&#x000A;Du bist im Xeno Lab.&#x000A;&#x000A;You can see Xeno Lab Luke here.&#x000A;&#x000A;Du h&#x00F6;rst ein ohrenbet&#x00E4;ubendes Pfeifen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Xeno Lab&#x000A;Du bist im Xeno Lab.&#x000A;&#x000A;You can see Xeno Lab Luke here.&#x000A;&#x000A;Du h&#x00F6;rst ein ohrenbet&#x00E4;ubendes Pfeifen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">rufen me</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
