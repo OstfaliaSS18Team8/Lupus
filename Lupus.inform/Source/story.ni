@@ -42,10 +42,10 @@ Com_Modul is a region.
 			Gamma-Beta-Korridor	is a room in Hauptebene with printed name	"Gamma-Beta-Korridor".		"Du bist in dem Gamma-Beta-Korridor."
 		
 		[Innerer Ring]
-			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist in dem Xeno Lab."
-			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist in dem Solar Lab."
-			Med-Lab				is a room in Hauptebene with printed name	"Med Lab".					"Du bist in dem Med Lab."
-			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".			"Du bist in dem Machinenraum."
+			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist im Solar Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Med-Lab					is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".				"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
@@ -158,10 +158,10 @@ Com_Modul is a region.
 			Lagerbereich			is a room in Linke_Seitenebene with printed name	"Lagerbereich".			"Du bist im Lagerbereich."
 			
 		[Innerer Ring]
-			Alpha-KI			is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum ."
-			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum."
-			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".		"Du bist im Transporterraum."
-			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum."
+			Alpha-KI				is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".			"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 		
 	[Türen & Zusammenhang]
 		Generator 				is north of 		Delta-KI.
@@ -772,6 +772,19 @@ every turn:
 
 
 
+Section Maschinenkern
+
+The Maschinenkern is a thing.
+The Maschinenkern has a text called Farbe.
+The Farbe of Maschinenkern is "grün".
+[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern. Die Änderung sollte warscheinlich beim jeweiligen Objekt erfolgen.]
+
+every turn:
+	if the player is in Andockbucht:
+		move the player to Solar-Lab;
+
+
+
 Section Stationsalarm
 
 StationsalarmAktiv is a truth state that varies.
@@ -785,13 +798,6 @@ every turn:
 			Repeat with StationsalarmCounter running through all rooms:
 				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
 					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
-
-
-
-
-
-
-
 
 
 
