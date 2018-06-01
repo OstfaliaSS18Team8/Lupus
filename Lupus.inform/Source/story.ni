@@ -6,6 +6,12 @@ Use DICT_WORD_SIZE of 100.
 
 
 
+[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
+Blinkender_Knopf is a thing.	
+Blinkender_Knopf is in Hangar.
+
+
+
 [Regionen]
 
 Hauptebene is a region.
@@ -27,19 +33,19 @@ Com_Modul is a region.
 		
 		[Äußerer Ring]
 			Gamma-Kreuzung 		is a room in Hauptebene with printed name 	"Gamma-Kreuzung".			"Du bist in der Gamma-Kreuzung."
-			Gamma-Delta-Korridor	is a room in Hauptebene with printed name 	"Gamma-Delta-Korridor".		"Du bist in der Gamma-Delta-Korridor."
+			Gamma-Delta-Korridor	is a room in Hauptebene with printed name 	"Gamma-Delta-Korridor".		"Du bist in dem Gamma-Delta-Korridor."
 			Delta-Kreuzung			is a room in Hauptebene with printed name	"Delta-Kreuzung".			"Du bist in der Delta-Kreuzung."
-			Alpha-Delta-Korridor		is a room in Hauptebene with printed name 	"Alpha-Delta-Korridor".		"Du bist in der Alpha-Delta-Korridor."
+			Alpha-Delta-Korridor		is a room in Hauptebene with printed name 	"Alpha-Delta-Korridor".		"Du bist in dem Alpha-Delta-Korridor."
 			Alpha-Kreuzung			is a room in Hauptebene with printed name	"Alpha-Kreuzung".			"Du bist in der Alpha-Kreuzung."
-			Alpha-Beta-Korridor		is a room in Hauptebene with printed name	"Alpha-Beta-Korridor".		"Du bist in der Alpha-Beta-Korridor."
+			Alpha-Beta-Korridor		is a room in Hauptebene with printed name	"Alpha-Beta-Korridor".		"Du bist in dem Alpha-Beta-Korridor."
 			Beta-Kreuzung			is a room in Hauptebene with printed name	"Beta-Kreuzung".				"Du bist in der Beta-Kreuzung."
-			Gamma-Beta-Korridor	is a room in Hauptebene with printed name	"Gamma-Beta-Korridor".		"Du bist in der Gamma-Beta-Korridor."
+			Gamma-Beta-Korridor	is a room in Hauptebene with printed name	"Gamma-Beta-Korridor".		"Du bist in dem Gamma-Beta-Korridor."
 		
 		[Innerer Ring]
-			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab."
-			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist im Solar Lab."
-			Med-Lab				is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab."
-			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".			"Du bist im Machinenraum."
+			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist im Solar Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Med-Lab					is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".				"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
@@ -152,10 +158,10 @@ Com_Modul is a region.
 			Lagerbereich			is a room in Linke_Seitenebene with printed name	"Lagerbereich".			"Du bist im Lagerbereich."
 			
 		[Innerer Ring]
-			Alpha-KI			is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum ."
-			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum."
-			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".		"Du bist im Transporterraum."
-			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum."
+			Alpha-KI				is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".			"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 		
 	[Türen & Zusammenhang]
 		Generator 				is north of 		Delta-KI.
@@ -565,8 +571,6 @@ Before reading a command:
 
 
 
-
-
 Section Kontaminierte
 
 KontLautstärke is a number that varies.
@@ -611,7 +615,7 @@ Every turn:
 			otherwise:
 				increase Kontzähler2 of xxx by 1;
 				if KontZähler1 of xxx is 0:
-					if KontLautstärke is 1:
+					if KontLautstärke is greater than 1: [TODO Stationsalarm und Xeno-PFeifen berücksichtigen]
 						now KontVerfolgt of xxx is true;
 						now KontZähler1 of xxx is 1;
 						increase KontZähler3 by one;
@@ -687,7 +691,10 @@ Kontaminierter8 is in Fitnessraum.
 KontaminierterPercy is a Kontaminierter.
 
 
+
+
 Section Sauerstoffabfall
+
 
 O2AbfallAktiv is a truth state that varies.
 O2AbfallAktiv is false.
@@ -697,7 +704,8 @@ O2Zähler is 8.
 
 instead of going up from Kommunikationsbasis:
 	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
-	say "Sauerstoffabfall im äußeren Ring";
+	say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";
+	now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 	now O2AbfallAktiv is true;
 	continue the action;
 
@@ -714,7 +722,6 @@ every turn:
 
 Section Xeno-Lab
 
-
 Klappe is a thing. "Interesant aber ich kann sie nicht öffnen.".
 Klappe is in Xeno-Lab.
 Klappe is fixed in place.
@@ -728,7 +735,6 @@ Glasscherben der Pfiole is fixed in place.
 Blinkender_Knopf is a thing.
 Blinkender_Knopf is in Xeno-Lab.
 Blinkender_Knopf is fixed in place.
-
 
 
 Section Spieler
@@ -756,7 +762,61 @@ instead of pushing Blinkender_Knopf:
 	Now Glasscherben der Pfiole is in Xeno-Lab;
 	[TODO mit dem Scenenwechsel "kompatibel" machen]
 	say "eventuel hier Cutscene-Text einfügen";
-	
+
+
+Section Xeno-Lab Pfeifen
+
+
+Every room has a truth state called XenoPfeifenHörbar.
+XenoPfeifenHörbar of room usually is false.
+XenoPfeifenHörbar of Xeno-Lab is true.
+
+
+every turn:
+	Repeat with XenoPfeifenCounter running through all rooms:
+		if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+		repeat with XenoPfeifenCounter2 running through all rooms:
+			repeat with XenoPfeifenRichtung running through all directions:
+				if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
+					if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
+						if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
+							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
+						otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
+							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
+					otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
+						now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
+				
+
+
+
+Section Maschinenkern
+
+The Maschinenkern is a thing.
+The Maschinenkern has a text called Farbe.
+The Farbe of Maschinenkern is "grün".
+[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern. Die Änderung sollte warscheinlich beim jeweiligen Objekt erfolgen.]
+
+every turn:
+	if the player is in Andockbucht:
+		move the player to Solar-Lab;
+
+
+
+Section Stationsalarm
+
+StationsalarmAktiv is a truth state that varies.
+StationsalarmAktiv is true.
+[TODO Stationsalarm beim drücken des blinkenden Knopfes deaktivieren.]
+[TODO Stationsalarm beim anschauen des Blogs wieder aktievieren.]
+
+every turn:
+	if StationsalarmAktiv is true:
+		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
+			Repeat with StationsalarmCounter running through all rooms:
+				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
+					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
+
 
 
 Section Drucklufthammer
