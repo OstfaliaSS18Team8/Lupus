@@ -720,6 +720,22 @@ every turn:
 
 
 
+Section Xeno-Lab
+
+Klappe is a thing. "Interesant aber ich kann sie nicht öffnen.".
+Klappe is in Xeno-Lab.
+Klappe is fixed in place.
+
+Offene-Klappe is a thing. "Hier war mal eine Pfiole.".
+Offene-Klappe is fixed in place.
+
+Glasscherben der Pfiole is a thing. "Lieber nicht anfassen. Sieht scharf aus.".
+Glasscherben der Pfiole is fixed in place.
+
+Blinkender_Knopf is a thing.
+Blinkender_Knopf is in Xeno-Lab.
+Blinkender_Knopf is fixed in place.
+
 
 Section Spieler
 
@@ -741,9 +757,11 @@ instead of pushing Blinkender_Knopf:
 	now the description of Barry is "As good-looking as ever.";
 	now Percy is nowhere;
 	now KontaminierterPercy is in Xeno-Lab; [bzw in der Dekontaminationskabine]
+	Now Klappe is nowhere;
+	Now Offene-Klappe is in Xeno-Lab;
+	Now Glasscherben der Pfiole is in Xeno-Lab;
 	[TODO mit dem Scenenwechsel "kompatibel" machen]
 	say "eventuel hier Cutscene-Text einfügen";
-
 
 
 Section Xeno-Lab Pfeifen
@@ -801,5 +819,83 @@ every turn:
 
 
 
+Section Drucklufthammer
 
 
+The Druha is a device. The description of the Druha is "Sieht ganz schön schwer aus. Die Lade LED leuchtet[if switched on] grün [else] rot [end if]".
+
+Instead of switching on Druha:
+	if Druha is switched on:
+		say "Der Drucklufthammer ist bereits geladen";
+	else:
+		repeat with item running through doors: 
+			if item is in the location of Player:
+				Now Druha is switched on;
+
+Instead of switching off Druha:
+	if Druha is switched on:
+		say "Ich sollte meine Ladung besser verwenden";
+	else:
+		say "Der Druchlufthamme ist bereits entladen";
+
+
+Aktivieren is an action applying to a thing. Understand "Aktivieren [something]" as Aktivieren.
+Check Aktivieren:
+	if the noun is not Druha, say "Das ist nicht der Drucklufthammer" instead.
+
+	
+Carry out Aktivieren:
+	if DruHa is switched on:
+		Now KontLautstärke is 2;
+		Now DruHa is switched off;
+		Say "Der Drucklufthammer hat ein lautes Geräusch erzeugt, die LED leuchtet nun rot.";
+	else:
+		Say "Der Drucklufthammer is nicht geladen";
+
+
+
+
+Section Transporter
+
+The Transporter is a device. The description is "Durch einschalten dieser Vorrichtung kann eine Person zwischen den jeweiligen Transporterräumen teleportiert werden".
+The Transporter  is in Transporterraum. The Transporter  is fixed in place.
+
+Instead of switching on Transporter :
+	if Transporter is in Transporterraum:
+		Move the player to the Transportermodul;
+		Move Transporter  to Transportermodul;
+	else:
+		Move the player to the Transporterraum;
+		Move Transporter  to Transporterraum;
+		
+
+Section Commodul
+
+GeneratorPower is a number that varies.
+GeneratorPower is 0.
+
+PowerIsActive is a truth state that varies.
+PowerIsActive is false;
+
+
+A Spacesuit  is a kind of thing. A Spacesuit is always wearable.
+The Raumanzug is a Spacesuit.
+The description of Raumanzug is "Ein gut erhaltener Raumanzug".
+The Raumanzug is in Lagerraum.
+
+The Start Knopf is a device. The description is " Dieser Knopf Startet den Generator".
+The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
+
+
+Instead of switching on Start Knopf :
+	Now GeneratorPower is 5;
+	Now PowerIsActive is true;
+	Remove Raumanzug from play;
+	Say "Der Generator startet mit einem lauten Krachen, ein Splitter löst sich und beschädigt den Raumanzug";
+
+  
+Every Turn:
+	if GeneratorPower is greater than 0:
+		decrement GeneratorPower;
+	else:
+		Now PowerIsActive is false;
