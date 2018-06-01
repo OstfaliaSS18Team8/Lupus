@@ -566,8 +566,13 @@ Before reading a command:
 
 Section Kontaminierte
 
+[Speichert die Lautstärke der letzten Aktion]
 KontLautstärke is a number that varies.
 KontLautstärke is 0.
+
+[Speichert die Lautstärke der zu übertönenden Hintergrundgeräusche]
+KontHintergrundLautstärke is number that varies.
+KontHintergrundLautstärke is 0.
 
 Understand "klatschen [something]" as klatsching.
 Klatsching is an action applying to a thing.
@@ -598,6 +603,18 @@ Instead of klatsching or rufing:
 	continue the action
 	
 
+[Überprüft ob Hintergrundgeräusche aktiv sind]
+Every turn:
+	if StationsalarmGehört is true or  XenoPfeifenGehört is true:
+		if StationsalarmGehört is true:
+			now KontHintergrundLautstärke is 1;
+		otherwise :
+			now KontHintergrundLautstärke is 2;
+	otherwise:
+		now KontHintergrundLautstärke is 0;
+	now StationsalarmGehört is false;
+	now XenoPfeifenGehört is false;
+
 
 Every turn:
 	Repeat with xxx running through all Kontaminierter:
@@ -608,7 +625,7 @@ Every turn:
 			otherwise:
 				increase Kontzähler2 of xxx by 1;
 				if KontZähler1 of xxx is 0:
-					if KontLautstärke is greater than 1: [TODO Stationsalarm und Xeno-PFeifen berücksichtigen]
+					if KontLautstärke is greater than KontHintergrundLautstärke:
 						now KontVerfolgt of xxx is true;
 						now KontZähler1 of xxx is 1;
 						increase KontZähler3 by one;
@@ -682,6 +699,7 @@ Kontaminierter8 is a Kontaminierter.
 Kontaminierter8 is in Fitnessraum.
 
 KontaminierterPercy is a Kontaminierter.
+The printed name of KontaminierterPercy is "Kontaminierter Percy".
 
 
 
@@ -697,6 +715,7 @@ O2Zähler is 8.
 
 instead of going up from Kommunikationsbasis:
 	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
+	[TODO Palette in den Raum moven]
 	say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";
 	now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 	now O2AbfallAktiv is true;
@@ -729,6 +748,20 @@ Blinkender_Knopf is a thing.
 Blinkender_Knopf is in Xeno-Lab.
 Blinkender_Knopf is fixed in place.
 
+instead of pushing Blinkender_Knopf:
+	Now the Player is Barry;
+	Now the description of Barry is "As good-looking as ever.";
+	Now Percy is nowhere;
+	Now KontaminierterPercy is in Xeno-Lab; [TODO oder in der Dekontaminationskabine???]
+	Now Klappe is nowhere;
+	Now Offene-Klappe is in Xeno-Lab;
+	Now Glasscherben der Pfiole is in Xeno-Lab;
+	[TODO mit dem Scenenwechsel "kompatibel" machen]
+	Say "eventuel hier Cutscene-Text einfügen";
+	Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";
+	Now the Farbe of Maschinenkern is "rot";
+	Now StationsalarmAktiv is false;
+
 
 Section Spieler
 
@@ -742,19 +775,8 @@ Section Spieler
 	Barry is a Person.
 	Barry is in Hangar.
 	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
-	
 
-[TODO Blinkender_Knopf name anpassen]
-instead of pushing Blinkender_Knopf:
-	now the Player is Barry;
-	now the description of Barry is "As good-looking as ever.";
-	now Percy is nowhere;
-	now KontaminierterPercy is in Xeno-Lab; [bzw in der Dekontaminationskabine]
-	Now Klappe is nowhere;
-	Now Offene-Klappe is in Xeno-Lab;
-	Now Glasscherben der Pfiole is in Xeno-Lab;
-	[TODO mit dem Scenenwechsel "kompatibel" machen]
-	say "eventuel hier Cutscene-Text einfügen";
+	
 
 
 Section Xeno-Lab Pfeifen
@@ -763,12 +785,15 @@ Section Xeno-Lab Pfeifen
 Every room has a truth state called XenoPfeifenHörbar.
 XenoPfeifenHörbar of room usually is false.
 XenoPfeifenHörbar of Xeno-Lab is true.
+XenoPfeifenGehört is truth state that varies.
+XenoPfeifenGehört is false.
 
 
 every turn:
 	Repeat with XenoPfeifenCounter running through all rooms:
 		if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
 			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+			now XenoPfeifenGehört is true;
 		repeat with XenoPfeifenCounter2 running through all rooms:
 			repeat with XenoPfeifenRichtung running through all directions:
 				if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
@@ -788,7 +813,7 @@ Section Maschinenkern
 The Maschinenkern is a thing.
 The Maschinenkern has a text called Farbe.
 The Farbe of Maschinenkern is "grün".
-[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern. Die Änderung sollte warscheinlich beim jeweiligen Objekt erfolgen.]
+[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern.]
 
 every turn:
 	if the player is in Andockbucht:
@@ -800,7 +825,8 @@ Section Stationsalarm
 
 StationsalarmAktiv is a truth state that varies.
 StationsalarmAktiv is true.
-[TODO Stationsalarm beim drücken des blinkenden Knopfes deaktivieren.]
+StationsalarmGehört is a truth state that varies.
+StationsalarmGehört is false.
 [TODO Stationsalarm beim anschauen des Blogs wieder aktievieren.]
 
 every turn:
@@ -809,6 +835,8 @@ every turn:
 			Repeat with StationsalarmCounter running through all rooms:
 				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
 					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
+					now StationsalarmGehört is true;
+
 
 
 
