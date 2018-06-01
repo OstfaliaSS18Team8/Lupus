@@ -5,13 +5,6 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 
 
-
-[Nutzen falls Blinkender_Knopf noch nicht implementiert ist.]
-Blinkender_Knopf is a thing.	
-Blinkender_Knopf is in Hangar.
-
-
-
 [Regionen]
 
 Hauptebene is a region.
