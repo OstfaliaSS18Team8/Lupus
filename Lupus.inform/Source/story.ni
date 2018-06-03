@@ -898,13 +898,16 @@ GeneratorPower is 0.
 PowerIsActive is a truth state that varies.
 PowerIsActive is false;
 
+emergencyCallSended is a truth state that varies.
+emergencyCallSended is false;
+
 
 A Spacesuit  is a kind of thing. A Spacesuit is always wearable.
 The Raumanzug is a Spacesuit.
 The description of Raumanzug is "Ein gut erhaltener Raumanzug".
 The Raumanzug is in Lagerraum.
 
-The Start Knopf is a device. The description is " Dieser Knopf Startet den Generator".
+The Start Knopf is a device. The description is " Dieser Knopf startet den Generator".
 The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
 
 
@@ -920,6 +923,25 @@ Every Turn:
 		decrement GeneratorPower;
 	else:
 		Now PowerIsActive is false;
+
+The Lagerraum is a room.
+The Lagerraum is west of Com Base.
+The inner airlock is a door. It is north of the Dummy and south of the Com Base. 
+
+Understand "Kontaktiere Percy" as contactPercy.
+Understand "Rufe Percy" as contactPercy.
+
+contactPercy is an action applying to nothing.
+
+Check contactPercy:
+	if PowerIsActive is false:
+		say "Percy berichtet, dass der Knopf nicht funktioniert, offenbar wird er nicht mit Strom versorgt." instead.
+	
+Carry out contactPercy:
+	Now emergencyCallSended is true.
+  
+Report contactPercy:
+	Say "Du hörst Percy jubeln, der Notruf wurde abgesetzt. Du solltest ihn abholen, zu den Rettungskapseln gelangen und dann nichts wie weg hier.".
 		
 
 
@@ -1013,3 +1035,4 @@ After reading a command:
 						if xxx is in the room east of location of the player and the player can see xxx:
 							Now zerstört of xxx is true;
 		Stop the action.
+		
