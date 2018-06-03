@@ -198,7 +198,7 @@ Com_Modul is a region.
 
 	[Zusammenhang]
 		[Zur Hauptebene]
-			Brücke 				is below			Besprechungsraum.
+			[Brücke 				is below			Besprechungsraum.]
 			Besprechungsraum	is east of		Dienstzimmer.
 
 
@@ -767,7 +767,7 @@ Section Spieler
 
 [Percy]
 	Percy is a Person.
-	Percy is in Hangar.
+	Percy is in Andockbucht.
 	The Player is Percy.
 
 
@@ -920,3 +920,96 @@ Every Turn:
 		decrement GeneratorPower;
 	else:
 		Now PowerIsActive is false;
+		
+
+
+
+Section Mobitab
+
+Mobitab is a thing in Hangar.
+[Sauerstoffabfall Mitteilung im Sauerstoffabfall mit drin]
+
+
+[TODO: Starten der Rettungskapsel]
+[Fehlend, kann ohne Rettungskapseln nicht gemacht werden]
+
+
+[Kontaminationsalarm]
+Every turn:
+	if the number of Kontaminierter in the location of the Player is at least 1 and the player is carrying the Mobitab
+	begin;
+	say "[italic type]Kontaminationsalarm! In der Nähe befindet sich ein Kontaminierter.[italic type]";
+	end if.
+	
+
+[Keylessentry zur Brücke nach Maschinenkernfarbänderung]
+LukeZurBrücke is a locked closed door.
+Below Brücke is LukeZurBrücke.
+LukeZurBrücke is above Besprechungsraum.
+
+Before going through LukeZurBrücke:
+	if the player is carrying the Mobitab and the Farbe of Maschinenkern is "orange"
+	begin;
+		say "Die Tür öffnet sich durch dein Mobitab";
+		Now LukeZurBrücke is not locked;
+		Now LukeZurBrücke is open;
+	end if.
+
+After going through LukeZurBrücke:
+	Now LukeZurBrücke is locked;
+	Now LukeZurBrücke is closed.
+
+
+[Zerstören der Panels]
+Tür_Sicherheit has a truth state called zerstört.
+zerstört of Tür_Sicherheit is usually false.
+
+Understand "Zerstöre u/up/d/down/w/west/e/east/n/north/s/south" as "[Zerstör-Befehl]".
+Understand "Zerstöre u/up/d/down/w/west/e/east/n/north/s/south mit Mobitab" as "[Zerstör-Befehl]".
+
+After reading a command:
+	if the player's command matches "[Zerstör-Befehl]":
+		if the player is carrying the mobitab:
+			if the player's command includes "u":
+				if the door up of the location is a Tür_Sicherheit:
+					Now the door up of the location is not locked;
+					Now the door up of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room up of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;
+			if the player's command includes "d":
+				if the door down of the location is a Tür_Sicherheit:
+					Now the door down of the location is not locked;
+					Now the door down of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room down of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;
+			if the player's command includes "n":
+				if the door north of the location is a Tür_Sicherheit:
+					Now the door north of the location is not locked;
+					Now the door north of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room north of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;							
+			if the player's command includes "s":
+				if the door south of the location is a Tür_Sicherheit:
+					Now the door south of the location is not locked;
+					Now the door south of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room south of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;							
+			if the player's command includes "w":
+				if the door west of the location is a Tür_Sicherheit:
+					Now the door west of the location is not locked;
+					Now the door west of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room west of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;							
+			if the player's command includes "e":
+				if the door east of the location is a Tür_Sicherheit:
+					Now the door east of the location is not locked;
+					Now the door east of the location is open;
+					Repeat with xxx running through all Tür_Sicherheit:
+						if xxx is in the room east of location of the player and the player can see xxx:
+							Now zerstört of xxx is true;
+		Stop the action.
