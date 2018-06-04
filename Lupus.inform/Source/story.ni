@@ -916,6 +916,7 @@ Instead of switching on Start Knopf :
 	Now PowerIsActive is true;
 	Remove Raumanzug from play;
 	Say "Der Generator startet mit einem lauten Krachen, ein Splitter löst sich und beschädigt den Raumanzug";
+	Now the farbe of Maschinenkern is "rot";
 
   
 Every Turn:
