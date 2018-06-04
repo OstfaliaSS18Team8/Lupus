@@ -1036,3 +1036,208 @@ After reading a command:
 							Now zerstört of xxx is true;
 		Stop the action.
 		
+
+
+Section Postures
+
+[----------------POSTURES----------------]
+
+A posture is a kind of value. The postures are seated, standing, and reclining.
+
+A person has a posture. The posture of a person is usually standing.
+
+A supporter has a posture. A container has a posture.
+
+Posture-permission relates various things to various postures. The verb to allow (it allows, they allow, it allowed, it is allowed) implies the posture-permission relation.
+
+A room can be posture-friendly or posture-unfriendly. A room is usually posture-friendly.
+
+Understand the commands "stehen" and "sitzen" and "liegen" as something new.
+
+Understand "setzen auf/in [something]" as sitting on.
+Understand "liegen auf/in [something]" as lying on.
+Understand "stehen auf/in [something]" as standing up on.
+
+Sitting on is an action applying to one thing.
+Lying on is an action applying to one thing.
+Standing up on is an action applying to one thing.
+
+Carry out an actor sitting on (this is the standard carry out sitting on rule):
+	if the holder of the actor is not the noun, silently try the actor entering the noun;
+	if the holder of the actor is the noun:
+		if the actor is not seated, try the actor taking position seated;
+		otherwise follow the report taking position rules.
+
+Carry out an actor lying on (this is the standard carry out lying on rule):
+	if the holder of the actor is not the noun, silently try the actor entering the noun;
+	if the holder of the actor is the noun:
+		if the actor is not reclining, try the actor taking position reclining;
+		otherwise follow the report taking position rules.
+
+Carry out an actor standing up on (this is the standard carry out standing up on rule):
+	if the holder of the actor is not the noun, silently try the actor entering the noun;
+	if the holder of the actor is the noun:
+		if the actor is not standing, try the actor taking position standing;
+		otherwise follow the report taking position rules.
+		
+[-----------------------------------------------------------------------]
+
+Understand "hinlegen" as lying down.
+Understand "hinsetzen" or "setzen" as sitting down.
+Understand "stehen" or "aufstehen" as standing up.
+
+Lying down is an action applying to nothing.
+Sitting down is an action applying to nothing.
+Standing up is an action applying to nothing.
+
+To decide whether (N - a person) can lie here:
+	if the holder of N is a thing and the holder of N allows reclining:
+		yes;
+	if the location of N is posture-friendly:
+		yes;
+	no.
+	
+Instead of an actor lying down (this is the convert lying down rule):
+	if the actor can lie here:
+		try the actor taking position reclining;
+		if the posture of the actor is reclining:
+			rule succeeds;
+		rule fails;
+	otherwise if the holder of the actor contains something (called target) which allows reclining:
+		if the holder of the actor contains an enterable reclining thing (called the better target):
+			now the target is the better target;
+		try the actor lying on the target;
+		if the posture of the actor is reclining and the actor is on the target:
+			rule succeeds;
+		rule fails;
+	otherwise:
+		if the player is the actor:
+			if the holder of the actor is a thing:
+				say "Du kannst dich nicht auf [the holder of the actor]legen.";
+			otherwise:
+				say "Du kannst dich hier auf nichts legen.";
+		rule fails.
+
+To decide whether (N - a person) can sit here:
+	if the holder of N is a thing and the holder of N allows seated:
+		yes;
+	if the location of N is posture-friendly:
+		yes;
+	no.
+
+Instead of an actor sitting down (this is the convert sitting down rule):
+	if the actor can sit here:
+		try the actor taking position seated;
+		if the posture of the actor is seated:
+			rule succeeds;
+		rule fails;
+	otherwise if the holder of the actor contains something (called target) which allows seated:
+		if the holder of the actor contains an enterable seated thing (called the better target):
+			now the target is the better target;
+		try the actor sitting on the target;
+		if the posture of the actor is seated and the actor is on the target:
+			rule succeeds;
+		rule fails;
+	otherwise:
+		if the player is the actor:
+			if the holder of the actor is a thing:
+				say "Du kannst dich nicht auf [the holder of the actor]setzen.";
+			otherwise:
+				say "Hier gibt es nichts zum sitzen.";
+		rule fails.
+
+Instead of an actor standing up (this is the convert standing up rule):
+	if the holder of the actor is a thing and the holder of the actor allows standing:
+		try the actor taking position standing;
+		if the posture of the actor is standing:
+			rule succeeds;
+		rule fails;
+	otherwise if the holder of the actor is not the location:
+		let the source be the holder of the actor;
+		try the actor exiting;
+		if the holder of the actor is the source:
+			rule fails;
+		rule succeeds;
+	otherwise:
+		if the player is the actor:
+			if the holder of the actor is a thing:
+				say "Du kannst dich nicht auf [the holder of the actor]legen.";
+			otherwise:
+				say "Hier ist nichts zum draufstellen.";
+		rule fails.
+
+
+[------------------------------------------------------------------------------]
+
+
+Taking position is an action applying to one posture.
+
+Check an actor taking position (this is the can't use inappropriate postures rule):
+	if the holder of the actor is not a room and the holder of the actor does not allow the posture understood:
+		if the actor is the player:
+			say "Du kannst diese Position [in-auf the holder of the actor]nicht einnehmen.";
+		otherwise if the actor is visible:
+			say "[The actor]kann diese Position nicht einnehmen.";
+		stop the action.
+
+Check an actor taking position (this is the can't use already used posture rule):
+	if the posture understood is the posture of the actor:
+		if the actor is the player:
+			say "Du [the posture understood]bereits.";
+		otherwise:
+			if the actor is visible, say "[The actor] [the posture understood] bereits.";
+		stop the action.
+
+Carry out an actor taking position (this is the standard taking position rule):
+	now the posture of the actor is the posture understood.
+
+Report someone taking position (this is the stranger position report rule rule):
+	say "[The actor][the posture of the actor] nun[if the holder of the actor is not the location of the actor] [in-auf the holder of the actor][end if]."
+
+Report taking position (this is the standard position report rule):
+	say "Du [the posture of the player] nun[if the holder of the player is not the location] [in-auf the holder of the player][end if]."
+
+To say in-auf (item - a thing):
+	if the item is a container, say "in [the item]";
+	otherwise say "auf [the item]".
+	
+
+[-------------------------------------------------------------------------]
+
+
+Carry out an actor exiting (this is the departure-posture rule):
+	let N be the holder of the actor;
+	if N is a container or N is a supporter,
+		now the posture of the actor is the posture of N;
+	otherwise now the posture of the actor is standing.
+
+The departure-posture rule is listed after the standard exiting rule in the carry out exiting rulebook.
+The departure-posture rule is listed after the standard getting off rule in the carry out getting off rulebook.
+
+Carry out an actor entering something (this is the arrival-posture rule):
+	if the noun is a container or the noun is a supporter,
+		now the posture of the actor is the posture of the noun.
+
+The arrival-posture rule is listed after the standard entering rule in the carry out entering rulebook.
+
+Check an actor going somewhere (this is the can't go without standing rule):
+	if the actor is in a room and the actor is not standing:
+		say "([if the actor is not the player][the actor] [end if]zunächst aufstehen)[command clarification break]";
+		silently try the actor taking position standing;
+		if the actor is not standing, stop the action.
+
+Check an actor exiting when the holder of the actor is a room (this is the convert exits to standing rule):
+	try the actor taking position standing instead.
+
+	
+Krankenbett is a container in Med-Lab with printed name "Krankenbett". 
+Krankenbett is enterable. 
+Krankenbett allows seated and reclining. 
+Krankenbett is reclining. 	
+	Description is "das Krankenbett sieht nicht gerade gemütlich aus."
+
+Rule for writing a paragraph about someone (called target):
+	say "[The target] [posture] [if the holder of the target is the location] in der Nähe[otherwise][in-auf the holder of the target][end if]." 
+
+
+
