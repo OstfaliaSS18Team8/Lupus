@@ -181,6 +181,7 @@ Com_Modul is a region.
 			Luke_AlphaKIZULagerraum						is a door with printed name 	"Luke zwischen Alpha KI und Lagerraum".
 				Above 	Luke_AlphaKIZULagerraum is				Alpha-KI.
 				Below	Luke_AlphaKIZULagerraum is				Lagerraum.
+				Luke_AlphaKIZULagerraum is lockable and locked.
 
 			Luke_DeltaKIZULagerbereich						is a door with printed name 	"Luke zwischen Delta KI und Lagerbereich".
 				Above 	Luke_DeltaKIZULagerbereich is				Delta-KI.
@@ -249,7 +250,8 @@ Com_Modul is a region.
 
 [Gegenstände]
 	[Sicherheitsausweis]
-		Sicherheitsausweis is a thing in Hangar.
+		Sicherheitsausweis is a thing.
+		Sicherheitsausweis is in the Spind.
 		Description of Sicherheitsausweis is "Ein Sicherheitsausweis um die Luke vom Hangar in den äußeren Ring zu öffenen.".
 		Understand "Ausweis" and "sa" as the Sicherheitsausweis. [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
 		
@@ -560,6 +562,13 @@ Before reading a command:
 		Printed name of WarLukenHebel is "Hebel".
 		Understand "Hebel" as WarLukenHebel.
 		Description of WarLukenHebel is "Ein abgetrennter Hebel, der vor der Wartungsluke zum Kommunikationsmodul liegt. Von der Seite ist der Weg wohl verschlossen.".
+		
+	[Spind im Hangar]
+		Spind is a container in Hangar.
+		Description of Spind is "Ein Spind in dem Ausrüstung der Besatzung aufbewahrt wird.".
+		Spind is fixed in place.
+		
+	[Notrufknopf in der Brücke]
 
 
 
@@ -815,9 +824,6 @@ The Maschinenkern has a text called Farbe.
 The Farbe of Maschinenkern is "grün".
 [TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern.]
 
-every turn:
-	if the player is in Andockbucht:
-		move the player to Solar-Lab;
 
 
 
@@ -949,7 +955,8 @@ Report contactPercy:
 
 Section Mobitab
 
-Mobitab is a thing in Hangar.
+Mobitab is a thing.
+Mobitab is in the Spind.
 [Sauerstoffabfall Mitteilung im Sauerstoffabfall mit drin]
 
 
@@ -1239,6 +1246,39 @@ Krankenbett is reclining.
 
 Rule for writing a paragraph about someone (called target):
 	say "[The target] [posture] [if the holder of the target is the location] in der Nähe[otherwise][in-auf the holder of the target][end if]." 
+
+
+
+
+Section Luke_AlphaKIZULagerraum Hebel
+
+AlphaKI-Hebel-Zähler is a number that varies.
+AlphaKI-Hebel-Zähler is 0.
+
+AlphaKI-Hebel is a Thing.
+AlphaKI-Hebel is in Lagerraum.
+The description of AlphaKI-Hebel is "Der Hebel scheint die Luke zur Alpha KI zu entriegeln wenn man ihn drückt.".
+
+Instead of pushing the AlphaKI-Hebel:
+	if AlphaKI-Hebel-Zähler is not 3:
+		say "Die Tür zur Alpha KI wurde entriegelt.";
+		now Luke_AlphaKIZULagerraum is unlocked;
+		now AlphaKI-Hebel-Zähler is 1;
+	otherwise:
+		say "Die Luke ist bereits geöfnet.".
+
+Every turn:
+	if AlphaKI-Hebel-Zähler is 1:
+		now AlphaKI-Hebel-Zähler is 2;
+	otherwise if AlphaKI-Hebel-Zähler is 2:
+		if Luke_AlphaKIZULagerraum is open:
+			now AlphaKI-Hebel-Zähler is 3;
+		otherwise:
+			now AlphaKI-Hebel-Zähler is 0;
+			now Luke_AlphaKIZULagerraum is locked;
+			say " Die Luke zur Alpha KI hat sich wieder verriegelt.".
+
+
 
 
 
