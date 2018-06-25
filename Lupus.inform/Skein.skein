@@ -1,19 +1,326 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-1">
   <generator>Windows Inform 7 6M62</generator>
-  <activeNode nodeId="node-2"/>
+  <activeNode nodeId="node-1240"/>
   <item nodeId="node-1">
     <command xml:space="preserve">Lupus</command>
-    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180604 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180625 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
       <child nodeId="node-2"/>
+      <child nodeId="node-3"/>
+      <child nodeId="node-1228"/>
     </children>
   </item>
   <item nodeId="node-2">
     <command xml:space="preserve">u</command>
-    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;Barry standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar, Sicherheitsausweis and Mobitab here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;Barry standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar and a Spind (in which are Sicherheitsausweis and Mobitab) here.&#x000A;&#x000A;Lagerraum&#x000A;Du bist im Lagerraum.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum, Luke zwischen Cafeteria und Lagerraum, a Raumanzug and AlphaKI-Hebel here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-6"/>
+      <child nodeId="node-1226"/>
+    </children>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">look spind</command>
+    <result xml:space="preserve">Ein Spind in dem Ausr&#x00FC;stung der Besatzung aufbewahrt wird.&#x000A;&#x000A;In the Spind are Sicherheitsausweis and Mobitab.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">take all</command>
+    <result xml:space="preserve">Sicherheitsausweis: Taken.&#x000A;Mobitab: Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">(first opening Hangar-Luke)&#x000A;It seems to be locked.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">sa u</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">benutzen sa up</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-11"/>
+    </children>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">benutze sa up</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Gamma-Kreuzung&#x000A;Du bist in der Gamma-Kreuzung.&#x000A;&#x000A;You can see Xeno Lab Luke, Hangar-Luke, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, T&#x00FC;r zwischen Gamma Beta Kreuzung und Gamma Kreuzung, Laborkittel and Leiche here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;Die Luke zwischen Hangar und Gamma Kreuzung schlie&#x00DF;t sich wieder.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung)&#x000A;It seems to be locked.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung, Luke zwischen KommunikationsModul und Gamma Delta Korridor. and Hebel here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Delta-Kreuzung&#x000A;Du bist in der Delta-Kreuzung.&#x000A;&#x000A;You can see Solar Lab Luke, T&#x00FC;r zwischen Delta Kreuzung und Alpha Delta Kreuzung and T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Alpha-Delta-Korridor&#x000A;Du bist in dem Alpha-Delta-Korridor.&#x000A;&#x000A;Kontaminierter standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see T&#x00FC;r zwischen Alpha Delta Kreuzung und Alpha Kreuzung and T&#x00FC;r zwischen Delta Kreuzung und Alpha Delta Kreuzung here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;Kontaminationsalarm! In der N&#x00E4;he befindet sich ein Kontaminierter.&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">benutze sa n</command>
+    <result xml:space="preserve">Der Durchgang ist nun offen.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Alpha-Kreuzung&#x000A;Du bist in der Alpha-Kreuzung.&#x000A;&#x000A;You can see Med Lab Luke, T&#x00FC;r zwischen Alpha Kreuzung und Alpha Beta Kreuzung, T&#x00FC;r zwischen Alpha Delta Kreuzung und Alpha Kreuzung and T&#x00FC;r zwischen Alpha Kreuzung und Dienstzimmer here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-22"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">(first opening Med Lab Luke)&#x000A;&#x000A;Med Lab&#x000A;Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern gr&#x00FC;n gl&#x00FC;hen sehen.&#x000A;&#x000A;Kontaminierter standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see Med Lab Luke and Krankenbett (empty) here.&#x000A;&#x000A;Kontaminationsalarm! In der N&#x00E4;he befindet sich ein Kontaminierter.&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-1226">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;It seems to be locked.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1227"/>
+    </children>
+  </item>
+  <item nodeId="node-1227">
+    <command xml:space="preserve">push AlphaKI-Hebel</command>
+    <result xml:space="preserve">TEST&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;Barry standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar, Sicherheitsausweis and Spind (in which is Mobitab) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">look spind</command>
+    <result xml:space="preserve">Ein Spind in dem Ausr&#x00FC;stung der Besatzung aufbewahrt wird.&#x000A;&#x000A;In Spind is Mobitab.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-1228">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening T&#x00FC;r zwischen Andockbucht und Hangar)&#x000A;&#x000A;Hangar&#x000A;Du bist in dem Hangar.&#x000A;&#x000A;Barry standing  in der N&#x00E4;he.&#x000A;&#x000A;You can also see Hangar-Luke, T&#x00FC;r zwischen Andockbucht und Hangar and a Spind (in which are Sicherheitsausweis and Mobitab) here.&#x000A;&#x000A;Lagerraum&#x000A;Du bist im Lagerraum.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum, Luke zwischen Cafeteria und Lagerraum, a Raumanzug and AlphaKI-Hebel here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1229"/>
+    </children>
+  </item>
+  <item nodeId="node-1229">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;It seems to be locked.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1230"/>
+      <child nodeId="node-1232"/>
+    </children>
+  </item>
+  <item nodeId="node-1230">
+    <command xml:space="preserve">push AlphaKi-Hebel</command>
+    <result xml:space="preserve">Die T&#x00FC;r zur Alpha KI wurde entriegelt.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1231"/>
+    </children>
+  </item>
+  <item nodeId="node-1231">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;&#x000A;Alpha KI&#x000A;Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern gr&#x00FC;n gl&#x00FC;hen sehen.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum and T&#x00FC;r zwischen Lagerraum und Alpha KI here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-1232">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Lagerraum&#x000A;Du bist im Lagerraum.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum, Luke zwischen Cafeteria und Lagerraum, a Raumanzug and AlphaKI-Hebel here.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1233"/>
+    </children>
+  </item>
+  <item nodeId="node-1233">
+    <command xml:space="preserve">look AlphaKI-Hebel</command>
+    <result xml:space="preserve">Der Hebel scheint die Luke zur Alpha KI zu entriegeln wenn man ihn dr&#x00FC;ckt.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1234"/>
+    </children>
+  </item>
+  <item nodeId="node-1234">
+    <command xml:space="preserve">push AlphaKI-Hebel</command>
+    <result xml:space="preserve">Die T&#x00FC;r zur Alpha KI wurde entriegelt.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1235"/>
+    </children>
+  </item>
+  <item nodeId="node-1235">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A; Die Luke zur Alpha KI hat sich wieder verriegelt.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1236"/>
+    </children>
+  </item>
+  <item nodeId="node-1236">
+    <command xml:space="preserve">push AlphaKI-Hebel</command>
+    <result xml:space="preserve">Die T&#x00FC;r zur Alpha KI wurde entriegelt.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1237"/>
+    </children>
+  </item>
+  <item nodeId="node-1237">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A; Die Luke zur Alpha KI hat sich wieder verriegelt.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1238"/>
+    </children>
+  </item>
+  <item nodeId="node-1238">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;It seems to be locked.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1239"/>
+    </children>
+  </item>
+  <item nodeId="node-1239">
+    <command xml:space="preserve">push AlphaKI-Hebel</command>
+    <result xml:space="preserve">Die T&#x00FC;r zur Alpha KI wurde entriegelt.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-1240"/>
+    </children>
+  </item>
+  <item nodeId="node-1240">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;&#x000A;Alpha KI&#x000A;Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern gr&#x00FC;n gl&#x00FC;hen sehen.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum and T&#x00FC;r zwischen Lagerraum und Alpha KI here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
