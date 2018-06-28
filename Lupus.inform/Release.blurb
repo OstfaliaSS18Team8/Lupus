@@ -1,18 +1,18 @@
 ! Blurb file created by Inform build 6M62
 
-status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\andre\Documents\GitHub\Lupus\Lupus.inform\Build\StatusCblorb.html"
+status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\Karl\Google Drive\Siemens & Ostfalia\Semester & Aufgaben\SS18\CS-Kompetenzen\git repos\Lupus\Lupus.inform\Build\StatusCblorb.html"
 
 
 ! Identification
 
-project folder "C:\Users\andre\Documents\GitHub\Lupus\Lupus.inform"
-release to "C:\Users\andre\Documents\GitHub\Lupus\Lupus.materials\Release"
+project folder "C:\Users\Karl\Google Drive\Siemens & Ostfalia\Semester & Aufgaben\SS18\CS-Kompetenzen\git repos\Lupus\Lupus.inform"
+release to "C:\Users\Karl\Google Drive\Siemens & Ostfalia\Semester & Aufgaben\SS18\CS-Kompetenzen\git repos\Lupus\Lupus.materials\Release"
 
 ! Blorb instructions
 
 storyfile leafname "Lupus.gblorb"
-storyfile "C:\Users\andre\Documents\GitHub\Lupus\Lupus.inform\Build\output.ulx" include
-ifiction "C:\Users\andre\Documents\GitHub\Lupus\Lupus.inform\Metadata.iFiction" include
+storyfile "C:\Users\Karl\Google Drive\Siemens & Ostfalia\Semester & Aufgaben\SS18\CS-Kompetenzen\git repos\Lupus\Lupus.inform\Build\output.ulx" include
+ifiction "C:\Users\Karl\Google Drive\Siemens & Ostfalia\Semester & Aufgaben\SS18\CS-Kompetenzen\git repos\Lupus\Lupus.inform\Metadata.iFiction" include
 cover "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
 picture 1 "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
 

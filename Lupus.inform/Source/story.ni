@@ -3,7 +3,7 @@
 Use $MAX_STATIC_DATA of 100000000.
 Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
-
+Use undo prevention.
 
 [Regionen]
 
