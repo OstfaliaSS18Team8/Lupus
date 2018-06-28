@@ -1292,7 +1292,7 @@ Before opening TÜR_KommunikationsModulZUGammaDeltaKorridor:
 
 
 Before going through TÜR_KommunikationsModulZUGammaDeltaKorridor:
-	if the player carries nothing:
+	if the player carries nothing and the player is wearing nothing:
 		continue the action;
 	else:
 		Repeat with i running through list of things carried by the player:
@@ -1325,8 +1325,12 @@ After reading a command:
 		Now the player is in Kommunikationsbasis;
 		Now the player carries the mobitab;
 		Now the player wears the raumanzug;
-		Stop the action;
+		Stop the action;	
 	if the player's command includes "COMTEST4":
+		Now the player is in Kommunikationsbasis;
+		Now the player wears the raumanzug;
+		Stop the action;
+	if the player's command includes "COMTEST5":
 		Now the player is in Gamma-Delta-Korridor;
 		Stop the action;
 ]
