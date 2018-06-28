@@ -21,7 +21,6 @@
     <children>
       <child nodeId="node-3"/>
       <child nodeId="node-20"/>
-      <child nodeId="node-38"/>
     </children>
   </item>
   <item nodeId="node-3">
@@ -328,6 +327,157 @@
   <item nodeId="node-37">
     <command xml:space="preserve">up</command>
     <result xml:space="preserve">(first opening Luke zwischen Alpha KI und Lagerraum)&#x000A;&#x000A;Alpha KI&#x000A;Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern gr&#x00FC;n gl&#x00FC;hen sehen.&#x000A;&#x000A;You can see Luke zwischen Alpha KI und Lagerraum and T&#x00FC;r zwischen Lagerraum und Alpha KI here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">COMTEST</command>
+    <result xml:space="preserve">Kommunikationsbasis&#x000A;Du bist in der Kommunikationsbasis&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor. and T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-39"/>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">inventory</command>
+    <result xml:space="preserve">You are carrying:&#x000A;  Mobitab&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Kommunikationsmodul&#x000A;Du bist im Kommunikationsmodul.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">go up</command>
+    <result xml:space="preserve">Sauerstoffabfall im &#x00E4;u&#x00DF;eren Ring  !!!(WIP)!!! &#x000A;(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;&#x000A;Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor. Eines der &#x00E4;u&#x00DF;eren Fenster wurde besch&#x00E4;digt und ist undicht.&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung and Hebel here.&#x000A;&#x000A;Der Sauerstoff reicht noch 7 Z&#x00FC;ge.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">COMTEST1</command>
+    <result xml:space="preserve">Kommunikationsbasis&#x000A;Du bist in der Kommunikationsbasis&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor. and T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Sauerstoffabfall im &#x00E4;u&#x00DF;eren Ring  !!!(WIP)!!! &#x000A;(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;&#x000A;Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor. Eines der &#x00E4;u&#x00DF;eren Fenster wurde besch&#x00E4;digt und ist undicht.&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung and Hebel here.&#x000A;&#x000A;Der Sauerstoff reicht noch 7 Z&#x00FC;ge.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">COMTEST2</command>
+    <result xml:space="preserve">Kommunikationsbasis&#x000A;Du bist in der Kommunikationsbasis&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor. and T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-45"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Der Wartungsshcaft ist zu eng um mit Gegenst&#x00E4;nden durchzugehen. (Au&#x00DF;er dem Mobitab)&#x000A;You are carrying: &#x000A;  Sicherheitsausweis&#x000A;  Mobitab&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-46"/>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">inventory</command>
+    <result xml:space="preserve">You are carrying:&#x000A;  Sicherheitsausweis&#x000A;  Mobitab&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">drop Sicherheitsausweis</command>
+    <result xml:space="preserve">Dropped.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-48"/>
+    </children>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Sauerstoffabfall im &#x00E4;u&#x00DF;eren Ring  !!!(WIP)!!! &#x000A;(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;&#x000A;Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor. Eines der &#x00E4;u&#x00DF;eren Fenster wurde besch&#x00E4;digt und ist undicht.&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung and Hebel here.&#x000A;&#x000A;Der Sauerstoff reicht noch 7 Z&#x00FC;ge.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-49"/>
+    </children>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">Kommunikationsbasis&#x000A;Du bist in der Kommunikationsbasis&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., Sicherheitsausweis and T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">COMTEST3</command>
+    <result xml:space="preserve">Kommunikationsbasis&#x000A;Du bist in der Kommunikationsbasis&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor. and T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-51"/>
+      <child nodeId="node-52"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;Der Hebel zur Wartungsluke ist besch&#x00E4;digt. Sie l&#x00E4;sst sich nicht von dieser Seite &#x00F6;ffnen.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Der Wartungschaft ist zu eng um mit Gegenst&#x00E4;nden oder Kleidung durchzugehen. (Au&#x00DF;er dem Mobitab)&#x000A;You are carrying: &#x000A;  a Raumanzug&#x000A;  Mobitab&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-53"/>
+      <child nodeId="node-55"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">drop raumanzug</command>
+    <result xml:space="preserve">(first taking the Raumanzug off)&#x000A;Dropped.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-54"/>
+    </children>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Sauerstoffabfall im &#x00E4;u&#x00DF;eren Ring  !!!(WIP)!!! &#x000A;(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;&#x000A;Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor. Eines der &#x00E4;u&#x00DF;eren Fenster wurde besch&#x00E4;digt und ist undicht.&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung and Hebel here.&#x000A;&#x000A;Der Sauerstoff reicht noch 7 Z&#x00FC;ge.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">drop Raumanzug</command>
+    <result xml:space="preserve">(first taking the Raumanzug off)&#x000A;Dropped.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-56"/>
+    </children>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">u</command>
+    <result xml:space="preserve">Sauerstoffabfall im &#x00E4;u&#x00DF;eren Ring  !!!(WIP)!!! &#x000A;(first opening Luke zwischen KommunikationsModul und Gamma Delta Korridor.)&#x000A;&#x000A;Gamma-Delta-Korridor&#x000A;Du bist in dem Gamma-Delta-Korridor. Eines der &#x00E4;u&#x00DF;eren Fenster wurde besch&#x00E4;digt und ist undicht.&#x000A;&#x000A;You can see Luke zwischen KommunikationsModul und Gamma Delta Korridor., T&#x00FC;r zwischen Gamma Delta Kreuzung und Delta Kreuzung, T&#x00FC;r zwischen Gamma Kreuzung und Gamma Delta Kreuzung and Hebel here.&#x000A;&#x000A;Der Sauerstoff reicht noch 7 Z&#x00FC;ge.&#x000A;&#x000A;Du h&#x00F6;rst den Stationsalarm, der die meisten Ger&#x00E4;usche &#x00FC;bert&#x00F6;nen w&#x00FC;rde.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
