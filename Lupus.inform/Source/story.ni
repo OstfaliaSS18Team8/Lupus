@@ -1330,14 +1330,21 @@ After reading a command:
 ]
 
 
+Section Pult im Med-Lab
 
+Pult is a fixed in place thing in Med-Lab. "Es scheint einer Art Videoblog auf dem Pult gespeichert zu sein.[line break]Nutze 'Videoblog anschauen'."
 
+Understand "Videoblog anschauen" as "[videoblog]".
 
-
-
-
-
-
+After reading a command:
+	if the player's command matches "[videoblog]":
+		if the player can see the Pult:
+			Say "[line break]Der Videoblog des Stationsarztes begint zu spielen:[line break]Es gibt eine biologische Probe, die vom nahegelegenen Alien-Platenen gewonnen wurde.[line break]Aufgrund eines Fehlers bei der Dekonatmination der Raumanzüge sind zahlreiche Mitarbeiter mit einem fremden Erreger kontaminiert worden.[line break]Halten Sie sich von kontaminierten Personen fern![line break]Bleiben Sie nicht zu lange im gleichen Raum mit einem kontaminierter Person. Sie könnten sich anstecken!";
+			Now StationsalarmGehört is false;
+			Stop the action;
+		else: 
+			Say "Ich sehe hier keinen Videoblog.";
+			Stop the action;
 
 
 
