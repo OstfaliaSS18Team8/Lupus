@@ -103,7 +103,7 @@ Com_Modul is a region.
 			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
 				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis.
-				TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.
+				[TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.]
 				
 		[Zwischen äußerem und innerem Ring]
 			Luke_Xeno										is a Tür_zum_inneren_Ring with printed name	"Xeno Lab Luke".
@@ -1277,6 +1277,66 @@ Every turn:
 			now AlphaKI-Hebel-Zähler is 0;
 			now Luke_AlphaKIZULagerraum is locked;
 			say " Die Luke zur Alpha KI hat sich wieder verriegelt.".
+
+
+Section TÜR_KommunikationsModulZUGammaDeltaKorridor
+
+Before opening TÜR_KommunikationsModulZUGammaDeltaKorridor:
+	If the player is in Gamma-Delta-Korridor:
+		Say "Der Hebel zur Wartungsluke ist beschädigt. Sie lässt sich nicht von dieser Seite öffnen.";
+		Stop the action;
+	else:
+		Continue the action;
+
+
+Before going through TÜR_KommunikationsModulZUGammaDeltaKorridor:
+	if the player carries nothing:
+		continue the action;
+	else:
+		Repeat with i running through list of things carried by the player:
+			if i is not the Mobitab:
+				Say "Der Wartungsschaft ist zu eng um mit Gegenständen oder Kleidung durchzugehen. (Außer dem Mobitab)[line break]";
+				 say "You are carrying: [line break]"; 
+				list the contents of the player, with newlines, indented, including contents, with extra indentation;
+				Stop the action;
+		if the player is wearing something:
+			Say "Der Wartungschaft ist zu eng um mit Gegenständen oder Kleidung durchzugehen. (Außer dem Mobitab)[line break]";
+			 say "You are carrying: [line break]"; 	
+			list the contents of the player, with newlines, indented, including contents, with extra indentation;
+			Stop the action;
+		else:
+			Continue the action;
+
+[TESTING STUFF]
+[
+After reading a command:
+	if the player's command includes "COMTEST1":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Stop the action;
+	if the player's command includes "COMTEST2":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player carries the Sicherheitsausweis;
+		Stop the action;
+	if the player's command includes "COMTEST3":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player wears the raumanzug;
+		Stop the action;
+	if the player's command includes "COMTEST4":
+		Now the player is in Gamma-Delta-Korridor;
+		Stop the action;
+]
+
+
+
+
+
+
+
+
+
 
 
 
