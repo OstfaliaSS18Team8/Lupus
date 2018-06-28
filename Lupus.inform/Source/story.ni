@@ -722,13 +722,15 @@ O2AbfallAktiv is false.
 O2Zähler is a number that varies.
 O2Zähler is 8.
 
-instead of going up from Kommunikationsbasis:
+After of going up from Kommunikationsbasis:
 	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
 	[TODO Palette in den Raum moven]
-	say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";
+	say "Die Palette, die die Xeno-Lab Luke offen gehalten hat löst sich. Die Palette fliegt durch die Räume und beschädigt eine Bodenluke. [line break]Die Luft wird dünn!";
+	[say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";]
 	now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 	now O2AbfallAktiv is true;
 	continue the action;
+
 
 every turn:
 	if O2AbfallAktiv is true:
