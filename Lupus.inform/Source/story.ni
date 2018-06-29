@@ -749,11 +749,11 @@ Klappe is a thing. "Interesant aber ich kann sie nicht öffnen.".
 Klappe is in Xeno-Lab.
 Klappe is fixed in place.
 
-Offene-Klappe is a thing. "Hier war mal eine Pfiole.".
+Offene-Klappe is a thing. "Hier war mal eine Phiole.".
 Offene-Klappe is fixed in place.
 
-Glasscherben der Pfiole is a thing. "Lieber nicht anfassen. Sieht scharf aus.".
-Glasscherben der Pfiole is fixed in place.
+Glasscherben der Phiole is a thing. "Lieber nicht anfassen. Sieht scharf aus.".
+Glasscherben der Phiole is fixed in place.
 
 Blinkender_Knopf is a thing.
 Blinkender_Knopf is in Xeno-Lab.
@@ -763,15 +763,22 @@ instead of pushing Blinkender_Knopf:
 	Now the Player is Barry;
 	Now the description of Barry is "As good-looking as ever.";
 	Now Percy is nowhere;
-	Now KontaminierterPercy is in Xeno-Lab; [TODO oder in der Dekontaminationskabine???]
+	Now KontaminierterPercy is in Xeno-Lab; 
 	Now Klappe is nowhere;
 	Now Offene-Klappe is in Xeno-Lab;
-	Now Glasscherben der Pfiole is in Xeno-Lab;
-	[TODO mit dem Scenenwechsel "kompatibel" machen]
-	Say "eventuel hier Cutscene-Text einfügen";
-	Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";
-	Now the Farbe of Maschinenkern is "rot";
+	Now Glasscherben der Phiole is in Xeno-Lab;
+	Say "Als Percy den Knopf drückt verstummen endlich das nervige Pfeifen und der Stationsalarm.[line break]
+		Eine Klappe an der Wand des Xeno.Labs öffnet sich und gibt den Blick auf eine Phiole mit rosafarbenen Nebel frei.[line break]
+		Er versucht die Phiole an sich zu nehmen, jedoch fällt sie ihm herrunter und zerspringt.[line break]
+		Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
+		[line break]
+		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
+		Berry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
+	[TODO Maschinenkernfarbe ändert sich hier nicht?]
+	[Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";]
+	[Now the Farbe of Maschinenkern is "rot";]
 	Now StationsalarmAktiv is false;
+	Now XenoPfeifenAktiv is false;
 
 
 Section Spieler
@@ -798,23 +805,28 @@ XenoPfeifenHörbar of room usually is false.
 XenoPfeifenHörbar of Xeno-Lab is true.
 XenoPfeifenGehört is truth state that varies.
 XenoPfeifenGehört is false.
+XenoPfeifenAktiv is a truth state that varies.
+XenoPfeifenAktiv is true.
 
 
 every turn:
-	Repeat with XenoPfeifenCounter running through all rooms:
-		if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
-			say "Du hörst ein ohrenbetäubendes Pfeifen.";
-			now XenoPfeifenGehört is true;
-		repeat with XenoPfeifenCounter2 running through all rooms:
-			repeat with XenoPfeifenRichtung running through all directions:
-				if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
-					if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
-						if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
-							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
+	if XenoPfeifenAktiv is true:
+		Repeat with XenoPfeifenCounter running through all rooms:
+			if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
+				say "Du hörst ein ohrenbetäubendes Pfeifen.";
+				now XenoPfeifenGehört is true;
+			repeat with XenoPfeifenCounter2 running through all rooms:
+				repeat with XenoPfeifenRichtung running through all directions:
+					if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
+						if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
+							if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
+								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
+							otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
+								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
 						otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
 							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
-					otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
-						now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
+	otherwise:
+		now XenoPfeifenHörbar of Xeno-Lab is false;
 				
 
 
@@ -1346,11 +1358,33 @@ After reading a command:
 	if the player's command matches "[videoblog]":
 		if the player can see the Pult:
 			Say "[line break]Der Videoblog des Stationsarztes begint zu spielen:[line break]Es gibt eine biologische Probe, die vom nahegelegenen Alien-Platenen gewonnen wurde.[line break]Aufgrund eines Fehlers bei der Dekonatmination der Raumanzüge sind zahlreiche Mitarbeiter mit einem fremden Erreger kontaminiert worden.[line break]Halten Sie sich von kontaminierten Personen fern![line break]Bleiben Sie nicht zu lange im gleichen Raum mit einem kontaminierter Person. Sie könnten sich anstecken!";
-			Now StationsalarmGehört is false;
+			Now StationsalarmAktiv is true;
 			Stop the action;
 		else: 
 			Say "Ich sehe hier keinen Videoblog.";
 			Stop the action;
+
+
+
+
+Section Scenenwechsel
+
+[Wechsel zu Scene 2 geschiet in Section Xeno-Lab]
+
+[Wechsel zu Scene 3:]
+
+Dekontaminationskabine is a container.
+Dekontaminationskabine is in Xeno-Lab.
+Dekontaminationskabine is enterable.
+
+Every turn:
+	if the Player is in Dekontaminationskabine and KontaminierterPercy is in Xeno-Lab and the KontVerfolgt of KontaminierterPercy is true and the number of Kontaminierter in Xeno-Lab is 1:
+		[TODO Keyless entry zur Brücke aktivieren]
+		Now the Farbe of Maschinenkern is "orange";
+		Now KontaminierterPercy is nowhere;
+		Now Percy is on Krankenbett;
+		[TODO postures benutzen]
+		say "Percy wird dekontaminiert";
 
 
 
