@@ -734,14 +734,15 @@ O2AbfallAktiv is false.
 O2Zähler is a number that varies.
 O2Zähler is 8.
 
-After of going up from Kommunikationsbasis:
-	[TODO  eventuel Cutscene aus dem Scenenwechsel einbauen]
+Every turn:
 	[TODO Palette in den Raum moven]
-	say "Die Palette, die die Xeno-Lab Luke offen gehalten hat löst sich. Die Palette fliegt durch die Räume und beschädigt eine Bodenluke. [line break]Die Luft wird dünn!";
-	[say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";]
-	now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
-	now O2AbfallAktiv is true;
-	continue the action;
+	if PowerWasEverActive is true and O2AbfallAktiv is false:
+		if the player is in Gamma-Delta-Korridor or the player is in Gamma-Kreuzung:
+			say "[line break]Die Palette, die die Xeno-Lab Luke offen gehalten hat löst sich. Die Palette fliegt durch die Räume und beschädigt eine Bodenluke. [line break]Die Luft wird dünn!";
+			[say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";]
+			now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
+			now O2AbfallAktiv is true;
+			continue the action;
 
 
 every turn:
@@ -938,6 +939,9 @@ GeneratorPower is 0.
 PowerIsActive is a truth state that varies.
 PowerIsActive is false;
 
+PowerWasEverActive is a truth state that varies.
+PowerWasEverActive is false;
+
 emergencyCallSended is a truth state that varies.
 emergencyCallSended is false;
 
@@ -946,6 +950,9 @@ A Spacesuit  is a kind of thing. A Spacesuit is always wearable.
 The Raumanzug is a Spacesuit.
 The description of Raumanzug is "Ein gut erhaltener Raumanzug".
 The Raumanzug is in Lagerraum.
+Raumanzug has a truth state called kaputt.
+Kaputt of Raumanzug is false.
+
 
 The Start Knopf is a device. The description is " Dieser Knopf startet den Generator".
 The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
@@ -954,8 +961,11 @@ The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
 Instead of switching on Start Knopf :
 	Now GeneratorPower is 5;
 	Now PowerIsActive is true;
-	Remove Raumanzug from play;
-	Say "Der Generator startet mit einem lauten Krachen, ein Splitter löst sich und beschädigt den Raumanzug";
+	Now PowerWasEverActive is true;
+	[Remove Raumanzug from play;]
+	if the player is wearing spacesuit:
+		Now Kaputt of Raumanzug is true;
+	Say "Der Generator startet mit einem lauten Krachen[if kaputt of raumanzug is true], ein Splitter löst sich und beschädigt den Raumanzug.[else].[end if]";
 	Now the farbe of Maschinenkern is "rot";
 
   
@@ -1422,12 +1432,20 @@ Before opening TÜR_AndockBuchtZUKommunikationsbasis:
 		if the player is carrying spacesuit:
 			try wearing raumanzug;
 			say "Ich habe den Raumanzug angezogen.";
-			continue the action;
+			if kaputt of raumanzug is false:
+				continue the action;
+			else:
+				say "Der Raumanzug ist kaputt. Ich kann ihn nicht mehr für einen Weltraumspaziergang verwenden.";
+				stop the action;
 		else:
 			say "Ich benötige einen Raumanzug um hier durch zu gehen";
 			stop the action;
 	else:
-		continue the action;
+		if kaputt of raumanzug is false:
+			continue the action;
+		else:
+			say "Der Raumanzug ist kaputt. Ich kann ihn nicht mehr für einen Weltraumspaziergang verwenden.";
+			stop the action;
 
 After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	Now TÜR_AndockBuchtZUKommunikationsbasis is closed;
