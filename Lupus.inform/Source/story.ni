@@ -5,6 +5,18 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 Use undo prevention.
 
+[Switch current character debug command]
+[
+After reading a command:
+	if the player's command includes "CHANGE":
+		if Barry is the player:
+			Now the Player is Percy;
+			stop the action;
+		else:
+			Now the Player is Barry;
+			stop the action;
+]
+
 [Regionen]
 
 Hauptebene is a region.
@@ -773,7 +785,7 @@ instead of pushing Blinkender_Knopf:
 		Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
 		[line break]
 		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
-		Berry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
+		Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
 	[TODO Maschinenkernfarbe ändert sich hier nicht?]
 	[Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";]
 	[Now the Farbe of Maschinenkern is "rot";]
@@ -789,7 +801,7 @@ Section Spieler
 	The Player is Percy.
 
 
-[Berry]
+[Barry]
 	Barry is a Person.
 	Barry is in Hangar.
 	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
@@ -864,6 +876,14 @@ Section Drucklufthammer
 
 
 The Druha is a device. The description of the Druha is "Sieht ganz schön schwer aus. Die Lade LED leuchtet[if switched on] grün [else] rot [end if]".
+The Druha is in the Spind.
+
+Instead of taking the Druha:
+	if Barry is the player:
+		continue the action;
+	else:
+		Say "Ich brauche keinen Druchlufthammer.";
+		stop the action;
 
 Instead of switching on Druha:
 	if Druha is switched on:
@@ -972,6 +992,13 @@ Section Mobitab
 Mobitab is a thing.
 Mobitab is in the Spind.
 [Sauerstoffabfall Mitteilung im Sauerstoffabfall mit drin]
+
+Instead of taking the Mobitab:
+	if Barry is the player:
+		continue the action;
+	else:
+		Say "Ich brauche kein Mobitab.";
+		stop the action;
 
 
 [TODO: Starten der Rettungskapsel]
