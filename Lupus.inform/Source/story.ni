@@ -1414,5 +1414,40 @@ Every turn:
 		say "Percy wird dekontaminiert";
 
 
+Section Weltraumtür
+[Spacesuit]
+
+Before opening TÜR_AndockBuchtZUKommunikationsbasis:
+	if the player is not wearing spacesuit:
+		if the player is carrying spacesuit:
+			try wearing raumanzug;
+			say "Ich habe den Raumanzug angezogen.";
+			continue the action;
+		else:
+			say "Ich benötige einen Raumanzug um hier durch zu gehen";
+			stop the action;
+	else:
+		continue the action;
+
+After going through TÜR_AndockBuchtZUKommunikationsbasis:
+	Now TÜR_AndockBuchtZUKommunikationsbasis is closed;
+	say "Nach einen kurzem Weltraumspaziergang erreiche ich [the location of the player].[line break]";
+	continue the action;
+
+Before reading a command when the TÜR_AndockBuchtZUKommunikationsbasis was open: 
+	Now TÜR_AndockBuchtZUKommunikationsbasis is closed; 
+	if the player can see TÜR_AndockBuchtZUKommunikationsbasis: 
+		say "Die Weltraumluke schließt sich wieder.";
 
 
+[TESTING STUFF]
+[
+After reading a command:
+	if the player's command includes "RAUMTEST1":
+		Now the player wears the raumanzug;
+		Stop the action;
+	if the player's command includes "RAUMTEST2":
+		Now the player carries the raumanzug;
+		Stop the action;
+]
+		
