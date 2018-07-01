@@ -6,7 +6,7 @@ Use DICT_WORD_SIZE of 100.
 Use undo prevention.
 
 [Switch current character debug command]
-[
+
 After reading a command:
 	if the player's command includes "CHANGE":
 		if Barry is the player:
@@ -15,7 +15,7 @@ After reading a command:
 		else:
 			Now the Player is Barry;
 			stop the action;
-]
+
 
 [Regionen]
 
@@ -377,6 +377,169 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
 
 	[Ende Sicherheitstüren]
+
+[Öffen und Schließen von Türen]
+
+Understand "toggle n/e/s/w/u/p/north/east/south/west/up/down" as "[toggle-richtung]".
+
+After reading a command:
+	if the player's command matches "[toggle-richtung]":
+		[up]
+		if the player's command includes "u/up":
+			if the door up of the location is a Tür_Sicherheit:
+				if zerstört of the door up of the location of the player is true:
+					[Tür öffnung]
+					if the door up of the location is closed:
+						Try opening the door up of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door up of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door up of the location is closed:
+					Try opening the door up of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door up of the location of the player;
+					stop the action;
+		[down]
+		if the player's command includes "d/down":
+			if the door down of the location is a Tür_Sicherheit:
+				if zerstört of the door down of the location of the player is true:
+					[Tür öffnung]
+					if the door down of the location is closed:
+						Try opening the door down of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door down of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door down of the location is closed:
+					Try opening the door down of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door down of the location of the player;
+					stop the action;
+		[north]
+		if the player's command includes "n/north":
+			if the door north of the location is a Tür_Sicherheit:
+				if zerstört of the door north of the location of the player is true:
+					[Tür öffnung]
+					if the door north of the location is closed:
+						Try opening the door north of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door north of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door north of the location is closed:
+					Try opening the door north of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door north of the location of the player;
+					stop the action;
+		[east]
+		if the player's command includes "e/east":
+			if the door east of the location is a Tür_Sicherheit:
+				if zerstört of the door east of the location of the player is true:
+					[Tür öffnung]
+					if the door east of the location is closed:
+						Try opening the door east of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door east of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door east of the location is closed:
+					Try opening the door east of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door east of the location of the player;
+					stop the action;
+		[south]
+		if the player's command includes "s/south":
+			if the door south of the location is a Tür_Sicherheit:
+				if zerstört of the door south of the location of the player is true:
+					[Tür öffnung]
+					if the door south of the location is closed:
+						Try opening the door south of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door south of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door south of the location is closed:
+					Try opening the door south of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door south of the location of the player;
+					stop the action;
+		[west]
+		if the player's command includes "w/west":
+			if the door west of the location is a Tür_Sicherheit:
+				if zerstört of the door west of the location of the player is true:
+					[Tür öffnung]
+					if the door west of the location is closed:
+						Try opening the door west of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door west of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door west of the location is closed:
+					Try opening the door west of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door west of the location of the player;
+					stop the action;
 
 
 [-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
