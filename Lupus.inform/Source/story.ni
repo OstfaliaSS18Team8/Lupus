@@ -6,7 +6,7 @@ Use DICT_WORD_SIZE of 100.
 Use undo prevention.
 
 [Switch current character debug command]
-
+[
 After reading a command:
 	if the player's command includes "CHANGE":
 		if Barry is the player:
@@ -15,7 +15,7 @@ After reading a command:
 		else:
 			Now the Player is Barry;
 			stop the action;
-
+]
 
 [Regionen]
 
@@ -1620,6 +1620,31 @@ Before reading a command when the TÜR_AndockBuchtZUKommunikationsbasis was open
 	if the player can see TÜR_AndockBuchtZUKommunikationsbasis: 
 		say "Die Weltraumluke schließt sich wieder.";
 
+Every turn:
+	If the Antigravitationsgreifer is in Kommunikationsbasis and verbunden of Antigravitationsgreifer is true:
+		say "Die Palette ist in das Weltall geschwebt. Nun ist sie weg. [line break]GAME OVER";
+		end the Story;
+
+[Ersticken von Kontaminierten]
+ErstickCounter is a number that varies.
+ErstickCounter is 0.
+
+After going through TÜR_AndockBuchtZUKommunikationsbasis:
+	Repeat with xxx running through all Kontaminierter:
+		if KontVerfolgt of xxx is true:
+			Remove xxx from play;
+			if xxx is KontaminierterPercy:
+				say "Der Kontaminierte Percy is im Weltall erstickt. [line break]GAME OVER";
+				end the Story;
+			else:
+				Increase ErstickCounter by 1;
+	If ErstickCounter is 1:
+		Say "Beim Folgen in den nächsten Raum ist ein Kontaminierter im Weltall erstickt.";
+		now ErstickCounter is 0;
+	otherwise if ErstickCounter is not 0:
+		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
+		now ErstickCounter is 0;
+		
 
 [TESTING STUFF]
 [
