@@ -269,7 +269,7 @@ Com_Modul is a region.
 		
 	[SIicherheitstüren]
 	
-		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
+		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/d/north/east/south/west/up/down" as "[benutz-richtung]".
 		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
 
 After reading a command:
@@ -377,6 +377,169 @@ Before reading a command when the Luke_HangarZUGammaKreuz was open:
 		say "Die Luke zwischen Hangar und Gamma Kreuzung schließt sich wieder.";
 
 	[Ende Sicherheitstüren]
+
+[Öffen und Schließen von Türen]
+
+Understand "toggle n/e/s/w/u/p/north/east/south/west/up/down" as "[toggle-richtung]".
+
+After reading a command:
+	if the player's command matches "[toggle-richtung]":
+		[up]
+		if the player's command includes "u/up":
+			if the door up of the location is a Tür_Sicherheit:
+				if zerstört of the door up of the location of the player is true:
+					[Tür öffnung]
+					if the door up of the location is closed:
+						Try opening the door up of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door up of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door up of the location is closed:
+					Try opening the door up of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door up of the location of the player;
+					stop the action;
+		[down]
+		if the player's command includes "d/down":
+			if the door down of the location is a Tür_Sicherheit:
+				if zerstört of the door down of the location of the player is true:
+					[Tür öffnung]
+					if the door down of the location is closed:
+						Try opening the door down of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door down of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door down of the location is closed:
+					Try opening the door down of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door down of the location of the player;
+					stop the action;
+		[north]
+		if the player's command includes "n/north":
+			if the door north of the location is a Tür_Sicherheit:
+				if zerstört of the door north of the location of the player is true:
+					[Tür öffnung]
+					if the door north of the location is closed:
+						Try opening the door north of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door north of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door north of the location is closed:
+					Try opening the door north of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door north of the location of the player;
+					stop the action;
+		[east]
+		if the player's command includes "e/east":
+			if the door east of the location is a Tür_Sicherheit:
+				if zerstört of the door east of the location of the player is true:
+					[Tür öffnung]
+					if the door east of the location is closed:
+						Try opening the door east of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door east of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door east of the location is closed:
+					Try opening the door east of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door east of the location of the player;
+					stop the action;
+		[south]
+		if the player's command includes "s/south":
+			if the door south of the location is a Tür_Sicherheit:
+				if zerstört of the door south of the location of the player is true:
+					[Tür öffnung]
+					if the door south of the location is closed:
+						Try opening the door south of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door south of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door south of the location is closed:
+					Try opening the door south of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door south of the location of the player;
+					stop the action;
+		[west]
+		if the player's command includes "w/west":
+			if the door west of the location is a Tür_Sicherheit:
+				if zerstört of the door west of the location of the player is true:
+					[Tür öffnung]
+					if the door west of the location is closed:
+						Try opening the door west of the location of the player;
+						stop the action;
+					otherwise:
+						Try closing the door west of the location of the player;
+						stop the action;
+				otherwise:
+					if the door up of the location is closed:
+						Say "Die Tür lässt sich nicht öffnen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu öffen.";
+						stop the action;
+					otherwise:
+						Say "Die Tür lässt sich nicht schließen. Vielleicht kann einen Sicherheitsausweis benutzen um sie zu schließen.";
+						stop the action;
+			otherwise:
+				[Tür öffnung]
+				if the door west of the location is closed:
+					Try opening the door west of the location of the player;
+					stop the action;
+				otherwise:
+					Try closing the door west of the location of the player;
+					stop the action;
 
 
 [-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
@@ -1457,6 +1620,31 @@ Before reading a command when the TÜR_AndockBuchtZUKommunikationsbasis was open
 	if the player can see TÜR_AndockBuchtZUKommunikationsbasis: 
 		say "Die Weltraumluke schließt sich wieder.";
 
+Every turn:
+	If the Antigravitationsgreifer is in Kommunikationsbasis and verbunden of Antigravitationsgreifer is true:
+		say "Die Palette ist in das Weltall geschwebt. Nun ist sie weg. [line break]GAME OVER";
+		end the Story;
+
+[Ersticken von Kontaminierten]
+ErstickCounter is a number that varies.
+ErstickCounter is 0.
+
+After going through TÜR_AndockBuchtZUKommunikationsbasis:
+	Repeat with xxx running through all Kontaminierter:
+		if KontVerfolgt of xxx is true:
+			Remove xxx from play;
+			if xxx is KontaminierterPercy:
+				say "Der Kontaminierte Percy is im Weltall erstickt. [line break]GAME OVER";
+				end the Story;
+			else:
+				Increase ErstickCounter by 1;
+	If ErstickCounter is 1:
+		Say "Beim Folgen in den nächsten Raum ist ein Kontaminierter im Weltall erstickt.";
+		now ErstickCounter is 0;
+	otherwise if ErstickCounter is not 0:
+		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
+		now ErstickCounter is 0;
+		
 
 [TESTING STUFF]
 [
