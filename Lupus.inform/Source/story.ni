@@ -269,7 +269,7 @@ Com_Modul is a region.
 		
 	[SIicherheitstüren]
 	
-		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]".
+		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/d/north/east/south/west/up/down" as "[benutz-richtung]".
 		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
 
 After reading a command:
