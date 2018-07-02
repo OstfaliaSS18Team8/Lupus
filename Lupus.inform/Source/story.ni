@@ -742,10 +742,6 @@ Before reading a command:
 		Spind is a container in Hangar.
 		Description of Spind is "Ein Spind in dem Ausrüstung der Besatzung aufbewahrt wird.".
 		Spind is fixed in place.
-		
-	[Notrufknopf in der Brücke]
-
-
 
 
 Section Kontaminierte
@@ -855,7 +851,11 @@ Every turn:
 		Say "Dir sind [Kontzähler3] Kontaminierte in den nächsten Raum gefolgt.";
 		now Kontzähler3 is 0;
 						
-				
+Every turn:
+	Repeat with xxx running through all Kontaminierter:
+		if xxx is not KontaminierterPercy and xxx is in the location of KontaminierterPercy:
+			say "[line break][line break]Der kontaminierte Percy befindet sich im gleichen Raum wie ein anderer Kontaminierte. Du kannst sie nicht trennen.[line break][line break]GAME OVER[line break] ";
+			end the story;			
 				
 
 Kontaminierter1 is a Kontaminierter.
@@ -1153,11 +1153,18 @@ Check contactPercy:
 	
 Carry out contactPercy:
 	Now emergencyCallSended is true.
-  
-Report contactPercy:
-	Say "Du hörst Percy jubeln, der Notruf wurde abgesetzt. Du solltest ihn abholen, zu den Rettungskapseln gelangen und dann nichts wie weg hier.".
-		
+ 
+NotrufAbgesetzt is a truth state that varies.
+NotrufAbgesetzt is false.
 
+Report contactPercy:
+	Say "Du hörst Percy jubeln, der Notruf wurde abgesetzt. Du solltest ihn abholen, zu den Rettungskapseln gelangen und dann nichts wie weg hier.";
+	Now NotrufAbgesetzt is true;
+		
+Every turn:
+	If the player is in Alpha-Ki and NotrufAbgesetzt is true:
+		say "[line break][line break][line break][line break]Hier folgt das TicTacToe und die Scene 5.[line break]";
+		End the story;
 
 
 Section Mobitab
@@ -1192,12 +1199,11 @@ Below Brücke is LukeZurBrücke.
 LukeZurBrücke is above Besprechungsraum.
 
 Before going through LukeZurBrücke:
-	if the player is carrying the Mobitab and the Farbe of Maschinenkern is "orange"
-	begin;
-		say "Die Tür öffnet sich durch dein Mobitab";
-		Now LukeZurBrücke is not locked;
-		Now LukeZurBrücke is open;
-	end if.
+	if the Farbe of Maschinenkern is "orange":
+		if the player is carrying the Mobitab or the player is carrying the Sicherheitsausweis:
+			say "Die Tür öffnet sich durch dein [if the player is carrying the mobitab]Mobitab[else]Sicherheitsausweis[end if].";
+			Now LukeZurBrücke is not locked;
+			Now LukeZurBrücke is open;
 
 After going through LukeZurBrücke:
 	Now LukeZurBrücke is locked;
