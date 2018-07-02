@@ -5,18 +5,6 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 Use undo prevention.
 
-[Switch current character debug command]
-[
-After reading a command:
-	if the player's command includes "CHANGE":
-		if Barry is the player:
-			Now the Player is Percy;
-			stop the action;
-		else:
-			Now the Player is Barry;
-			stop the action;
-]
-
 [Regionen]
 
 Hauptebene is a region.
@@ -265,12 +253,12 @@ Com_Modul is a region.
 		Sicherheitsausweis is a thing.
 		Sicherheitsausweis is in the Spind.
 		Description of Sicherheitsausweis is "Ein Sicherheitsausweis um die Luke vom Hangar in den äußeren Ring zu öffenen.".
-		Understand "Ausweis" and "sa" as the Sicherheitsausweis. [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
+		Understand "Ausweis" and "sa" as the Sicherheitsausweis. 
 		
 	[SIicherheitstüren]
 	
 		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/d/north/east/south/west/up/down" as "[benutz-richtung]".
-		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
+		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". 
 
 After reading a command:
 	if the player's command matches "[benutz-richtung]":
@@ -541,13 +529,6 @@ After reading a command:
 					Try closing the door west of the location of the player;
 					stop the action;
 
-
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-
 	[Tür_zum_inneren_Ring]
 	
 	Raumfähre is a container in Andockbucht.
@@ -630,6 +611,9 @@ After reading a command:
 			else:
 				say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
 				stop the action;
+		else if the palette is not nowhere and the palette is not in the location of the antigravitationsgreifer:
+			say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden.";
+			stop the action;
 		else:
 			say "Die Palette ist bereits am Antigravitaionsgreifer befestigt.";
 			stop the action;
@@ -713,12 +697,6 @@ Before reading a command:
 
 
 	[Ende Tür_zum_inneren_Ring]
-
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
 
 
 	[Laborkittel in Gamma-Delta-Korridor]
@@ -898,13 +876,13 @@ O2Zähler is a number that varies.
 O2Zähler is 8.
 
 Every turn:
-	[TODO Palette in den Raum moven]
 	if PowerWasEverActive is true and O2AbfallAktiv is false:
 		if the player is in Gamma-Delta-Korridor or the player is in Gamma-Kreuzung:
 			say "[line break]Die Palette, die die Xeno-Lab Luke offen gehalten hat löst sich. Die Palette fliegt durch die Räume und beschädigt eine Bodenluke. [line break]Die Luft wird dünn!";
-			[say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";]
 			now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 			now O2AbfallAktiv is true;
+			Now the palette is in Gamma-Delta-Korridor;
+			Now the palette is fixed in place;
 			continue the action;
 
 
@@ -1023,7 +1001,6 @@ StationsalarmAktiv is a truth state that varies.
 StationsalarmAktiv is true.
 StationsalarmGehört is a truth state that varies.
 StationsalarmGehört is false.
-[TODO Stationsalarm beim anschauen des Blogs wieder aktievieren.]
 
 every turn:
 	if StationsalarmAktiv is true:
@@ -1152,17 +1129,14 @@ Check contactPercy:
 		say "Percy berichtet, dass der Knopf nicht funktioniert, offenbar wird er nicht mit Strom versorgt." instead.
 	
 Carry out contactPercy:
-	Now emergencyCallSended is true.
- 
-NotrufAbgesetzt is a truth state that varies.
-NotrufAbgesetzt is false.
+	Now emergencyCallSended is true;
+	Now percy is in Brücke;
 
 Report contactPercy:
 	Say "Du hörst Percy jubeln, der Notruf wurde abgesetzt. Du solltest ihn abholen, zu den Rettungskapseln gelangen und dann nichts wie weg hier.";
-	Now NotrufAbgesetzt is true;
 		
 Every turn:
-	If the player is in Alpha-Ki and NotrufAbgesetzt is true:
+	If the player is in Alpha-Ki and emergencyCallSended is true:
 		say "[line break][line break][line break][line break]Hier folgt das TicTacToe und die Scene 5.[line break]";
 		End the story;
 
@@ -1527,32 +1501,6 @@ Before going through TÜR_KommunikationsModulZUGammaDeltaKorridor:
 		else:
 			Continue the action;
 
-[TESTING STUFF]
-[
-After reading a command:
-	if the player's command includes "COMTEST1":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Stop the action;
-	if the player's command includes "COMTEST2":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player carries the Sicherheitsausweis;
-		Stop the action;
-	if the player's command includes "COMTEST3":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player wears the raumanzug;
-		Stop the action;	
-	if the player's command includes "COMTEST4":
-		Now the player is in Kommunikationsbasis;
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "COMTEST5":
-		Now the player is in Gamma-Delta-Korridor;
-		Stop the action;
-]
-
 
 Section Pult im Med-Lab
 
@@ -1650,10 +1598,53 @@ After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	otherwise if ErstickCounter is not 0:
 		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
 		now ErstickCounter is 0;
-		
+	
 
-[TESTING STUFF]
+
+
+[Code only above ^]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[Testing only below v]
+
+
+[Switch current character debug command]
 [
+After reading a command:
+	if the player's command includes "CHANGE":
+		if Barry is the player:
+			Now the Player is Percy;
+			stop the action;
+		else:
+			Now the Player is Barry;
+			stop the action;
+
+After reading a command:
+	if the player's command includes "COMTEST1":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Stop the action;
+	if the player's command includes "COMTEST2":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player carries the Sicherheitsausweis;
+		Stop the action;
+	if the player's command includes "COMTEST3":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player wears the raumanzug;
+		Stop the action;	
+	if the player's command includes "COMTEST4":
+		Now the player is in Kommunikationsbasis;
+		Now the player wears the raumanzug;
+		Stop the action;
+	if the player's command includes "COMTEST5":
+		Now the player is in Gamma-Delta-Korridor;
+		Stop the action;
+
 After reading a command:
 	if the player's command includes "RAUMTEST1":
 		Now the player wears the raumanzug;
