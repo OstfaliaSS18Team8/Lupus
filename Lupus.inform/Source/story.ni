@@ -5,18 +5,6 @@ Use MAX_STATIC_DATA of 100000000.
 Use DICT_WORD_SIZE of 100.
 Use undo prevention.
 
-[Switch current character debug command]
-[
-After reading a command:
-	if the player's command includes "CHANGE":
-		if Barry is the player:
-			Now the Player is Percy;
-			stop the action;
-		else:
-			Now the Player is Barry;
-			stop the action;
-]
-
 [Regionen]
 
 Hauptebene is a region.
@@ -541,13 +529,6 @@ After reading a command:
 					Try closing the door west of the location of the player;
 					stop the action;
 
-
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-
 	[Tür_zum_inneren_Ring]
 	
 	Raumfähre is a container in Andockbucht.
@@ -716,12 +697,6 @@ Before reading a command:
 
 
 	[Ende Tür_zum_inneren_Ring]
-
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
 
 
 	[Laborkittel in Gamma-Delta-Korridor]
@@ -1026,7 +1001,6 @@ StationsalarmAktiv is a truth state that varies.
 StationsalarmAktiv is true.
 StationsalarmGehört is a truth state that varies.
 StationsalarmGehört is false.
-[TODO Stationsalarm beim anschauen des Blogs wieder aktievieren.]
 
 every turn:
 	if StationsalarmAktiv is true:
@@ -1527,32 +1501,6 @@ Before going through TÜR_KommunikationsModulZUGammaDeltaKorridor:
 		else:
 			Continue the action;
 
-[TESTING STUFF]
-[
-After reading a command:
-	if the player's command includes "COMTEST1":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Stop the action;
-	if the player's command includes "COMTEST2":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player carries the Sicherheitsausweis;
-		Stop the action;
-	if the player's command includes "COMTEST3":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player wears the raumanzug;
-		Stop the action;	
-	if the player's command includes "COMTEST4":
-		Now the player is in Kommunikationsbasis;
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "COMTEST5":
-		Now the player is in Gamma-Delta-Korridor;
-		Stop the action;
-]
-
 
 Section Pult im Med-Lab
 
@@ -1650,10 +1598,53 @@ After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	otherwise if ErstickCounter is not 0:
 		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
 		now ErstickCounter is 0;
-		
+	
 
-[TESTING STUFF]
+
+
+[Code only above ^]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
+[Testing only below v]
+
+
+[Switch current character debug command]
 [
+After reading a command:
+	if the player's command includes "CHANGE":
+		if Barry is the player:
+			Now the Player is Percy;
+			stop the action;
+		else:
+			Now the Player is Barry;
+			stop the action;
+
+After reading a command:
+	if the player's command includes "COMTEST1":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Stop the action;
+	if the player's command includes "COMTEST2":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player carries the Sicherheitsausweis;
+		Stop the action;
+	if the player's command includes "COMTEST3":
+		Now the player is in Kommunikationsbasis;
+		Now the player carries the mobitab;
+		Now the player wears the raumanzug;
+		Stop the action;	
+	if the player's command includes "COMTEST4":
+		Now the player is in Kommunikationsbasis;
+		Now the player wears the raumanzug;
+		Stop the action;
+	if the player's command includes "COMTEST5":
+		Now the player is in Gamma-Delta-Korridor;
+		Stop the action;
+
 After reading a command:
 	if the player's command includes "RAUMTEST1":
 		Now the player wears the raumanzug;
