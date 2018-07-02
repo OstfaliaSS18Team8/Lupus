@@ -1152,17 +1152,14 @@ Check contactPercy:
 		say "Percy berichtet, dass der Knopf nicht funktioniert, offenbar wird er nicht mit Strom versorgt." instead.
 	
 Carry out contactPercy:
-	Now emergencyCallSended is true.
- 
-NotrufAbgesetzt is a truth state that varies.
-NotrufAbgesetzt is false.
+	Now emergencyCallSended is true;
+	Now percy is in Brücke;
 
 Report contactPercy:
 	Say "Du hörst Percy jubeln, der Notruf wurde abgesetzt. Du solltest ihn abholen, zu den Rettungskapseln gelangen und dann nichts wie weg hier.";
-	Now NotrufAbgesetzt is true;
 		
 Every turn:
-	If the player is in Alpha-Ki and NotrufAbgesetzt is true:
+	If the player is in Alpha-Ki and emergencyCallSended is true:
 		say "[line break][line break][line break][line break]Hier folgt das TicTacToe und die Scene 5.[line break]";
 		End the story;
 
