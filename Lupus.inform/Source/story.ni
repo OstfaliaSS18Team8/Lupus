@@ -265,12 +265,12 @@ Com_Modul is a region.
 		Sicherheitsausweis is a thing.
 		Sicherheitsausweis is in the Spind.
 		Description of Sicherheitsausweis is "Ein Sicherheitsausweis um die Luke vom Hangar in den äußeren Ring zu öffenen.".
-		Understand "Ausweis" and "sa" as the Sicherheitsausweis. [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
+		Understand "Ausweis" and "sa" as the Sicherheitsausweis. 
 		
 	[SIicherheitstüren]
 	
 		Understand "benutze [Sicherheitsausweis] n/e/s/w/u/d/north/east/south/west/up/down" as "[benutz-richtung]".
-		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". [Um schneller zu testen ... Vielleicht später entfernen oder noch mehr variationen hinzufügen? TODO]
+		Understand "be [Sicherheitsausweis] n/e/s/w/u/p/north/east/south/west/up/down" as "[benutz-richtung]". 
 
 After reading a command:
 	if the player's command matches "[benutz-richtung]":
@@ -630,6 +630,9 @@ After reading a command:
 			else:
 				say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden";
 				stop the action;
+		else if the palette is not nowhere and the palette is not in the location of the antigravitationsgreifer:
+			say "Du benötigst die Palette und den Antigravitationsgreifer um sie zu verbinden.";
+			stop the action;
 		else:
 			say "Die Palette ist bereits am Antigravitaionsgreifer befestigt.";
 			stop the action;
@@ -898,13 +901,13 @@ O2Zähler is a number that varies.
 O2Zähler is 8.
 
 Every turn:
-	[TODO Palette in den Raum moven]
 	if PowerWasEverActive is true and O2AbfallAktiv is false:
 		if the player is in Gamma-Delta-Korridor or the player is in Gamma-Kreuzung:
 			say "[line break]Die Palette, die die Xeno-Lab Luke offen gehalten hat löst sich. Die Palette fliegt durch die Räume und beschädigt eine Bodenluke. [line break]Die Luft wird dünn!";
-			[say "Sauerstoffabfall im äußeren Ring  !!!(WIP)!!! ";]
 			now the description of Gamma-Delta-Korridor is "Du bist in dem Gamma-Delta-Korridor. Eines der äußeren Fenster wurde beschädigt und ist undicht.";
 			now O2AbfallAktiv is true;
+			Now the palette is in Gamma-Delta-Korridor;
+			Now the palette is fixed in place;
 			continue the action;
 
 
