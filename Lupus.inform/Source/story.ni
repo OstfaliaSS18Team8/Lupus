@@ -851,7 +851,11 @@ Every turn:
 		Say "Dir sind [Kontzähler3] Kontaminierte in den nächsten Raum gefolgt.";
 		now Kontzähler3 is 0;
 						
-				
+Every turn:
+	Repeat with xxx running through all Kontaminierter:
+		if xxx is not KontaminierterPercy and xxx is in the location of KontaminierterPercy:
+			say "[line break][line break]Der kontaminierte Percy befindet sich im gleichen Raum wie ein anderer Kontaminierte. Du kannst sie nicht trennen.[line break][line break]GAME OVER[line break] ";
+			end the story;			
 				
 
 Kontaminierter1 is a Kontaminierter.
