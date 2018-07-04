@@ -732,11 +732,11 @@ KontLautstärke is 0.
 KontHintergrundLautstärke is number that varies.
 KontHintergrundLautstärke is 0.
 
-Understand "klatschen [something]" as klatsching.
-Klatsching is an action applying to a thing.
+Understand "klatschen" as klatsching.
+Klatsching is an action applying to nothing.
 
-Understand "rufen [something]" as rufing.
-Rufing is an action applying to a thing.
+Understand "rufen" as rufing.
+Rufing is an action applying to nothing.
 
 
 Kontaminierter is a kind of person.
@@ -935,6 +935,7 @@ instead of pushing Blinkender_Knopf:
 	Now XenoPfeifenAktiv is false;
 
 
+
 Section Spieler
 
 [Percy]
@@ -947,8 +948,41 @@ Section Spieler
 	Barry is a Person.
 	Barry is in Hangar.
 	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
-
 	
+[Percy folgt Barry nach absetzen des Notrufs wenn er "eingesammelt" wurde.]
+PercyFolgt is truth state that varies.
+PercyFolgt is false.
+
+Every turn:
+	if PercyFolgt is false:
+		if emergencyCallSended is true:
+			if the Player is in the Location of Percy:
+				say "Percy läuft dir jetzt hinterher.";
+				Now PercyFolgt is true;
+	otherwise:
+		if Percy is in the Andockbucht and the Player is in Kommunikationsbasis:
+			Say "Da Percy keinen Raumanzug hat wartet er lieber in der Andockbucht auf dich.";
+			Now PercyFolgt is false;
+		otherwise if Percy is in the Kommunikationsbasis and the Player is in Andockbucht:
+			Say "Da Percy keinen Raumanzug hat wartet er lieber in der Kommunikationsbasis auf dich.";
+			Now PercyFolgt is false;
+		otherwise if Percy is  not in the location of the Player:
+			Move Percy to the location of the Player;
+			say "Percy ist dir in den nächsten Raum gefolgt.";
+	
+[Percy bzw. Barry werden Kontaminiert wenn sie nicht kontroliert und alleine mit Kontaminierten sind]
+Every turn:
+	if the Player is Percy:
+		if the Player is not in the location of Barry:
+			if the number of Kontaminierter in the location of Barry is not 0:
+				say "Barry wurde kontaminiert. Du hättest ihn nicht mit Kontaminierten allein lassen sollen.[line break][line break]GAME OVER";
+				End the story;
+	otherwise:
+		if the Player is not in the location of Percy:
+			if the number of Kontaminierter in the location of Percy is not 0:
+				say "Percy wurde kontaminiert. Du hättest ihn nicht mit Kontaminierten allein lassen sollen.[line break][line break]GAME OVER";
+				End the story;
+				
 
 
 Section Xeno-Lab Pfeifen
@@ -990,7 +1024,6 @@ Section Maschinenkern
 The Maschinenkern is a thing.
 The Maschinenkern has a text called Farbe.
 The Farbe of Maschinenkern is "grün".
-[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern.]
 
 
 
@@ -1089,13 +1122,17 @@ emergencyCallSended is false;
 A Spacesuit  is a kind of thing. A Spacesuit is always wearable.
 The Raumanzug is a Spacesuit.
 The description of Raumanzug is "Ein gut erhaltener Raumanzug".
-The Raumanzug is in Lagerraum.
+The Raumanzug is in Umkleidekabine.
 Raumanzug has a truth state called kaputt.
 Kaputt of Raumanzug is false.
 
 
 The Start Knopf is a device. The description is " Dieser Knopf startet den Generator".
 The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
+
+The Splitter is a thing.
+The description of Splitter is "Ein Splitter der sich beim betätigen des Knopfs gelöst hat.".
+The Splitter is nowhere.
 
 
 Instead of switching on Start Knopf :
@@ -1107,6 +1144,7 @@ Instead of switching on Start Knopf :
 		Now Kaputt of Raumanzug is true;
 	Say "Der Generator startet mit einem lauten Krachen[if kaputt of raumanzug is true], ein Splitter löst sich und beschädigt den Raumanzug.[else].[end if]";
 	Now the farbe of Maschinenkern is "rot";
+	Now the Splitter is on Start Knopf;
 
   
 Every Turn:
@@ -1114,10 +1152,6 @@ Every Turn:
 		decrement GeneratorPower;
 	else:
 		Now PowerIsActive is false;
-
-The Lagerraum is a room.
-The Lagerraum is west of Com Base.
-The inner airlock is a door. It is north of the Dummy and south of the Com Base. 
 
 Understand "Kontaktiere Percy" as contactPercy.
 Understand "Rufe Percy" as contactPercy.
@@ -1169,8 +1203,8 @@ Every turn:
 
 [Keylessentry zur Brücke nach Maschinenkernfarbänderung]
 LukeZurBrücke is a locked closed door.
-Below Brücke is LukeZurBrücke.
-LukeZurBrücke is above Besprechungsraum.
+Above Brücke is LukeZurBrücke.
+LukeZurBrücke is below Besprechungsraum.
 
 Before going through LukeZurBrücke:
 	if the Farbe of Maschinenkern is "orange":
@@ -1513,6 +1547,7 @@ After reading a command:
 		if the player can see the Pult:
 			Say "[line break]Der Videoblog des Stationsarztes begint zu spielen:[line break]Es gibt eine biologische Probe, die vom nahegelegenen Alien-Platenen gewonnen wurde.[line break]Aufgrund eines Fehlers bei der Dekonatmination der Raumanzüge sind zahlreiche Mitarbeiter mit einem fremden Erreger kontaminiert worden.[line break]Halten Sie sich von kontaminierten Personen fern![line break]Bleiben Sie nicht zu lange im gleichen Raum mit einem kontaminierter Person. Sie könnten sich anstecken!";
 			Now StationsalarmAktiv is true;
+			Now KontLautstärke is 3;
 			Stop the action;
 		else: 
 			Say "Ich sehe hier keinen Videoblog.";
@@ -1530,15 +1565,57 @@ Section Scenenwechsel
 Dekontaminationskabine is a container.
 Dekontaminationskabine is in Xeno-Lab.
 Dekontaminationskabine is enterable.
+Dekontaminationskabine is lockable.
+Dekontaminationskabine is fixed in place.
+
+FalscherKontErkannt is a truth state that varies.
+FalscherKontErkannt is false.
 
 Every turn:
 	if the Player is in Dekontaminationskabine and KontaminierterPercy is in Xeno-Lab and the KontVerfolgt of KontaminierterPercy is true and the number of Kontaminierter in Xeno-Lab is 1:
-		[TODO Keyless entry zur Brücke aktivieren]
 		Now the Farbe of Maschinenkern is "orange";
 		Now KontaminierterPercy is nowhere;
 		Now Percy is on Krankenbett;
 		[TODO postures benutzen]
-		say "Percy wird dekontaminiert";
+		Say "Der kontaminierte Percy ist dir in die Dekontaminationskabine gefolgt.[line break]
+		Als du die Kabine verlässt startet der Dekontaminationsprozess.[line break]
+		Dabei wechselt der Maschinenkern seine Farbe zu orange.[line break]
+		Nun sind keine weiteren Dekontaminationen möglich.[line break]
+		Da Percy nach seiner Heilung noch sehr geschwächt ist ruht er sich vorerst im Krankenbet aus.[line break]
+		Ihr beschließt die kontaminierte Besatzung zu retten und erstmal im Lagerraum zu versammeln.";
+	otherwise if the Player is in Dekontaminationskabine:
+		Repeat with DekontCounter running through all Kontaminierter:
+			if the KontVerfolgt of DekontCounter is true:
+				Now FalscherKontErkannt is true;
+		if FalscherKontErkannt is true:
+			Say "Ein Kontaminierter ist dir in die Dekontaminationskabine gefolgt.[line break]
+			Als du die Kabine verlässt startet der Dekontaminationsprozess.[line break]
+			Dabei wechselt der Maschinenkern seine Farbe zu orange.[line break]
+			Nun sind keine weiteren Dekontaminationen möglich.[line break]
+			Du solltest deine Prioritäten überdenken. Es währe wohl besser gewesen Barry zu dekontaminieren.";
+			End the Story;
+		
+
+[Wechsel zu Scene4:]
+
+Scene4Aktiv is a truth state that varies.
+Scene4Aktiv is false.
+
+Umkleidekabine is a container.
+The description of Umkleidekabine is "Eine Umkleidekabine, in der die Besatzung ihr Equipment für Außeneinsätze aufbewahrt.".
+Umkleidekabine is in Hangar.
+Umkleidekabine is enterable.
+Umkleidekabine is fixed in place.
+Umkleidekabine is lockable and locked.
+
+Every turn:
+	if Scene4Aktiv is false:
+		if the Player is not in Lagerraum:
+			if the number of Kontaminierter in Lagerraum is 8:
+				Say "Nachdem du die kontaminierte Besatzung im Lagerraum versammelt hast kannst du dich darauf konzentrieren einen Notruf abzusetzen. Da die Energie des Maschinenkerns im Moment nicht für einen Notruf ausreicht muss der Hilfsgenerator gestartet werden. Dieser befindet sich im Com Modul, da der Weg dorthin versperrt ist musst du wohl einen Weltraumspaziergang machen.";
+				Now Umkleidekabine is unlocked;
+				Now Umkleidekabine is open;
+				Now Scene4Aktiv is true;
 
 
 Section Weltraumtür
