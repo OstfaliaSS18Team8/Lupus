@@ -910,25 +910,29 @@ Glasscherben der Phiole is fixed in place.
 Blinkender_Knopf is a thing.
 Blinkender_Knopf is in Xeno-Lab.
 Blinkender_Knopf is fixed in place.
+Blinkender_KnopfGedrückt is a truth state that varies.
+Blinkender_KnopfGedrückt is false.
 
 instead of pushing Blinkender_Knopf:
-	Now the Player is Barry;
-	Now the description of Barry is "As good-looking as ever.";
-	Now Percy is nowhere;
-	Now KontaminierterPercy is in Xeno-Lab; 
-	Now Klappe is nowhere;
-	Now Offene-Klappe is in Xeno-Lab;
-	Now Glasscherben der Phiole is in Xeno-Lab;
-	Say "Als Percy den Knopf drückt verstummen endlich das nervige Pfeifen und der Stationsalarm.[line break]
-		Eine Klappe an der Wand des Xeno.Labs öffnet sich und gibt den Blick auf eine Phiole mit rosafarbenen Nebel frei.[line break]
-		Er versucht die Phiole an sich zu nehmen, jedoch fällt sie ihm herrunter und zerspringt.[line break]
-		Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
-		[line break]
-		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
-		Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
-	Now StationsalarmAktiv is false;
-	Now XenoPfeifenAktiv is false;
-
+	if Blinkender_KnopfGedrückt is false:
+		Now the Player is Barry;
+		Now the description of Barry is "As good-looking as ever.";
+		Now Percy is nowhere;
+		Now KontaminierterPercy is in Xeno-Lab; 
+		Now Klappe is nowhere;
+		Now Offene-Klappe is in Xeno-Lab;
+		Now Glasscherben der Phiole is in Xeno-Lab;
+		Say "Als Percy den Knopf drückt verstummen endlich das nervige Pfeifen und der Stationsalarm.[line break]
+			Eine Klappe an der Wand des Xeno.Labs öffnet sich und gibt den Blick auf eine Phiole mit rosafarbenen Nebel frei.[line break]
+			Er versucht die Phiole an sich zu nehmen, jedoch fällt sie ihm herrunter und zerspringt.[line break]
+			Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
+			[line break]
+			Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
+			Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
+		Now StationsalarmAktiv is false;
+		Now XenoPfeifenAktiv is false;
+	otherwise:
+		say "Nichts passiert.";
 
 
 Section Spieler
