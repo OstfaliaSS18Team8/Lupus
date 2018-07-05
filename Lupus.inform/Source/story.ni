@@ -37,8 +37,8 @@ Com_Modul is a region.
 		[Innerer Ring]
 			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist im Solar Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Med-Lab					is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".				"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Med-Lab				is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".			"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
@@ -100,7 +100,7 @@ Com_Modul is a region.
 				Below		Luke_HangarZUGammaKreuz is						Hangar.
 				Luke_HangarZUGammaKreuz is locked.
 			
-			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
+			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name			"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
 				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis.
 				[TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.]
@@ -151,15 +151,15 @@ Com_Modul is a region.
 			Lagerbereich			is a room in Linke_Seitenebene with printed name	"Lagerbereich".			"Du bist im Lagerbereich."
 			
 		[Innerer Ring]
-			Alpha-KI				is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Alpha-KI			is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".			"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".		"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 		
 	[Türen & Zusammenhang]
 		Generator 				is north of 		Delta-KI.
 		
-		Tür_AlphaKIZUTransporterRaum							is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
+		Tür_AlphaKIZUTransporterRaum						is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
 			North of 	Tür_AlphaKIZUTransporterRaum is				Transporterraum.
 			South of 	Tür_AlphaKIZUTransporterRaum is				Alpha-KI.
 			
@@ -529,8 +529,7 @@ After reading a command:
 					Try closing the door west of the location of the player;
 					stop the action;
 
-	[Tür_zum_inneren_Ring]
-	
+[Tür_zum_inneren_Ring]	
 	Raumfähre is a container in Andockbucht.
 
 	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
