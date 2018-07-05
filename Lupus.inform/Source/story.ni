@@ -530,7 +530,7 @@ After reading a command:
 					stop the action;
 
 [Tür_zum_inneren_Ring]	
-	Raumfähre is a container in Andockbucht.
+	Raumfähre is a fixed in place container in Andockbucht.
 
 	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
 	Palette is a fixed in place thing in Raumfähre.
@@ -1455,7 +1455,7 @@ Check an actor exiting when the holder of the actor is a room (this is the conve
 	try the actor taking position standing instead.
 
 	
-Krankenbett is a container in Med-Lab with printed name "Krankenbett". 
+Krankenbett is a fixed in place container in Med-Lab with printed name "Krankenbett". 
 Krankenbett is enterable. 
 Krankenbett allows seated and reclining. 
 Krankenbett is reclining. 	
