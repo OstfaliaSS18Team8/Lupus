@@ -37,8 +37,8 @@ Com_Modul is a region.
 		[Innerer Ring]
 			Xeno-Lab				is a room in Hauptebene with printed name	"Xeno Lab".					"Du bist im Xeno Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Solar-Lab				is a room in Hauptebene with printed name	"Solar Lab".					"Du bist im Solar Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Med-Lab					is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".				"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Med-Lab				is a room in Hauptebene with printed name	"Med Lab".					"Du bist im Med Lab. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Machinenraum			is a room in Hauptebene with printed name	"Machinenraum".			"Du bist im Machinenraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 
 	[Türen]
 		Tür_Sicherheit is a kind of locked door.
@@ -100,7 +100,7 @@ Com_Modul is a region.
 				Below		Luke_HangarZUGammaKreuz is						Hangar.
 				Luke_HangarZUGammaKreuz is locked.
 			
-			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name	"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
+			TÜR_KommunikationsModulZUGammaDeltaKorridor	is a door with printed name			"Luke zwischen KommunikationsModul und Gamma Delta Korridor."
 				Above		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Gamma-Delta-Korridor.
 				Below		TÜR_KommunikationsModulZUGammaDeltaKorridor is	Kommunikationsbasis.
 				[TÜR_KommunikationsModulZUGammaDeltaKorridor is locked.]
@@ -151,15 +151,15 @@ Com_Modul is a region.
 			Lagerbereich			is a room in Linke_Seitenebene with printed name	"Lagerbereich".			"Du bist im Lagerbereich."
 			
 		[Innerer Ring]
-			Alpha-KI				is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Alpha-KI			is a room in Linke_Seitenebene with printed name	"Alpha KI".				"Du bist im Alpha KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Generator			is a room in Linke_Seitenebene with printed name	"Generator".				"Du bist im Generator Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
-			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".			"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
+			Transporterraum		is a room in Linke_Seitenebene with printed name	"Transporterraum".		"Du bist im Transporterraum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 			Delta-KI				is a room in Linke_Seitenebene with printed name	"Delta-KI".				"Du bist im Delta KI Raum. Durch das Fenster in der Decke kannst du den Maschinenkern [Farbe of Maschinenkern] glühen sehen."
 		
 	[Türen & Zusammenhang]
 		Generator 				is north of 		Delta-KI.
 		
-		Tür_AlphaKIZUTransporterRaum							is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
+		Tür_AlphaKIZUTransporterRaum						is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
 			North of 	Tür_AlphaKIZUTransporterRaum is				Transporterraum.
 			South of 	Tür_AlphaKIZUTransporterRaum is				Alpha-KI.
 			
@@ -529,8 +529,7 @@ After reading a command:
 					Try closing the door west of the location of the player;
 					stop the action;
 
-	[Tür_zum_inneren_Ring]
-	
+[Tür_zum_inneren_Ring]	
 	Raumfähre is a container in Andockbucht.
 
 	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
@@ -631,7 +630,7 @@ After reading a command:
 				if the Antigravitationsgreifer is not in the location of the player:
 					stop the action;
 				now pushDirection is a random number from 1 to 6;
-				now pushDirection is 1; [THIS IS ONLY FOR DEBUG!!!!]
+				[now pushDirection is 1;] [THIS IS ONLY FOR DEBUG!!!!]
 				If pushDirection is 1:
 					if the room up from the location is not nothing:
 						if the door up of the location of the Antigravitationsgreifer is open or the door up of the location is nothing:
@@ -928,9 +927,6 @@ instead of pushing Blinkender_Knopf:
 		[line break]
 		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
 		Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
-	[TODO Maschinenkernfarbe ändert sich hier nicht?]
-	[Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";]
-	[Now the Farbe of Maschinenkern is "rot";]
 	Now StationsalarmAktiv is false;
 	Now XenoPfeifenAktiv is false;
 
@@ -1675,59 +1671,3 @@ After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	otherwise if ErstickCounter is not 0:
 		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
 		now ErstickCounter is 0;
-	
-
-
-
-[Code only above ^]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[Testing only below v]
-
-
-[Switch current character debug command]
-[
-After reading a command:
-	if the player's command includes "CHANGE":
-		if Barry is the player:
-			Now the Player is Percy;
-			stop the action;
-		else:
-			Now the Player is Barry;
-			stop the action;
-
-After reading a command:
-	if the player's command includes "COMTEST1":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Stop the action;
-	if the player's command includes "COMTEST2":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player carries the Sicherheitsausweis;
-		Stop the action;
-	if the player's command includes "COMTEST3":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player wears the raumanzug;
-		Stop the action;	
-	if the player's command includes "COMTEST4":
-		Now the player is in Kommunikationsbasis;
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "COMTEST5":
-		Now the player is in Gamma-Delta-Korridor;
-		Stop the action;
-
-After reading a command:
-	if the player's command includes "RAUMTEST1":
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "RAUMTEST2":
-		Now the player carries the raumanzug;
-		Stop the action;
-]
-		
