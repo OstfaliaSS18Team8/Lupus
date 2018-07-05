@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-1">
   <generator>Windows Inform 7 6M62</generator>
-  <activeNode nodeId="node-2"/>
+  <activeNode nodeId="node-1"/>
   <item nodeId="node-1">
     <command xml:space="preserve">Lupus</command>
     <result xml:space="preserve">Lupus&#x000A;An Interactive Fiction by Gruppe 8&#x000A;Release 1 / Serial number 180705 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Andockbucht&#x000A;Du bist in der Andockbucht.&#x000A;&#x000A;You can see T&#x00FC;r zwischen Andockbucht und Kommunkationsbasis, T&#x00FC;r zwischen Andockbucht und Hangar and Raumf&#x00E4;hre (in which are Antigravitationsgreifer and Palette) here.&#x000A;&#x000A;&gt;</result>
-    <commentary xml:space="preserve"></commentary>
-    <changed>NO</changed>
-    <children>
-      <child nodeId="node-2"/>
-    </children>
-  </item>
-  <item nodeId="node-2">
-    <command xml:space="preserve"></command>
-    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
