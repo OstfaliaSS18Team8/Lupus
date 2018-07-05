@@ -630,7 +630,7 @@ After reading a command:
 				if the Antigravitationsgreifer is not in the location of the player:
 					stop the action;
 				now pushDirection is a random number from 1 to 6;
-				now pushDirection is 1; [THIS IS ONLY FOR DEBUG!!!!]
+				[now pushDirection is 1;] [THIS IS ONLY FOR DEBUG!!!!]
 				If pushDirection is 1:
 					if the room up from the location is not nothing:
 						if the door up of the location of the Antigravitationsgreifer is open or the door up of the location is nothing:
@@ -927,9 +927,6 @@ instead of pushing Blinkender_Knopf:
 		[line break]
 		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
 		Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
-	[TODO Maschinenkernfarbe ändert sich hier nicht?]
-	[Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";]
-	[Now the Farbe of Maschinenkern is "rot";]
 	Now StationsalarmAktiv is false;
 	Now XenoPfeifenAktiv is false;
 
@@ -1674,59 +1671,3 @@ After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	otherwise if ErstickCounter is not 0:
 		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
 		now ErstickCounter is 0;
-	
-
-
-
-[Code only above ^]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[Testing only below v]
-
-
-[Switch current character debug command]
-[
-After reading a command:
-	if the player's command includes "CHANGE":
-		if Barry is the player:
-			Now the Player is Percy;
-			stop the action;
-		else:
-			Now the Player is Barry;
-			stop the action;
-
-After reading a command:
-	if the player's command includes "COMTEST1":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Stop the action;
-	if the player's command includes "COMTEST2":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player carries the Sicherheitsausweis;
-		Stop the action;
-	if the player's command includes "COMTEST3":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player wears the raumanzug;
-		Stop the action;	
-	if the player's command includes "COMTEST4":
-		Now the player is in Kommunikationsbasis;
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "COMTEST5":
-		Now the player is in Gamma-Delta-Korridor;
-		Stop the action;
-
-After reading a command:
-	if the player's command includes "RAUMTEST1":
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "RAUMTEST2":
-		Now the player carries the raumanzug;
-		Stop the action;
-]
-		
