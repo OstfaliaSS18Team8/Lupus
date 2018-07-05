@@ -685,7 +685,7 @@ Instead of taking Antigravitationsgreifer:
 
 [Check ob Antigravitationsgreifer mit Palette im inneren Ring ist]
 Before reading a command:
-	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum:
+	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum or the Antigravitationsgreifer is in Lagerbereich:
 		say "GAME OVER";
 		end the Story;
 	If the Antigravitationsgreifer is in Xeno-Lab and versperrt of Luke_Xeno is false:
