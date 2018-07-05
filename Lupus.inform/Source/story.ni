@@ -762,11 +762,10 @@ Instead of klatsching or rufing:
 
 [Überprüft ob Hintergrundgeräusche aktiv sind]
 Every turn:
-	if StationsalarmGehört is true or  XenoPfeifenGehört is true:
-		if StationsalarmGehört is true:
-			now KontHintergrundLautstärke is 1;
-		otherwise :
-			now KontHintergrundLautstärke is 2;
+	if XenoPfeifenGehört is true:
+		now KontHintergrundLautstärke is 2;
+	otherwise if StationsalarmGehört is true:
+		now KontHintergrundLautstärke is 1;
 	otherwise:
 		now KontHintergrundLautstärke is 0;
 	now StationsalarmGehört is false;
@@ -985,8 +984,9 @@ Section Xeno-Lab Pfeifen
 
 
 Every room has a truth state called XenoPfeifenHörbar.
-XenoPfeifenHörbar of room usually is false.
-XenoPfeifenHörbar of Xeno-Lab is true.
+[XenoPfeifenHörbar of room usually is false.]
+[XenoPfeifenHörbar of Xeno-Lab is true.]
+[XenoPfeifenHörbar of Gamma-Kreuzung is true.]
 XenoPfeifenGehört is truth state that varies.
 XenoPfeifenGehört is false.
 XenoPfeifenAktiv is a truth state that varies.
@@ -995,22 +995,12 @@ XenoPfeifenAktiv is true.
 
 every turn:
 	if XenoPfeifenAktiv is true:
-		Repeat with XenoPfeifenCounter running through all rooms:
-			if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
-				say "Du hörst ein ohrenbetäubendes Pfeifen.";
-				now XenoPfeifenGehört is true;
-			repeat with XenoPfeifenCounter2 running through all rooms:
-				repeat with XenoPfeifenRichtung running through all directions:
-					if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
-						if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
-							if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
-								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
-							otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
-								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
-						otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
-							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
-	otherwise:
-		now XenoPfeifenHörbar of Xeno-Lab is false;
+		if the Player is in Xeno-Lab:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+			Now XenoPfeifenGehört is true;
+		otherwise if the Player is in Gamma-Kreuzung and the Luke_Xeno is open:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+			Now XenoPfeifenGehört is true;
 				
 
 
@@ -1031,15 +1021,14 @@ StationsalarmAktiv is true.
 StationsalarmGehört is a truth state that varies.
 StationsalarmGehört is false.
 
-every turn:
+Every turn:
 	if StationsalarmAktiv is true:
 		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
-			Repeat with StationsalarmCounter running through all rooms:
-				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
-					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
-					now StationsalarmGehört is true;
+			if XenoPfeifenAktiv is false or ( XenoPfeifenAktiv is true and the Player is not in Gamma-Kreuzung ) or ( XenoPfeifenAktiv is true and the Player is in Gamma-Kreuzung and the Luke_Xeno is closed ):
+				say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
+				now StationsalarmGehört is true;
 
-
+[ or ( XenoPfeifenAktiv is true and the Player is not in Gamma-Kreuzung ) or ( XenoPfeifenAktiv is true and the Player is in Gamma-Kreuzung and the Luke_Xeno is closed )   ]
 
 
 Section Drucklufthammer
