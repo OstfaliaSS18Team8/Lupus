@@ -44,12 +44,12 @@ Com_Modul is a region.
 		Tür_Sicherheit is a kind of locked door.
 		Tür_zum_inneren_Ring is a kind of door.
 	
-		Tür_AndockbuchtZUHangar							is a door with printed name 			"Tür zwischen Andockbucht und Hangar".
+		Tür_AndockbuchtZUHangar							is a door with printed name 	"Tür zwischen Andockbucht und Hangar".
 			Above 			Tür_AndockbuchtZUHangar is 							Hangar.
 			Below 			Tür_AndockbuchtZUHangar is 							Andockbucht.
 			
 			
-		TÜR_AndockBuchtZUKommunikationsbasis				is a door with printed name			"Tür zwischen Andockbucht und Kommunkationsbasis".
+		TÜR_AndockBuchtZUKommunikationsbasis				is a door with printed name	"Tür zwischen Andockbucht und Kommunkationsbasis".
 			North of 		TÜR_AndockBuchtZUKommunikationsbasis is			Kommunikationsbasis.
 			South of			TÜR_AndockBuchtZUKommunikationsbasis is			Andockbucht.
 		
@@ -159,7 +159,7 @@ Com_Modul is a region.
 	[Türen & Zusammenhang]
 		Generator 				is north of 		Delta-KI.
 		
-		Tür_AlphaKIZUTransporterRaum							is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
+		Tür_AlphaKIZUTransporterRaum						is a door with printed name 	"Tür zwischen Lagerraum und Alpha KI".
 			North of 	Tür_AlphaKIZUTransporterRaum is				Transporterraum.
 			South of 	Tür_AlphaKIZUTransporterRaum is				Alpha-KI.
 			
@@ -529,9 +529,8 @@ After reading a command:
 					Try closing the door west of the location of the player;
 					stop the action;
 
-	[Tür_zum_inneren_Ring]
-	
-	Raumfähre is a fixed in place container in Andockbucht.
+[Tür_zum_inneren_Ring]	
+	Raumfähre is a container in Andockbucht.
 
 	Antigravitationsgreifer is a fixed in place thing in Raumfähre.
 	Palette is a fixed in place thing in Raumfähre.
@@ -631,7 +630,7 @@ After reading a command:
 				if the Antigravitationsgreifer is not in the location of the player:
 					stop the action;
 				now pushDirection is a random number from 1 to 6;
-				now pushDirection is 1; [THIS IS ONLY FOR DEBUG!!!!]
+				[now pushDirection is 1;] [THIS IS ONLY FOR DEBUG!!!!]
 				If pushDirection is 1:
 					if the room up from the location is not nothing:
 						if the door up of the location of the Antigravitationsgreifer is open or the door up of the location is nothing:
@@ -685,7 +684,7 @@ Instead of taking Antigravitationsgreifer:
 
 [Check ob Antigravitationsgreifer mit Palette im inneren Ring ist]
 Before reading a command:
-	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum:
+	If the Antigravitationsgreifer is in Solar-Lab or the Antigravitationsgreifer is in Med-Lab or the Antigravitationsgreifer is in Machinenraum or the Antigravitationsgreifer is in Alpha-KI or the Antigravitationsgreifer is in Delta-KI:
 		say "GAME OVER";
 		end the Story;
 	If the Antigravitationsgreifer is in Xeno-Lab and versperrt of Luke_Xeno is false:
@@ -732,11 +731,11 @@ KontLautstärke is 0.
 KontHintergrundLautstärke is number that varies.
 KontHintergrundLautstärke is 0.
 
-Understand "klatschen [something]" as klatsching.
-Klatsching is an action applying to a thing.
+Understand "klatschen" as klatsching.
+Klatsching is an action applying to nothing.
 
-Understand "rufen [something]" as rufing.
-Rufing is an action applying to a thing.
+Understand "rufen" as rufing.
+Rufing is an action applying to nothing.
 
 
 Kontaminierter is a kind of person.
@@ -763,11 +762,10 @@ Instead of klatsching or rufing:
 
 [Überprüft ob Hintergrundgeräusche aktiv sind]
 Every turn:
-	if StationsalarmGehört is true or  XenoPfeifenGehört is true:
-		if StationsalarmGehört is true:
-			now KontHintergrundLautstärke is 1;
-		otherwise :
-			now KontHintergrundLautstärke is 2;
+	if XenoPfeifenGehört is true:
+		now KontHintergrundLautstärke is 2;
+	otherwise if StationsalarmGehört is true:
+		now KontHintergrundLautstärke is 1;
 	otherwise:
 		now KontHintergrundLautstärke is 0;
 	now StationsalarmGehört is false;
@@ -912,27 +910,29 @@ Glasscherben der Phiole is fixed in place.
 Blinkender_Knopf is a thing.
 Blinkender_Knopf is in Xeno-Lab.
 Blinkender_Knopf is fixed in place.
+Blinkender_KnopfGedrückt is a truth state that varies.
+Blinkender_KnopfGedrückt is false.
 
 instead of pushing Blinkender_Knopf:
-	Now the Player is Barry;
-	Now the description of Barry is "As good-looking as ever.";
-	Now Percy is nowhere;
-	Now KontaminierterPercy is in Xeno-Lab; 
-	Now Klappe is nowhere;
-	Now Offene-Klappe is in Xeno-Lab;
-	Now Glasscherben der Phiole is in Xeno-Lab;
-	Say "Als Percy den Knopf drückt verstummen endlich das nervige Pfeifen und der Stationsalarm.[line break]
-		Eine Klappe an der Wand des Xeno.Labs öffnet sich und gibt den Blick auf eine Phiole mit rosafarbenen Nebel frei.[line break]
-		Er versucht die Phiole an sich zu nehmen, jedoch fällt sie ihm herrunter und zerspringt.[line break]
-		Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
-		[line break]
-		Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
-		Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
-	[TODO Maschinenkernfarbe ändert sich hier nicht?]
-	[Say "Der Maschinenkern ist jetzt rot. (Im Scenenwechsel einbauen)";]
-	[Now the Farbe of Maschinenkern is "rot";]
-	Now StationsalarmAktiv is false;
-	Now XenoPfeifenAktiv is false;
+	if Blinkender_KnopfGedrückt is false:
+		Now the Player is Barry;
+		Now the description of Barry is "As good-looking as ever.";
+		Now Percy is nowhere;
+		Now KontaminierterPercy is in Xeno-Lab; 
+		Now Klappe is nowhere;
+		Now Offene-Klappe is in Xeno-Lab;
+		Now Glasscherben der Phiole is in Xeno-Lab;
+		Say "Als Percy den Knopf drückt verstummen endlich das nervige Pfeifen und der Stationsalarm.[line break]
+			Eine Klappe an der Wand des Xeno.Labs öffnet sich und gibt den Blick auf eine Phiole mit rosafarbenen Nebel frei.[line break]
+			Er versucht die Phiole an sich zu nehmen, jedoch fällt sie ihm herrunter und zerspringt.[line break]
+			Der dabei freigesetzte Nebel schnürt Percy den Atem ab bis ihm schwarz vor Augen wird.[line break]
+			[line break]
+			Percy wurde kontaminiert und steht nun mit starren Blick im Xeno-Lab.[line break]
+			Barry wundert sich wo Percy denn solange bleibt und beschließt ihn zu suchen.";
+		Now StationsalarmAktiv is false;
+		Now XenoPfeifenAktiv is false;
+	otherwise:
+		say "Nichts passiert.";
 
 
 Section Spieler
@@ -947,16 +947,50 @@ Section Spieler
 	Barry is a Person.
 	Barry is in Hangar.
 	The description of Barry is "Barry überprüft gerade die Raumfähre auf Schäden.".
-
 	
+[Percy folgt Barry nach absetzen des Notrufs wenn er "eingesammelt" wurde.]
+PercyFolgt is truth state that varies.
+PercyFolgt is false.
+
+Every turn:
+	if PercyFolgt is false:
+		if emergencyCallSended is true:
+			if the Player is in the Location of Percy:
+				say "Percy läuft dir jetzt hinterher.";
+				Now PercyFolgt is true;
+	otherwise:
+		if Percy is in the Andockbucht and the Player is in Kommunikationsbasis:
+			Say "Da Percy keinen Raumanzug hat wartet er lieber in der Andockbucht auf dich.";
+			Now PercyFolgt is false;
+		otherwise if Percy is in the Kommunikationsbasis and the Player is in Andockbucht:
+			Say "Da Percy keinen Raumanzug hat wartet er lieber in der Kommunikationsbasis auf dich.";
+			Now PercyFolgt is false;
+		otherwise if Percy is  not in the location of the Player:
+			Move Percy to the location of the Player;
+			say "Percy ist dir in den nächsten Raum gefolgt.";
+	
+[Percy bzw. Barry werden Kontaminiert wenn sie nicht kontroliert und alleine mit Kontaminierten sind]
+Every turn:
+	if the Player is Percy:
+		if the Player is not in the location of Barry:
+			if the number of Kontaminierter in the location of Barry is not 0:
+				say "Barry wurde kontaminiert. Du hättest ihn nicht mit Kontaminierten allein lassen sollen.[line break][line break]GAME OVER";
+				End the story;
+	otherwise:
+		if the Player is not in the location of Percy:
+			if the number of Kontaminierter in the location of Percy is not 0:
+				say "Percy wurde kontaminiert. Du hättest ihn nicht mit Kontaminierten allein lassen sollen.[line break][line break]GAME OVER";
+				End the story;
+				
 
 
 Section Xeno-Lab Pfeifen
 
 
 Every room has a truth state called XenoPfeifenHörbar.
-XenoPfeifenHörbar of room usually is false.
-XenoPfeifenHörbar of Xeno-Lab is true.
+[XenoPfeifenHörbar of room usually is false.]
+[XenoPfeifenHörbar of Xeno-Lab is true.]
+[XenoPfeifenHörbar of Gamma-Kreuzung is true.]
 XenoPfeifenGehört is truth state that varies.
 XenoPfeifenGehört is false.
 XenoPfeifenAktiv is a truth state that varies.
@@ -965,22 +999,12 @@ XenoPfeifenAktiv is true.
 
 every turn:
 	if XenoPfeifenAktiv is true:
-		Repeat with XenoPfeifenCounter running through all rooms:
-			if the XenoPfeifenHörbar of XenoPfeifenCounter is true and the player is in XenoPfeifenCounter:
-				say "Du hörst ein ohrenbetäubendes Pfeifen.";
-				now XenoPfeifenGehört is true;
-			repeat with XenoPfeifenCounter2 running through all rooms:
-				repeat with XenoPfeifenRichtung running through all directions:
-					if the room XenoPfeifenRichtung of XenoPfeifenCounter2 is not nothing:
-						if the door XenoPfeifenRichtung of XenoPfeifenCounter2 is open:
-							if the XenoPfeifenHörbar of the room XenoPfeifenRichtung of XenoPfeifenCounter2 is true:
-								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is true;
-							otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
-								now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
-						otherwise if XenoPfeifenCounter2 is not Xeno-Lab:
-							now the XenoPfeifenHörbar of XenoPfeifenCounter2 is false; 
-	otherwise:
-		now XenoPfeifenHörbar of Xeno-Lab is false;
+		if the Player is in Xeno-Lab:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+			Now XenoPfeifenGehört is true;
+		otherwise if the Player is in Gamma-Kreuzung and the Luke_Xeno is open:
+			say "Du hörst ein ohrenbetäubendes Pfeifen.";
+			Now XenoPfeifenGehört is true;
 				
 
 
@@ -990,7 +1014,6 @@ Section Maschinenkern
 The Maschinenkern is a thing.
 The Maschinenkern has a text called Farbe.
 The Farbe of Maschinenkern is "grün".
-[TODO auf orange nach dem dekontaminieren und auf rot nach dem drücken des blinkenden Knopfs ändern.]
 
 
 
@@ -1002,15 +1025,14 @@ StationsalarmAktiv is true.
 StationsalarmGehört is a truth state that varies.
 StationsalarmGehört is false.
 
-every turn:
+Every turn:
 	if StationsalarmAktiv is true:
 		if Player is in Gamma-Kreuzung or player is in Gamma-Delta-Korridor or player is in Delta-Kreuzung or player is in Alpha-Delta-Korridor or player is in Alpha-Kreuzung or player is in Alpha-Beta-Korridor or player is in Beta-Kreuzung or player is in Gamma-Beta-Korridor or player is in Beta-Gewächshaus or player is in Delta-Gewächshaus or player is in Lagerraum or player is in Lagerbereich:
-			Repeat with StationsalarmCounter running through all rooms:
-				if the XenoPfeifenHörbar of StationsalarmCounter is false and the player is in StationsalarmCounter:
-					say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
-					now StationsalarmGehört is true;
+			if XenoPfeifenAktiv is false or ( XenoPfeifenAktiv is true and the Player is not in Gamma-Kreuzung ) or ( XenoPfeifenAktiv is true and the Player is in Gamma-Kreuzung and the Luke_Xeno is closed ):
+				say "Du hörst den Stationsalarm, der die meisten Geräusche übertönen würde.";
+				now StationsalarmGehört is true;
 
-
+[ or ( XenoPfeifenAktiv is true and the Player is not in Gamma-Kreuzung ) or ( XenoPfeifenAktiv is true and the Player is in Gamma-Kreuzung and the Luke_Xeno is closed )   ]
 
 
 Section Drucklufthammer
@@ -1089,13 +1111,17 @@ emergencyCallSended is false;
 A Spacesuit  is a kind of thing. A Spacesuit is always wearable.
 The Raumanzug is a Spacesuit.
 The description of Raumanzug is "Ein gut erhaltener Raumanzug".
-The Raumanzug is in Lagerraum.
+The Raumanzug is in Umkleidekabine.
 Raumanzug has a truth state called kaputt.
 Kaputt of Raumanzug is false.
 
 
 The Start Knopf is a device. The description is " Dieser Knopf startet den Generator".
 The Start Knopf  is in Hilfsgenerator. The Start Knopf  is fixed in place.
+
+The Splitter is a thing.
+The description of Splitter is "Ein Splitter der sich beim betätigen des Knopfs gelöst hat.".
+The Splitter is nowhere.
 
 
 Instead of switching on Start Knopf :
@@ -1107,6 +1133,7 @@ Instead of switching on Start Knopf :
 		Now Kaputt of Raumanzug is true;
 	Say "Der Generator startet mit einem lauten Krachen[if kaputt of raumanzug is true], ein Splitter löst sich und beschädigt den Raumanzug.[else].[end if]";
 	Now the farbe of Maschinenkern is "rot";
+	Now the Splitter is on Start Knopf;
 
   
 Every Turn:
@@ -1114,10 +1141,6 @@ Every Turn:
 		decrement GeneratorPower;
 	else:
 		Now PowerIsActive is false;
-
-The Lagerraum is a room.
-The Lagerraum is west of Com Base.
-The inner airlock is a door. It is north of the Dummy and south of the Com Base. 
 
 Understand "Kontaktiere Percy" as contactPercy.
 Understand "Rufe Percy" as contactPercy.
@@ -1137,7 +1160,7 @@ Report contactPercy:
 		
 Every turn:
 	If the player is in Alpha-Ki and emergencyCallSended is true:
-		say "[line break][line break][line break][line break]Hier folgt das TicTacToe und die Scene 5.[line break]";
+		say "[line break][line break]Im Raum der Alpha AI angekommen, macht sich die AI mit einer seufzenden Stimme auf sich aufmerksam. Sie sagt, ihr sei langweilig. Schon lange habe keiner mehr mit ihr ‚TicTacToe‘ gespielt. Da die Tür zum Gravitationskompensatorsversperrt ist und Barry keine Möglichkeit findet, diese zu öffnen, nimmt er sich die Zeit mit der AI eine Runde TicTacToe zu spielen. Er darf beginnen und kann dazu auf einen der neun Schaltflächen an der Wand drücken, auf der dann ein ‚S‘ erscheint. Die AI setzt darauf per Zufall auf eine freie Schaltfläche und kennzeichnet dies mit einem ‚K‘. Nun ist Barry wieder am Zug und kann eine weitere freie Schaltfläche drücken. Sobald er drei ‚S‘ in einer Zeile, einer Spalte oder einer Diagonalen hat, gewinnt er und die AI entriegelt zum Dank die Tür zum Gravitationskompensator. Hat die AI gewonnen oder ist kein Zug mehr möglich, so löscht die AI das Spielfeld und bittet um ein neues Spiel. Auf der Forschungsstation angekommen müssen beide jeweils separat in eine der 5 Rettungskapseln einsteigen. Diese sind jedoch so eng, dass die Spieler je eine eigene Kapsel nutzen müssen. Zum Starten der Rettungskapseln muss auf dem Mobitab ein Code eingegeben werden. Mit Eingabe des Codes erfolgt eine CountDown Ansage, die mit jedem Zug beginnend ab 6 um eins runtergezählt wird. Bei 5 werden die Schleusen zu den Rettungskapseln geöffnet, bei 4 die Schleusen geschlossen, bei 3 die Navigation zurück zur Erde berechnet, bei 2 der Ionenschutz eingeschaltet und mit 1 die Antriebsraketen gestartet.[line break]";
 		End the story;
 
 
@@ -1169,8 +1192,8 @@ Every turn:
 
 [Keylessentry zur Brücke nach Maschinenkernfarbänderung]
 LukeZurBrücke is a locked closed door.
-Below Brücke is LukeZurBrücke.
-LukeZurBrücke is above Besprechungsraum.
+Above Brücke is LukeZurBrücke.
+LukeZurBrücke is below Besprechungsraum.
 
 Before going through LukeZurBrücke:
 	if the Farbe of Maschinenkern is "orange":
@@ -1432,7 +1455,7 @@ Check an actor exiting when the holder of the actor is a room (this is the conve
 	try the actor taking position standing instead.
 
 	
-Krankenbett is a fixed in place container in Med-Lab with printed name "Krankenbett". 
+Krankenbett is a container in Med-Lab with printed name "Krankenbett". 
 Krankenbett is enterable. 
 Krankenbett allows seated and reclining. 
 Krankenbett is reclining. 	
@@ -1513,6 +1536,7 @@ After reading a command:
 		if the player can see the Pult:
 			Say "[line break]Der Videoblog des Stationsarztes begint zu spielen:[line break]Es gibt eine biologische Probe, die vom nahegelegenen Alien-Platenen gewonnen wurde.[line break]Aufgrund eines Fehlers bei der Dekonatmination der Raumanzüge sind zahlreiche Mitarbeiter mit einem fremden Erreger kontaminiert worden.[line break]Halten Sie sich von kontaminierten Personen fern![line break]Bleiben Sie nicht zu lange im gleichen Raum mit einem kontaminierter Person. Sie könnten sich anstecken!";
 			Now StationsalarmAktiv is true;
+			Now KontLautstärke is 3;
 			Stop the action;
 		else: 
 			Say "Ich sehe hier keinen Videoblog.";
@@ -1527,18 +1551,60 @@ Section Scenenwechsel
 
 [Wechsel zu Scene 3:]
 
-Dekontaminationskabine is a fixed in place container.
+Dekontaminationskabine is a container.
 Dekontaminationskabine is in Xeno-Lab.
 Dekontaminationskabine is enterable.
+Dekontaminationskabine is lockable.
+Dekontaminationskabine is fixed in place.
+
+FalscherKontErkannt is a truth state that varies.
+FalscherKontErkannt is false.
 
 Every turn:
 	if the Player is in Dekontaminationskabine and KontaminierterPercy is in Xeno-Lab and the KontVerfolgt of KontaminierterPercy is true and the number of Kontaminierter in Xeno-Lab is 1:
-		[TODO Keyless entry zur Brücke aktivieren]
 		Now the Farbe of Maschinenkern is "orange";
 		Now KontaminierterPercy is nowhere;
 		Now Percy is on Krankenbett;
 		[TODO postures benutzen]
-		say "Percy wird dekontaminiert";
+		Say "Der kontaminierte Percy ist dir in die Dekontaminationskabine gefolgt.[line break]
+		Als du die Kabine verlässt startet der Dekontaminationsprozess.[line break]
+		Dabei wechselt der Maschinenkern seine Farbe zu orange.[line break]
+		Nun sind keine weiteren Dekontaminationen möglich.[line break]
+		Da Percy nach seiner Heilung noch sehr geschwächt ist ruht er sich vorerst im Krankenbet aus.[line break]
+		Ihr beschließt die kontaminierte Besatzung zu retten und erstmal im Lagerraum zu versammeln.";
+	otherwise if the Player is in Dekontaminationskabine:
+		Repeat with DekontCounter running through all Kontaminierter:
+			if the KontVerfolgt of DekontCounter is true:
+				Now FalscherKontErkannt is true;
+		if FalscherKontErkannt is true:
+			Say "Ein Kontaminierter ist dir in die Dekontaminationskabine gefolgt.[line break]
+			Als du die Kabine verlässt startet der Dekontaminationsprozess.[line break]
+			Dabei wechselt der Maschinenkern seine Farbe zu orange.[line break]
+			Nun sind keine weiteren Dekontaminationen möglich.[line break]
+			Du solltest deine Prioritäten überdenken. Es währe wohl besser gewesen Barry zu dekontaminieren.";
+			End the Story;
+		
+
+[Wechsel zu Scene4:]
+
+Scene4Aktiv is a truth state that varies.
+Scene4Aktiv is false.
+
+Umkleidekabine is a container.
+The description of Umkleidekabine is "Eine Umkleidekabine, in der die Besatzung ihr Equipment für Außeneinsätze aufbewahrt.".
+Umkleidekabine is in Hangar.
+Umkleidekabine is enterable.
+Umkleidekabine is fixed in place.
+Umkleidekabine is lockable and locked.
+
+Every turn:
+	if Scene4Aktiv is false:
+		if the Player is not in Lagerraum:
+			if the number of Kontaminierter in Lagerraum is 8:
+				Say "Nachdem du die kontaminierte Besatzung im Lagerraum versammelt hast kannst du dich darauf konzentrieren einen Notruf abzusetzen. Da die Energie des Maschinenkerns im Moment nicht für einen Notruf ausreicht muss der Hilfsgenerator gestartet werden. Dieser befindet sich im Com Modul, da der Weg dorthin versperrt ist musst du wohl einen Weltraumspaziergang machen.";
+				Now Umkleidekabine is unlocked;
+				Now Umkleidekabine is open;
+				Now Scene4Aktiv is true;
 
 
 Section Weltraumtür
@@ -1598,59 +1664,3 @@ After going through TÜR_AndockBuchtZUKommunikationsbasis:
 	otherwise if ErstickCounter is not 0:
 		Say "Beim Folgen in den nächsten Raum sind [ErstickCounter] Kontaminierte im Weltall erstickt.";
 		now ErstickCounter is 0;
-	
-
-
-
-[Code only above ^]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]
-[Testing only below v]
-
-
-[Switch current character debug command]
-[
-After reading a command:
-	if the player's command includes "CHANGE":
-		if Barry is the player:
-			Now the Player is Percy;
-			stop the action;
-		else:
-			Now the Player is Barry;
-			stop the action;
-
-After reading a command:
-	if the player's command includes "COMTEST1":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Stop the action;
-	if the player's command includes "COMTEST2":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player carries the Sicherheitsausweis;
-		Stop the action;
-	if the player's command includes "COMTEST3":
-		Now the player is in Kommunikationsbasis;
-		Now the player carries the mobitab;
-		Now the player wears the raumanzug;
-		Stop the action;	
-	if the player's command includes "COMTEST4":
-		Now the player is in Kommunikationsbasis;
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "COMTEST5":
-		Now the player is in Gamma-Delta-Korridor;
-		Stop the action;
-
-After reading a command:
-	if the player's command includes "RAUMTEST1":
-		Now the player wears the raumanzug;
-		Stop the action;
-	if the player's command includes "RAUMTEST2":
-		Now the player carries the raumanzug;
-		Stop the action;
-]
-		
